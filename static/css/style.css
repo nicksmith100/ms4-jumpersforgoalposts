@@ -9,7 +9,7 @@ html {
 }
 
 #home {
-    background: url('/media/background_logo_v.webp') no-repeat center center;
+    background: url('/media/background/background_logo_v.webp') no-repeat center center;
     background-size: cover;
     height: 100vh;
 }
@@ -18,7 +18,7 @@ html {
 @media (min-width: 768px) {
     #home {
         position: relative;
-        background: url('/media/background_logo_h.webp') no-repeat center center;
+        background: url('/media/background/background_logo_h.webp') no-repeat center center;
         background-size: cover;
         height: 100vh;
     }
