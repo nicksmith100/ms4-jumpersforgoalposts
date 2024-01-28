@@ -17,16 +17,34 @@ html {
 /* Horizontal background on md viewports and above */
 @media (min-width: 768px) {
     #home {
-        position: relative;
         background: url('/media/background/background_logo_h.webp') no-repeat center center;
         background-size: cover;
         height: 100vh;
     }
-  }
+}
+
+.badge-img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+@media (min-width: 768px) {
+    .badge-img {
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
 
 #enter-button {
     position: absolute;
-    top: 70%;
+    top: 60%;
+}
+
+@media (min-width: 576px) {
+    #enter-button {
+        position: absolute;
+        top: 70%;
+    }
 }
 
 .btn-blue {
