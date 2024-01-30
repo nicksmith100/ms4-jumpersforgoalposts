@@ -8,16 +8,17 @@ html {
     height: 100%;
 }
 
+/* Horizontal background by default */
 #home {
-    background: url('/media/background/background_logo_v.webp') no-repeat center center;
+    background: url('/media/background/background_logo_h.webp') no-repeat center center;
     background-size: cover;
     height: 100vh;
 }
 
-/* Horizontal background on md viewports and above */
-@media (min-width: 768px) {
+/* Vertical background in portrait mode */
+@media (orientation: portrait) {
     #home {
-        background: url('/media/background/background_logo_h.webp') no-repeat center center;
+        background: url('/media/background/background_logo_v.webp') no-repeat center center;
         background-size: cover;
         height: 100vh;
     }
