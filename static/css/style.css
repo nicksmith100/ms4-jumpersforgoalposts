@@ -174,7 +174,7 @@ body {
 .dropdown-menu {
     min-width: 1rem;
     width: max-content;
-    background-color: #fff2cd;
+    background-color: #fcfaf6;
 }
 
 .dropdown-item {
@@ -182,5 +182,5 @@ body {
 }
 
 .search-box {
-    background-color: #fff2cd;    
+    background-color: #fcfaf6;
 }
