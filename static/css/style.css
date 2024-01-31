@@ -9,6 +9,7 @@ body {
     background: url('/media/background/background_h.webp') no-repeat center center;
     background-size: cover;
     height: 100vh;
+    color: #0d0f18;
 }
 
 /* Vertical background in portrait mode */
@@ -173,4 +174,13 @@ body {
 .dropdown-menu {
     min-width: 1rem;
     width: max-content;
-  }
+    background-color: #fff2cd;
+}
+
+.dropdown-item {
+    color: #0d0f18;
+}
+
+.search-box {
+    background-color: #fff2cd;    
+}
