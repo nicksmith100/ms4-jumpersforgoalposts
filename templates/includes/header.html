@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-md" aria-label="Navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="/media/logo.png" class="navbar-img"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-menu">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
+              <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all">
+                <li><a class="dropdown-item" href="#">By Price</a></li>
+                <li><a class="dropdown-item" href="#">By Team</a></li>
+                <li><a class="dropdown-item" href="#">By Year</a></li>
+                <li><a class="dropdown-item" href="#">All Shirts</a></li>
+              </ul>
+        </li>         
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
+          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues">
+            <li><a class="dropdown-item" href="#">Premier League</a></li>
+            <li><a class="dropdown-item" href="#">Other UK Leagues</a></li>
+            <li><a class="dropdown-item" href="#">La Liga</a></li>
+            <li><a class="dropdown-item" href="#">Serie A</a></li>
+            <li><a class="dropdown-item" href="#">Ligue 1</a></li>
+            <li><a class="dropdown-item" href="#">Eredivisie</a></li>
+            <li><a class="dropdown-item" href="#">Other European Leagues</a></li>
+            <li><a class="dropdown-item" href="#">World Clubs</a></li>
+            <li><a class="dropdown-item" href="#">International</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-decades" data-bs-toggle="dropdown" aria-expanded="false">Decades</button>
+          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-decades">
+            <li><a class="dropdown-item" href="#">1980s</a></li>
+            <li><a class="dropdown-item" href="#">1990s</a></li>
+            <li><a class="dropdown-item" href="#">2000s</a></li>
+            <li><a class="dropdown-item" href="#">2010s</a></li>
+            <li><a class="dropdown-item" href="#">2020s</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-specials" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
+          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-specials">
+                <li><a class="dropdown-item" href="#">Player Issue</a></li>
+                <li><a class="dropdown-item" href="#">Signed</a></li>
+              </ul>
+            </li>
+          </ul>
+      <form class="d-flex w-25 mx-2" method="GET" role="search" action="{% url 'products' %}">
+          <input class="form-control rounded-0 border-blue text-blue" type="search" name="q" placeholder="Search" aria-label="Search">
+          <button class="btn btn-blue rounded-0 border-0 d-flex" type="submit">
+              <i class="bi bi-search"></i>
+          </button>
+      </form>
+      <li class="list-unstyled nav-item dropdown">
+        <button class="nav-link btn btn-plain border-0 mx-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i><br>My Account</button>
+          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-account">
+            {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
+                  {% endif %}
+                  <a href="" class="dropdown-item">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            {% endif %}
+          </ul>
+      </li>
+      <li class="list-unstyled nav-item">
+        <button class="nav-link btn btn-plain border-0 mx-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i>
+          <p class="my-0">
+              {% if grand_total %}
+                  <span class="fw-bold">£{{ grand_total|floatformat:2 }}</span>
+              {% else %}
+                  £0.00
+              {% endif %}
+          </p>
+        </button>
+      </li>
+    </div>
+  </div>
+</nav>
