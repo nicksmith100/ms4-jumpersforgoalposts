@@ -4,7 +4,21 @@ html {
     height: 100%;
 }
 
+/* Horizontal background by default */
+body {
+    background: url('/media/background/background_h.webp') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
 
+/* Vertical background in portrait mode */
+@media (orientation: portrait) {
+    body {
+        background: url('/media/background/background_v.webp') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+}
 
 .content-container {
     position: relative;
@@ -76,6 +90,16 @@ html {
     transform: scaleX(1);
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+    opacity: 0.9;
+	z-index: -1;
+}
 
 /* --- HOME --- */
 
