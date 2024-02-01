@@ -1,0 +1,1324 @@
+[{
+        "pk": 1,
+        "model": "products.team",
+        "fields": {
+            "name": "aberdeen",
+            "friendly_name": "Aberdeen",
+            "league": 2
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.team",
+        "fields": {
+            "name": "ac_milan",
+            "friendly_name": "AC Milan",
+            "league": 4
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.team",
+        "fields": {
+            "name": "airdrieonians",
+            "friendly_name": "Airdrieonians",
+            "league": 2
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.team",
+        "fields": {
+            "name": "ajax",
+            "friendly_name": "Ajax",
+            "league": 6
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.team",
+        "fields": {
+            "name": "alaves",
+            "friendly_name": "Alaves",
+            "league": 3
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.team",
+        "fields": {
+            "name": "anderlecht",
+            "friendly_name": "Anderlecht",
+            "league": 7
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.team",
+        "fields": {
+            "name": "arsenal",
+            "friendly_name": "Arsenal",
+            "league": 1
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.team",
+        "fields": {
+            "name": "as_cannes",
+            "friendly_name": "AS Cannes",
+            "league": 5
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.team",
+        "fields": {
+            "name": "athletic_bilbao",
+            "friendly_name": "Athletic Bilbao",
+            "league": 3
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.team",
+        "fields": {
+            "name": "atletico_madrid",
+            "friendly_name": "Atletico Madrid",
+            "league": 3
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.team",
+        "fields": {
+            "name": "atletico_morelia",
+            "friendly_name": "Atletico Morelia",
+            "league": 8
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.team",
+        "fields": {
+            "name": "barcelona",
+            "friendly_name": "Barcelona",
+            "league": 3
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.team",
+        "fields": {
+            "name": "belgium",
+            "friendly_name": "Belgium",
+            "league": 9
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.team",
+        "fields": {
+            "name": "benfica",
+            "friendly_name": "Benfica",
+            "league": 7
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.team",
+        "fields": {
+            "name": "boca_juniors",
+            "friendly_name": "Boca Juniors",
+            "league": 8
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.team",
+        "fields": {
+            "name": "bolivia",
+            "friendly_name": "Bolivia",
+            "league": 9
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.team",
+        "fields": {
+            "name": "bolton",
+            "friendly_name": "Bolton",
+            "league": 2
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.team",
+        "fields": {
+            "name": "brazil",
+            "friendly_name": "Brazil",
+            "league": 9
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.team",
+        "fields": {
+            "name": "brescia",
+            "friendly_name": "Brescia",
+            "league": 4
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.team",
+        "fields": {
+            "name": "bristol_city",
+            "friendly_name": "Bristol City",
+            "league": 2
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.team",
+        "fields": {
+            "name": "bsc_young_boys",
+            "friendly_name": "BSC Young Boys",
+            "league": 7
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.team",
+        "fields": {
+            "name": "bulgaria",
+            "friendly_name": "Bulgaria",
+            "league": 9
+        }
+    },
+    {
+        "pk": 23,
+        "model": "products.team",
+        "fields": {
+            "name": "bursaspor",
+            "friendly_name": "Bursaspor",
+            "league": 7
+        }
+    },
+    {
+        "pk": 24,
+        "model": "products.team",
+        "fields": {
+            "name": "cagliari",
+            "friendly_name": "Cagliari",
+            "league": 4
+        }
+    },
+    {
+        "pk": 25,
+        "model": "products.team",
+        "fields": {
+            "name": "catalunya",
+            "friendly_name": "Catalunya",
+            "league": 9
+        }
+    },
+    {
+        "pk": 26,
+        "model": "products.team",
+        "fields": {
+            "name": "celtic",
+            "friendly_name": "Celtic",
+            "league": 2
+        }
+    },
+    {
+        "pk": 27,
+        "model": "products.team",
+        "fields": {
+            "name": "chester_city",
+            "friendly_name": "Chester City",
+            "league": 2
+        }
+    },
+    {
+        "pk": 28,
+        "model": "products.team",
+        "fields": {
+            "name": "club_atletico_lanus",
+            "friendly_name": "Club Atletico Lanus",
+            "league": 8
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.team",
+        "fields": {
+            "name": "club_brugge",
+            "friendly_name": "Club Brugge",
+            "league": 7
+        }
+    },
+    {
+        "pk": 30,
+        "model": "products.team",
+        "fields": {
+            "name": "colombia",
+            "friendly_name": "Colombia",
+            "league": 9
+        }
+    },
+    {
+        "pk": 31,
+        "model": "products.team",
+        "fields": {
+            "name": "columbus_crew",
+            "friendly_name": "Columbus Crew",
+            "league": 8
+        }
+    },
+    {
+        "pk": 32,
+        "model": "products.team",
+        "fields": {
+            "name": "crystal_palace",
+            "friendly_name": "Crystal Palace",
+            "league": 1
+        }
+    },
+    {
+        "pk": 33,
+        "model": "products.team",
+        "fields": {
+            "name": "dc_united",
+            "friendly_name": "DC United",
+            "league": 8
+        }
+    },
+    {
+        "pk": 34,
+        "model": "products.team",
+        "fields": {
+            "name": "deportivo",
+            "friendly_name": "Deportivo",
+            "league": 3
+        }
+    },
+    {
+        "pk": 35,
+        "model": "products.team",
+        "fields": {
+            "name": "derby_county",
+            "friendly_name": "Derby County",
+            "league": 2
+        }
+    },
+    {
+        "pk": 36,
+        "model": "products.team",
+        "fields": {
+            "name": "dundalk",
+            "friendly_name": "Dundalk",
+            "league": 9
+        }
+    },
+    {
+        "pk": 37,
+        "model": "products.team",
+        "fields": {
+            "name": "dundee_united",
+            "friendly_name": "Dundee United",
+            "league": 2
+        }
+    },
+    {
+        "pk": 38,
+        "model": "products.team",
+        "fields": {
+            "name": "england",
+            "friendly_name": "England",
+            "league": 9
+        }
+    },
+    {
+        "pk": 39,
+        "model": "products.team",
+        "fields": {
+            "name": "estudiantes_de_la_plata",
+            "friendly_name": "Estudiantes De La Plata",
+            "league": 8
+        }
+    },
+    {
+        "pk": 40,
+        "model": "products.team",
+        "fields": {
+            "name": "everton",
+            "friendly_name": "Everton",
+            "league": 1
+        }
+    },
+    {
+        "pk": 41,
+        "model": "products.team",
+        "fields": {
+            "name": "exeter_city",
+            "friendly_name": "Exeter City",
+            "league": 2
+        }
+    },
+    {
+        "pk": 42,
+        "model": "products.team",
+        "fields": {
+            "name": "falkirk",
+            "friendly_name": "Falkirk",
+            "league": 2
+        }
+    },
+    {
+        "pk": 43,
+        "model": "products.team",
+        "fields": {
+            "name": "feyenoord",
+            "friendly_name": "Feyenoord",
+            "league": 6
+        }
+    },
+    {
+        "pk": 44,
+        "model": "products.team",
+        "fields": {
+            "name": "flamengo",
+            "friendly_name": "Flamengo",
+            "league": 8
+        }
+    },
+    {
+        "pk": 45,
+        "model": "products.team",
+        "fields": {
+            "name": "gamba_osaka",
+            "friendly_name": "Gamba Osaka",
+            "league": 8
+        }
+    },
+    {
+        "pk": 46,
+        "model": "products.team",
+        "fields": {
+            "name": "genoa",
+            "friendly_name": "Genoa",
+            "league": 4
+        }
+    },
+    {
+        "pk": 47,
+        "model": "products.team",
+        "fields": {
+            "name": "ghana",
+            "friendly_name": "Ghana",
+            "league": 9
+        }
+    },
+    {
+        "pk": 48,
+        "model": "products.team",
+        "fields": {
+            "name": "gillingham",
+            "friendly_name": "Gillingham",
+            "league": 2
+        }
+    },
+    {
+        "pk": 49,
+        "model": "products.team",
+        "fields": {
+            "name": "grasshoppers",
+            "friendly_name": "Grasshoppers",
+            "league": 7
+        }
+    },
+    {
+        "pk": 50,
+        "model": "products.team",
+        "fields": {
+            "name": "greenock_morton",
+            "friendly_name": "Greenock Morton",
+            "league": 2
+        }
+    },
+    {
+        "pk": 51,
+        "model": "products.team",
+        "fields": {
+            "name": "hartlepool",
+            "friendly_name": "Hartlepool",
+            "league": 2
+        }
+    },
+    {
+        "pk": 52,
+        "model": "products.team",
+        "fields": {
+            "name": "hibernian",
+            "friendly_name": "Hibernian",
+            "league": 2
+        }
+    },
+    {
+        "pk": 53,
+        "model": "products.team",
+        "fields": {
+            "name": "holland",
+            "friendly_name": "Holland",
+            "league": 9
+        }
+    },
+    {
+        "pk": 54,
+        "model": "products.team",
+        "fields": {
+            "name": "inter_milan",
+            "friendly_name": "Inter Milan",
+            "league": 4
+        }
+    },
+    {
+        "pk": 55,
+        "model": "products.team",
+        "fields": {
+            "name": "ipswich",
+            "friendly_name": "Ipswich",
+            "league": 2
+        }
+    },
+    {
+        "pk": 56,
+        "model": "products.team",
+        "fields": {
+            "name": "ireland",
+            "friendly_name": "Ireland",
+            "league": 9
+        }
+    },
+    {
+        "pk": 57,
+        "model": "products.team",
+        "fields": {
+            "name": "italy",
+            "friendly_name": "Italy",
+            "league": 9
+        }
+    },
+    {
+        "pk": 58,
+        "model": "products.team",
+        "fields": {
+            "name": "jamaica",
+            "friendly_name": "Jamaica",
+            "league": 9
+        }
+    },
+    {
+        "pk": 59,
+        "model": "products.team",
+        "fields": {
+            "name": "japan",
+            "friendly_name": "Japan",
+            "league": 9
+        }
+    },
+    {
+        "pk": 60,
+        "model": "products.team",
+        "fields": {
+            "name": "jef_united",
+            "friendly_name": "JEF United",
+            "league": 8
+        }
+    },
+    {
+        "pk": 61,
+        "model": "products.team",
+        "fields": {
+            "name": "juventus",
+            "friendly_name": "Juventus",
+            "league": 4
+        }
+    },
+    {
+        "pk": 62,
+        "model": "products.team",
+        "fields": {
+            "name": "kansas_city_wizards",
+            "friendly_name": "Kansas City Wizards",
+            "league": 8
+        }
+    },
+    {
+        "pk": 63,
+        "model": "products.team",
+        "fields": {
+            "name": "kashima_antlers",
+            "friendly_name": "Kashima Antlers",
+            "league": 8
+        }
+    },
+    {
+        "pk": 64,
+        "model": "products.team",
+        "fields": {
+            "name": "kashiwa_reysol",
+            "friendly_name": "Kashiwa Reysol",
+            "league": 8
+        }
+    },
+    {
+        "pk": 65,
+        "model": "products.team",
+        "fields": {
+            "name": "la_galaxy",
+            "friendly_name": "LA Galaxy",
+            "league": 8
+        }
+    },
+    {
+        "pk": 66,
+        "model": "products.team",
+        "fields": {
+            "name": "lazio",
+            "friendly_name": "Lazio",
+            "league": 4
+        }
+    },
+    {
+        "pk": 67,
+        "model": "products.team",
+        "fields": {
+            "name": "ldu_quito",
+            "friendly_name": "LDU Quito",
+            "league": 8
+        }
+    },
+    {
+        "pk": 68,
+        "model": "products.team",
+        "fields": {
+            "name": "le_havre",
+            "friendly_name": "Le Havre",
+            "league": 5
+        }
+    },
+    {
+        "pk": 69,
+        "model": "products.team",
+        "fields": {
+            "name": "leeds_united",
+            "friendly_name": "Leeds United",
+            "league": 2
+        }
+    },
+    {
+        "pk": 70,
+        "model": "products.team",
+        "fields": {
+            "name": "leicester",
+            "friendly_name": "Leicester",
+            "league": 2
+        }
+    },
+    {
+        "pk": 71,
+        "model": "products.team",
+        "fields": {
+            "name": "leyton_orient",
+            "friendly_name": "Leyton Orient",
+            "league": 2
+        }
+    },
+    {
+        "pk": 72,
+        "model": "products.team",
+        "fields": {
+            "name": "linfield",
+            "friendly_name": "Linfield",
+            "league": 7
+        }
+    },
+    {
+        "pk": 73,
+        "model": "products.team",
+        "fields": {
+            "name": "liverpool",
+            "friendly_name": "Liverpool",
+            "league": 1
+        }
+    },
+    {
+        "pk": 74,
+        "model": "products.team",
+        "fields": {
+            "name": "lugano",
+            "friendly_name": "Lugano",
+            "league": 7
+        }
+    },
+    {
+        "pk": 75,
+        "model": "products.team",
+        "fields": {
+            "name": "luton_town",
+            "friendly_name": "Luton Town",
+            "league": 1
+        }
+    },
+    {
+        "pk": 76,
+        "model": "products.team",
+        "fields": {
+            "name": "malaga",
+            "friendly_name": "Malaga",
+            "league": 3
+        }
+    },
+    {
+        "pk": 77,
+        "model": "products.team",
+        "fields": {
+            "name": "manchester_city",
+            "friendly_name": "Manchester City",
+            "league": 1
+        }
+    },
+    {
+        "pk": 78,
+        "model": "products.team",
+        "fields": {
+            "name": "manchester_united",
+            "friendly_name": "Manchester United",
+            "league": 1
+        }
+    },
+    {
+        "pk": 79,
+        "model": "products.team",
+        "fields": {
+            "name": "metz",
+            "friendly_name": "Metz",
+            "league": 5
+        }
+    },
+    {
+        "pk": 80,
+        "model": "products.team",
+        "fields": {
+            "name": "middlesbrough",
+            "friendly_name": "Middlesbrough",
+            "league": 2
+        }
+    },
+    {
+        "pk": 81,
+        "model": "products.team",
+        "fields": {
+            "name": "millwall",
+            "friendly_name": "Millwall",
+            "league": 2
+        }
+    },
+    {
+        "pk": 82,
+        "model": "products.team",
+        "fields": {
+            "name": "monaco",
+            "friendly_name": "Monaco",
+            "league": 5
+        }
+    },
+    {
+        "pk": 83,
+        "model": "products.team",
+        "fields": {
+            "name": "morton",
+            "friendly_name": "Morton",
+            "league": 2
+        }
+    },
+    {
+        "pk": 84,
+        "model": "products.team",
+        "fields": {
+            "name": "napoli",
+            "friendly_name": "Napoli",
+            "league": 4
+        }
+    },
+    {
+        "pk": 85,
+        "model": "products.team",
+        "fields": {
+            "name": "new_england_revolution",
+            "friendly_name": "New England Revolution",
+            "league": 8
+        }
+    },
+    {
+        "pk": 86,
+        "model": "products.team",
+        "fields": {
+            "name": "newell's_old_boys",
+            "friendly_name": "Newell's Old Boys",
+            "league": 8
+        }
+    },
+    {
+        "pk": 87,
+        "model": "products.team",
+        "fields": {
+            "name": "northern_ireland",
+            "friendly_name": "Northern Ireland",
+            "league": 9
+        }
+    },
+    {
+        "pk": 88,
+        "model": "products.team",
+        "fields": {
+            "name": "northwich_victoria",
+            "friendly_name": "Northwich Victoria",
+            "league": 2
+        }
+    },
+    {
+        "pk": 89,
+        "model": "products.team",
+        "fields": {
+            "name": "norwich",
+            "friendly_name": "Norwich",
+            "league": 2
+        }
+    },
+    {
+        "pk": 90,
+        "model": "products.team",
+        "fields": {
+            "name": "olympique_marseille",
+            "friendly_name": "Olympique Marseille",
+            "league": 5
+        }
+    },
+    {
+        "pk": 91,
+        "model": "products.team",
+        "fields": {
+            "name": "panathinaikos",
+            "friendly_name": "Panathinaikos",
+            "league": 7
+        }
+    },
+    {
+        "pk": 92,
+        "model": "products.team",
+        "fields": {
+            "name": "paris_saint-germain",
+            "friendly_name": "Paris Saint-Germain",
+            "league": 5
+        }
+    },
+    {
+        "pk": 93,
+        "model": "products.team",
+        "fields": {
+            "name": "parma",
+            "friendly_name": "Parma",
+            "league": 4
+        }
+    },
+    {
+        "pk": 94,
+        "model": "products.team",
+        "fields": {
+            "name": "partick_thistle",
+            "friendly_name": "Partick Thistle",
+            "league": 2
+        }
+    },
+    {
+        "pk": 95,
+        "model": "products.team",
+        "fields": {
+            "name": "penarol",
+            "friendly_name": "Penarol",
+            "league": 8
+        }
+    },
+    {
+        "pk": 96,
+        "model": "products.team",
+        "fields": {
+            "name": "perugia",
+            "friendly_name": "Perugia",
+            "league": 4
+        }
+    },
+    {
+        "pk": 97,
+        "model": "products.team",
+        "fields": {
+            "name": "port_vale",
+            "friendly_name": "Port Vale",
+            "league": 2
+        }
+    },
+    {
+        "pk": 98,
+        "model": "products.team",
+        "fields": {
+            "name": "psv",
+            "friendly_name": "PSV",
+            "league": 6
+        }
+    },
+    {
+        "pk": 99,
+        "model": "products.team",
+        "fields": {
+            "name": "qpr",
+            "friendly_name": "QPR",
+            "league": 2
+        }
+    },
+    {
+        "pk": 100,
+        "model": "products.team",
+        "fields": {
+            "name": "rangers",
+            "friendly_name": "Rangers",
+            "league": 2
+        }
+    },
+    {
+        "pk": 101,
+        "model": "products.team",
+        "fields": {
+            "name": "rangers_home",
+            "friendly_name": "Rangers Home",
+            "league": 2
+        }
+    },
+    {
+        "pk": 102,
+        "model": "products.team",
+        "fields": {
+            "name": "rapid_vienna",
+            "friendly_name": "Rapid Vienna",
+            "league": 7
+        }
+    },
+    {
+        "pk": 103,
+        "model": "products.team",
+        "fields": {
+            "name": "real_betis",
+            "friendly_name": "Real Betis",
+            "league": 3
+        }
+    },
+    {
+        "pk": 104,
+        "model": "products.team",
+        "fields": {
+            "name": "real_madrid",
+            "friendly_name": "Real Madrid",
+            "league": 3
+        }
+    },
+    {
+        "pk": 105,
+        "model": "products.team",
+        "fields": {
+            "name": "real_zaragoza",
+            "friendly_name": "Real Zaragoza",
+            "league": 3
+        }
+    },
+    {
+        "pk": 106,
+        "model": "products.team",
+        "fields": {
+            "name": "river_plate",
+            "friendly_name": "River Plate",
+            "league": 8
+        }
+    },
+    {
+        "pk": 107,
+        "model": "products.team",
+        "fields": {
+            "name": "roma",
+            "friendly_name": "Roma",
+            "league": 4
+        }
+    },
+    {
+        "pk": 108,
+        "model": "products.team",
+        "fields": {
+            "name": "romania",
+            "friendly_name": "Romania",
+            "league": 9
+        }
+    },
+    {
+        "pk": 109,
+        "model": "products.team",
+        "fields": {
+            "name": "rosario_central",
+            "friendly_name": "Rosario Central",
+            "league": 8
+        }
+    },
+    {
+        "pk": 110,
+        "model": "products.team",
+        "fields": {
+            "name": "sampdoria",
+            "friendly_name": "Sampdoria",
+            "league": 4
+        }
+    },
+    {
+        "pk": 111,
+        "model": "products.team",
+        "fields": {
+            "name": "san_jose_clash",
+            "friendly_name": "San Jose Clash",
+            "league": 8
+        }
+    },
+    {
+        "pk": 112,
+        "model": "products.team",
+        "fields": {
+            "name": "santos",
+            "friendly_name": "Santos",
+            "league": 8
+        }
+    },
+    {
+        "pk": 113,
+        "model": "products.team",
+        "fields": {
+            "name": "sao_paulo",
+            "friendly_name": "Sao Paulo",
+            "league": 8
+        }
+    },
+    {
+        "pk": 114,
+        "model": "products.team",
+        "fields": {
+            "name": "scotland",
+            "friendly_name": "Scotland",
+            "league": 9
+        }
+    },
+    {
+        "pk": 115,
+        "model": "products.team",
+        "fields": {
+            "name": "scunthorpe",
+            "friendly_name": "Scunthorpe",
+            "league": 2
+        }
+    },
+    {
+        "pk": 116,
+        "model": "products.team",
+        "fields": {
+            "name": "sevilla",
+            "friendly_name": "Sevilla",
+            "league": 3
+        }
+    },
+    {
+        "pk": 117,
+        "model": "products.team",
+        "fields": {
+            "name": "sheffield_wednesday",
+            "friendly_name": "Sheffield Wednesday",
+            "league": 2
+        }
+    },
+    {
+        "pk": 118,
+        "model": "products.team",
+        "fields": {
+            "name": "south_africa",
+            "friendly_name": "South Africa",
+            "league": 9
+        }
+    },
+    {
+        "pk": 119,
+        "model": "products.team",
+        "fields": {
+            "name": "south_korea",
+            "friendly_name": "South Korea",
+            "league": 9
+        }
+    },
+    {
+        "pk": 120,
+        "model": "products.team",
+        "fields": {
+            "name": "southampton",
+            "friendly_name": "Southampton",
+            "league": 2
+        }
+    },
+    {
+        "pk": 121,
+        "model": "products.team",
+        "fields": {
+            "name": "spain",
+            "friendly_name": "Spain",
+            "league": 9
+        }
+    },
+    {
+        "pk": 122,
+        "model": "products.team",
+        "fields": {
+            "name": "spal",
+            "friendly_name": "SPAL",
+            "league": 4
+        }
+    },
+    {
+        "pk": 123,
+        "model": "products.team",
+        "fields": {
+            "name": "st_gallen",
+            "friendly_name": "St Gallen",
+            "league": 7
+        }
+    },
+    {
+        "pk": 124,
+        "model": "products.team",
+        "fields": {
+            "name": "stirling_albion",
+            "friendly_name": "Stirling Albion",
+            "league": 2
+        }
+    },
+    {
+        "pk": 125,
+        "model": "products.team",
+        "fields": {
+            "name": "stockport",
+            "friendly_name": "Stockport",
+            "league": 2
+        }
+    },
+    {
+        "pk": 126,
+        "model": "products.team",
+        "fields": {
+            "name": "sturm_graz",
+            "friendly_name": "Sturm Graz",
+            "league": 7
+        }
+    },
+    {
+        "pk": 127,
+        "model": "products.team",
+        "fields": {
+            "name": "sweden",
+            "friendly_name": "Sweden",
+            "league": 9
+        }
+    },
+    {
+        "pk": 128,
+        "model": "products.team",
+        "fields": {
+            "name": "swindon_town",
+            "friendly_name": "Swindon Town",
+            "league": 2
+        }
+    },
+    {
+        "pk": 129,
+        "model": "products.team",
+        "fields": {
+            "name": "tampa_bay_mutiny",
+            "friendly_name": "Tampa Bay Mutiny",
+            "league": 8
+        }
+    },
+    {
+        "pk": 130,
+        "model": "products.team",
+        "fields": {
+            "name": "tenerife",
+            "friendly_name": "Tenerife",
+            "league": 3
+        }
+    },
+    {
+        "pk": 131,
+        "model": "products.team",
+        "fields": {
+            "name": "tirol_innsbruck",
+            "friendly_name": "Tirol Innsbruck",
+            "league": 7
+        }
+    },
+    {
+        "pk": 132,
+        "model": "products.team",
+        "fields": {
+            "name": "torino",
+            "friendly_name": "Torino",
+            "league": 4
+        }
+    },
+    {
+        "pk": 133,
+        "model": "products.team",
+        "fields": {
+            "name": "tottenham",
+            "friendly_name": "Tottenham Hotspur",
+            "league": 1
+        }
+    },
+    {
+        "pk": 134,
+        "model": "products.team",
+        "fields": {
+            "name": "tranmere_rovers",
+            "friendly_name": "Tranmere Rovers",
+            "league": 2
+        }
+    },
+    {
+        "pk": 135,
+        "model": "products.team",
+        "fields": {
+            "name": "udinese",
+            "friendly_name": "Udinese",
+            "league": 4
+        }
+    },
+    {
+        "pk": 136,
+        "model": "products.team",
+        "fields": {
+            "name": "urawa_red_diamonds",
+            "friendly_name": "Urawa Red Diamonds",
+            "league": 8
+        }
+    },
+    {
+        "pk": 137,
+        "model": "products.team",
+        "fields": {
+            "name": "uruguay",
+            "friendly_name": "Uruguay",
+            "league": 9
+        }
+    },
+    {
+        "pk": 138,
+        "model": "products.team",
+        "fields": {
+            "name": "usa",
+            "friendly_name": "USA",
+            "league": 9
+        }
+    },
+    {
+        "pk": 139,
+        "model": "products.team",
+        "fields": {
+            "name": "valerenga",
+            "friendly_name": "Valerenga",
+            "league": 7
+        }
+    },
+    {
+        "pk": 140,
+        "model": "products.team",
+        "fields": {
+            "name": "valletta_fc",
+            "friendly_name": "Valletta FC",
+            "league": 7
+        }
+    },
+    {
+        "pk": 141,
+        "model": "products.team",
+        "fields": {
+            "name": "vasco_da_gama",
+            "friendly_name": "Vasco da Gama",
+            "league": 8
+        }
+    },
+    {
+        "pk": 142,
+        "model": "products.team",
+        "fields": {
+            "name": "verdy_kawasaki",
+            "friendly_name": "Verdy Kawasaki",
+            "league": 8
+        }
+    },
+    {
+        "pk": 143,
+        "model": "products.team",
+        "fields": {
+            "name": "west_brom",
+            "friendly_name": "West Brom",
+            "league": 2
+        }
+    },
+    {
+        "pk": 144,
+        "model": "products.team",
+        "fields": {
+            "name": "west_ham",
+            "friendly_name": "West Ham",
+            "league": 1
+        }
+    },
+    {
+        "pk": 145,
+        "model": "products.team",
+        "fields": {
+            "name": "wimbledon",
+            "friendly_name": "Wimbledon",
+            "league": 2
+        }
+    },
+    {
+        "pk": 146,
+        "model": "products.team",
+        "fields": {
+            "name": "wolves",
+            "friendly_name": "Wolves",
+            "league": 1
+        }
+    },
+    {
+        "pk": 147,
+        "model": "products.team",
+        "fields": {
+            "name": "yimpa?_yozgatspor",
+            "friendly_name": "Yimpa? Yozgatspor",
+            "league": 7
+        }
+    }
+]

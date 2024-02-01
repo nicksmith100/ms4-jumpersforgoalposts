@@ -1,0 +1,73 @@
+[{
+        "pk": 1,
+        "model": "products.league",
+        "fields": {
+            "name": "premier_league",
+            "friendly_name": "Premier League"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.league",
+        "fields": {
+            "name": "other_uk",
+            "friendly_name": "Other UK Leagues"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.league",
+        "fields": {
+            "name": "la_liga",
+            "friendly_name": "La Liga"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.league",
+        "fields": {
+            "name": "serie_a",
+            "friendly_name": "Serie A"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.league",
+        "fields": {
+            "name": "ligue_1",
+            "friendly_name": "Ligue 1"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.league",
+        "fields": {
+            "name": "eredivisie",
+            "friendly_name": "Eredivisie"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.league",
+        "fields": {
+            "name": "other_european",
+            "friendly_name": "Other European Leagues"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.league",
+        "fields": {
+            "name": "world_clubs",
+            "friendly_name": "World Clubs"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.league",
+        "fields": {
+            "name": "international",
+            "friendly_name": "International"
+        }
+    }
+]

@@ -1,0 +1,141 @@
+[{
+        "pk": 1,
+        "model": "products.year",
+        "fields": {
+            "year": 1980
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.year",
+        "fields": {
+            "year": 1981
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.year",
+        "fields": {
+            "year": 1982
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.year",
+        "fields": {
+            "year": 1983
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.year",
+        "fields": {
+            "year": 1984
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.year",
+        "fields": {
+            "year": 1985
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.year",
+        "fields": {
+            "year": 1986
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.year",
+        "fields": {
+            "year": 1987
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.year",
+        "fields": {
+            "year": 1988
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.year",
+        "fields": {
+            "year": 1989
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.year",
+        "fields": {
+            "year": 1990
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.year",
+        "fields": {
+            "year": 1991
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.year",
+        "fields": {
+            "year": 1992
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.year",
+        "fields": {
+            "year": 1993
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.year",
+        "fields": {
+            "year": 1994
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.year",
+        "fields": {
+            "year": 1995
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.year",
+        "fields": {
+            "year": 1996
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.year",
+        "fields": {
+            "year": 1997
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.year",
+        "fields": {
+            "year": 1998
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.year",
+        "fields": {
+            "year": 1999
+        }
+    }
+]

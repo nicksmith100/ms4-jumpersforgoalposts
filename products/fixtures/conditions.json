@@ -1,0 +1,49 @@
+[{
+        "pk": 1,
+        "model": "products.condition",
+        "fields": {
+            "name": "bnib",
+            "friendly_name": "Brand New In Box"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.condition",
+        "fields": {
+            "name": "bnwt",
+            "friendly_name": "Brand New With Tags"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.condition",
+        "fields": {
+            "name": "mint",
+            "friendly_name": "Mint"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.condition",
+        "fields": {
+            "name": "exc",
+            "friendly_name": "Excellent"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.condition",
+        "fields": {
+            "name": "vg",
+            "friendly_name": "Very Good"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.condition",
+        "fields": {
+            "name": "good",
+            "friendly_name": "Good"
+        }
+    }
+]
