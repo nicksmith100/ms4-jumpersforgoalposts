@@ -21,6 +21,16 @@ body {
     }
 }
 
+a {
+    color: #0d0f18;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #4c588d;
+}
+
 .content-container {
     position: relative;
     top: 0;
@@ -183,4 +193,45 @@ body {
 
 .search-box {
     background-color: #fcfaf6;
+}
+
+
+/* --- PRODUCTS --- */
+
+/* Flip animation for product cards */
+
+.flip-card {
+    perspective: 1000px;
+  }
+  
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 1%;
+}
+
+.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front {
+  background-color: white;
+  position: relative;
+}
+
+.flip-card-back {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  overflow: auto;
 }
