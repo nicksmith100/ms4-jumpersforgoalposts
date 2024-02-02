@@ -7,4 +7,56 @@
 
 {% block content %}
     <div class="overlay"></div>
+    <div class="content-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center mt-3">
+                    <h1>Products</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="product-container col-10 offset-1">
+                    <div class="row">
+                        {% for product in products %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3">
+                                <div class="card h-100 border-0 text-blue">
+                                    {% if product.image %}
+                                    <a href="">
+                                        <img class="card-img-top p-3" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="">
+                                        <img class="card-img-top p-3" src="{{ MEDIA_URL }}no_image.webp" alt="{{ product.name }}">
+                                    </a>
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <p class="my-auto">{{ product.name }}</p>
+                                    </div>
+                                    <div class="card-footer border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="lead mb-0 text-left fw-bold">£{{ product.price }}</p>
+                                                <p>
+                                                {% if product.size %}
+                                                    {% if product.size == "All" %}
+                                                        <strong>Size: </strong>Multiple sizes<br>
+                                                    {% else %}
+                                                        <strong>Size: </strong>{{ product.size }}<br>
+                                                    {% endif %}
+                                                {% endif %}
+                                                {% if product.condition %}
+                                                    <strong>Condition: </strong>{{ product.condition.friendly_name }}
+                                                {% endif %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
