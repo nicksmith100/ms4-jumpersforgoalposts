@@ -55,7 +55,7 @@
           </button>
       </form>
       <li class="list-unstyled nav-item dropdown">
-        <button class="nav-link btn btn-plain border-0 mx-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i><br>My Account</button>
+        <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-right px-2 py-2 mx-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> My Account</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-account">
             {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
@@ -70,14 +70,14 @@
           </ul>
       </li>
       <li class="list-unstyled nav-item">
-        <button class="nav-link btn btn-plain border-0 mx-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i>
-          <p class="my-0">
+        <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-right px-2 py-2 mx-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i>
+          <span class="my-0">
               {% if grand_total %}
                   <span class="fw-bold">£{{ grand_total|floatformat:2 }}</span>
               {% else %}
                   £0.00
               {% endif %}
-          </p>
+          </span>
         </button>
       </li>
     </div>
