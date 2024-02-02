@@ -27,7 +27,12 @@
                                             <img class="card-img-top p-3" src="{{ MEDIA_URL }}no_image.webp" alt="{{ product.name }}">
                                         {% endif %}
                                         <div class="card-body d-flex flex-column">
-                                            <span class="mt-auto">{{ product.name }}</span>
+                                            <span class="mt-auto">
+                                                {{ product.name }}<br>
+                                                {% if product.image %}
+                                                    <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank" class="mt-auto">Full-size image</a>
+                                                {% endif %}
+                                            </span>
                                         </div>
                                         <div class="card-footer border-0 text-left">
                                             <div class="row">
