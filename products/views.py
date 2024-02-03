@@ -15,6 +15,8 @@ def all_products(request):
     player_issue = False
     signed = False
     specials = None
+    teams = None
+    conditions = None
     current_filter = None
     sort = None
     direction = None
@@ -37,24 +39,32 @@ def all_products(request):
         if 'league' in request.GET:
             leagues = request.GET['league'].split(",")
             products = products.filter(league__name__in=leagues)
-            leagues = League.objects.filter(name__in=leagues)
-            current_filter = leagues[0].friendly_name
+            current_filter = f'League: {products[0].league.friendly_name}'
         
         if 'year' in request.GET:
             years = request.GET['year'].split(",")
             products = products.filter(year__in=years)
-            years = Product.objects.filter(year__in=years)
-            current_filter = years[0].year
+            current_filter = f'Year: {products[0].year}'
 
         if 'player_issue' in request.GET:
             products = products.filter(player_issue=True)
             specials = Product.objects.filter(player_issue=True)
-            current_filter = 'Player issue'
+            current_filter = 'Special category: Player issue'
 
         if 'signed' in request.GET:
             products = products.filter(signed=True)
             specials = Product.objects.filter(signed=True)
-            current_filter = 'Signed'
+            current_filter = 'Special category: Signed'
+
+        if 'team' in request.GET:
+            teams = request.GET['team'].split(",")
+            products = products.filter(team__name__in=teams)
+            current_filter = f'Team: {products[0].team.friendly_name}'
+
+        if 'condition' in request.GET:
+            conditions = request.GET['condition'].split(",")
+            products = products.filter(condition__name__in=conditions)
+            current_filter = f'Condition: {products[0].condition.friendly_name}'
         
         if 'q' in request.GET:
             query = request.GET['q']

@@ -13,7 +13,7 @@
                 <div class="product-container col-10 offset-1">
                     <div class="row">
                         {% if current_filter %}
-                            <p>Currently filtered to: <strong>{{ current_filter }}</strong><br>
+                            <p><strong>{{ current_filter }}</strong><br>
                             <a href="{% url 'products' %}">Remove filter</a> <i class="bi bi-x-circle-fill"></i></p>
                         {% endif %}
                     </div>
@@ -67,10 +67,10 @@
                                                 <p><strong>Description: </strong>Sorry, there is no detailed description for this item.</p>
                                             {% endif %}
                                             {% if product.league %}
-                                                <p><strong>League: </strong><a href="">{{ product.league.friendly_name }}</a></p>
+                                                <p><strong>League: </strong><a href="{% url 'products' %}?league={{ product.league.name }}">{{ product.league.friendly_name }}</a></p>
                                             {% endif %}
                                             {% if product.team %}
-                                                <p><strong>Team: </strong>{{ product.team.friendly_name }}</p>
+                                                <p><strong>Team: </strong><a href="{% url 'products' %}?team={{ product.team.name }}">{{ product.team.friendly_name }}</a></p>
                                             {% endif %}
                                             {% if product.season %}
                                                 <p><strong>Season: </strong>{{ product.season }}</p>
@@ -86,7 +86,7 @@
                                             {% endif %}
                                             {% endif %}
                                             {% if product.condition %}
-                                                <p><strong>Condition: </strong>{{ product.condition.friendly_name }}</p>
+                                                <p><strong>Condition: </strong><a href="{% url 'products' %}?condition={{ product.condition.name }}">{{ product.condition.friendly_name }}</a></p>
                                             {% endif %}
                                             {% if product.player_issue or product.signed %}
                                                 <p><strong>Special features: </strong>
