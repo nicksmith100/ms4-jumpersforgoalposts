@@ -32,8 +32,8 @@
                 <div class="product-container col-10 offset-1">
                     <div class="row">
                         {% if current_filter %}
-                            <p><strong>{{ current_filter }}</strong><br>
-                            <a href="{% url 'products' %}">Remove filter</a> <i class="bi bi-x-circle-fill"></i></p>
+                            <p><span class="border-blue rounded-0 p-2"><strong>{{ current_filter }}</strong></span>
+                            <a href="{% url 'products' %}"><i class="bi bi-x-circle-fill ms-1" aria-label="Remove filter"></i></a></p>
                         {% endif %}
                     </div>
                     <div class="row">
