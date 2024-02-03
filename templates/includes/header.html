@@ -10,9 +10,10 @@
         <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
               <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all">
-                <li><a class="dropdown-item" href="#">By Price</a></li>
-                <li><a class="dropdown-item" href="#">By Team</a></li>
-                <li><a class="dropdown-item" href="#">By Year</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=team&direction=asc">By Team</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=year&direction=asc">By Year</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=condition&direction=asc">By Condition</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
               </ul>
         </li>         
