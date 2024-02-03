@@ -42,18 +42,15 @@
                                 <div class="flip-card-inner">
                                     <div class="card flip-card-front h-100 border-0 text-blue">
                                         {% if product.image %}
-                                            <img class="card-img-top p-3" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#image-modal" data-bs-image="{{ MEDIA_URL }}{{ product.image }}" data-bs-image-title="{{ product.name }}">
+                                                <img class="card-img-top p-3" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                                            </a>
                                         {% else %}
                                             <img class="card-img-top p-3" src="{{ MEDIA_URL }}no_image.webp" alt="{{ product.name }}">
                                         {% endif %}
                                         <div class="card-body d-flex flex-column">
                                             <span class="mt-auto">
-                                                {{ product.name }}<br>
-                                                {% if product.image %}
-                                                    <a href="" data-bs-toggle="modal" data-bs-target="#image-modal" data-bs-image="{{ MEDIA_URL }}{{ product.image }}" data-bs-image-title="{{ product.name }}">
-                                                        Full-size image
-                                                    </a>
-                                                {% endif %}
+                                                {{ product.name }}
                                             </span>
                                         </div>
                                         <div class="card-footer border-0 text-left">

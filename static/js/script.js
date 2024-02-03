@@ -5,6 +5,8 @@ $(document).ready(function(){
     $(".product-container").on("click", ".flip-card", function(e) {
         if($(e.target).is("a")) {
             return true;
+        } else if($(e.target).is("img")) { 
+            return false;
         } else { this.classList.toggle("flipped"); }
     });
 
