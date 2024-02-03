@@ -10,12 +10,13 @@
     <div class="content-container">
         <div class="container-fluid">
             <div class="row">
-                <div class="col text-center mt-3">
-                    <h1>Products</h1>
-                </div>
-            </div>
-            <div class="row">
                 <div class="product-container col-10 offset-1">
+                    <div class="row">
+                        {% if current_filter %}
+                            <p>Currently filtered to: <strong>{{ current_filter }}</strong><br>
+                            <a href="{% url 'products' %}">Remove filter</a> <i class="bi bi-x-circle-fill"></i></p>
+                        {% endif %}
+                    </div>
                     <div class="row">
                         {% for product in products %}
                             <div class="flip-card col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3">
@@ -66,7 +67,7 @@
                                                 <p><strong>Description: </strong>Sorry, there is no detailed description for this item.</p>
                                             {% endif %}
                                             {% if product.league %}
-                                                <p><strong>League: </strong>{{ product.league.friendly_name }}</p>
+                                                <p><strong>League: </strong><a href="">{{ product.league.friendly_name }}</a></p>
                                             {% endif %}
                                             {% if product.team %}
                                                 <p><strong>Team: </strong>{{ product.team.friendly_name }}</p>

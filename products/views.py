@@ -15,6 +15,7 @@ def all_products(request):
     player_issue = False
     signed = False
     specials = None
+    current_filter = None
     sort = None
     direction = None
 
@@ -37,19 +38,23 @@ def all_products(request):
             leagues = request.GET['league'].split(",")
             products = products.filter(league__name__in=leagues)
             leagues = League.objects.filter(name__in=leagues)
+            current_filter = leagues[0].friendly_name
         
         if 'year' in request.GET:
             years = request.GET['year'].split(",")
             products = products.filter(year__in=years)
             years = Product.objects.filter(year__in=years)
+            current_filter = years[0].year
 
         if 'player_issue' in request.GET:
             products = products.filter(player_issue=True)
             specials = Product.objects.filter(player_issue=True)
+            current_filter = 'Player issue'
 
         if 'signed' in request.GET:
             products = products.filter(signed=True)
             specials = Product.objects.filter(signed=True)
+            current_filter = 'Signed'
         
         if 'q' in request.GET:
             query = request.GET['q']
@@ -61,13 +66,11 @@ def all_products(request):
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
-
+    
     context = {
         'products': products,
         'search_term': query,
-        'current_leagues': leagues,
-        'current_years': years,
-        'current_specials': specials,
+        'current_filter': current_filter,
         'current_sorting': current_sorting,
     }
 
