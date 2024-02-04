@@ -30,6 +30,32 @@
 
             <div class="row">
                 <div class="product-container col-10 offset-1">
+                    
+                    <div class="row mt-1 mb-2">
+                        <div class="col-12">
+                            <div class="sort-select-wrapper w-50">
+                                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border">
+                                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                    <option value="team_asc" {% if current_sorting == 'team_asc' %}selected{% endif %}>Team (A-Z)</option>
+                                    <option value="team_desc" {% if current_sorting == 'team_desc' %}selected{% endif %}>Team (A-Z)</option>
+                                    <option value="year_asc" {% if current_sorting == 'year_asc' %}selected{% endif %}>Year (early to late)</option>
+                                    <option value="year_desc" {% if current_sorting == 'year_desc' %}selected{% endif %}>Year (late to early)</option>
+                                    <option value="condition_asc" {% if current_sorting == 'condition_asc' %}selected{% endif %}>Condition (high to low)</option>
+                                    <option value="condition_desc" {% if current_sorting == 'condition_desc' %}selected{% endif %}>Condition (low to high)</option>
+                                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A to Z)</option>
+                                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z to A)</option>
+                                </select>
+                            </div>
+                            <p class="text-muted mt-3">
+                                {% if search_term or current_filter or current_sorting != 'None_None' %}
+                                    <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                                {% endif %}
+                                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                            </p>
+                        </div>
+                    </div>
                     <div class="row">
                         {% if current_filter %}
                             <p><span class="border-blue rounded-0 p-2"><strong>{{ current_filter }}</strong></span>
