@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    /* Flip-card functionality */
+    /* Flip-card */
 
     $(".product-container").on("click", ".flip-card", function(e) {
         if($(e.target).is("a")) {
@@ -10,7 +10,7 @@ $(document).ready(function(){
         } else { this.classList.toggle("flipped"); }
     });
 
-    /* Modal functionality (Code from: https://getbootstrap.com/docs/5.3/components/modal/#varying-modal-content) */
+    /* Modal (Code from: https://getbootstrap.com/docs/5.3/components/modal/#varying-modal-content) */
     
     let imageModal = document.getElementById('image-modal')
     imageModal.addEventListener('show.bs.modal', function (event) {
@@ -31,7 +31,7 @@ $(document).ready(function(){
     
     })
 
-    /* Sort selector functionality (Code from: https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/656166307e469630d09e0eb17a0d17daa440e208/products/templates/products/products.html) */
+    /* Sort selector (Code from: https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/656166307e469630d09e0eb17a0d17daa440e208/products/templates/products/products.html) */
 
     $('#sort-selector').change(function() {
         let selector = $(this);
@@ -52,6 +52,12 @@ $(document).ready(function(){
 
             window.location.replace(currentUrl);
         }
+    })
+
+    /* Back-to-top button */
+
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
     })
 
 });

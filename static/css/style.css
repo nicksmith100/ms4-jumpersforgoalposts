@@ -236,3 +236,14 @@ a:focus {
   transform: rotateY(180deg);
   overflow: auto;
 }
+
+.btt-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btt-link {
+    color: #2c314f;
+    cursor: pointer;
+}
