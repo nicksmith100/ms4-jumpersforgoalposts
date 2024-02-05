@@ -119,6 +119,7 @@ def all_products(request):
             current_filter_display = f'Search terms: {query}'
        
     current_sorting = f'{sort}_{direction}'
+    sort_string = f'sort={sort}&direction={direction}'
         
     context = {
         'products': products,
@@ -127,6 +128,7 @@ def all_products(request):
         'current_filter': current_filter,
         'current_filter_display': current_filter_display,
         'current_sorting': current_sorting,
+        'sort_string': sort_string,
     }
 
     return render(request, 'products/products.html', context)

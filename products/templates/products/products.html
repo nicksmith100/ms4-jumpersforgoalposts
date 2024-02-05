@@ -32,7 +32,7 @@
                     
                     <div class="row mt-1 mb-2">
                         <div class="col-12">
-                            <div class="sort-select-wrapper w-50">
+                            <div class="sort-select-wrapper w-50 fs-5">
                                 <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border">
                                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                     <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -48,29 +48,32 @@
                                 </select>
                             </div>
                             <div>
-                                <p class="mt-2">
-                                    {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                                <p class="mt-2 fs-5">
+                                    {{ products|length }} Product{% if products|length > 1 %}s{% endif %}{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                                 <br>
                             
                                 <!-- Pagination (Code adapted from https://testdriven.io/blog/django-pagination/) -->
-                                {% if page_obj.has_previous %}
-                                    <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous page"><i class="bi bi-chevron-left"></i></a>
-                                {% else %}
-                                    <a><i class="bi bi-chevron-left"></i></a>
-                                {% endif %}
-                                
-                                {% for i in page_obj.paginator.page_range %}
-                                    {% if page_obj.number == i %}
-                                        <strong><a href="#">{{ i }}</a></strong>
+                                {% if products|length > 36 %}
+                                    Page: 
+                                    {% if page_obj.has_previous %}
+                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous page"><i class="bi bi-chevron-left"></i></a>
                                     {% else %}
-                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}page={{ i }}">{{ i }}</a>
+                                        <span><i class="bi bi-chevron-left"></i></span>
                                     {% endif %}
-                                {% endfor %}
-                                
-                                {% if page_obj.has_next %}
-                                    <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page"><i class="bi bi-chevron-right"></i></a>
-                                {% else %}
-                                    <a><i class="bi bi-chevron-right"></i></a>
+                                    
+                                    {% for i in page_obj.paginator.page_range %}
+                                        {% if page_obj.number == i %}
+                                            <strong><span>{{ i }}</span></strong>
+                                        {% else %}
+                                            <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ i }}">{{ i }}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    {% if page_obj.has_next %}
+                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page"><i class="bi bi-chevron-right"></i></a>
+                                    {% else %}
+                                        <span><i class="bi bi-chevron-right"></i></span>
+                                    {% endif %}
                                 {% endif %}
                                 </p>
                             </div>
@@ -177,6 +180,13 @@
                             </div>
                         {% endfor %}
                     </div>
+
+                    {% if page_obj.has_next %}
+                        <p class="fs-5 text-end">
+                            <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page">Next page<i class="bi bi-chevron-right"></i></a>
+                        </p>
+                    {% endif %}
+
                 </div>
         </div>
         
