@@ -47,22 +47,43 @@
                                     <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z to A)</option>
                                 </select>
                             </div>
-                            <p class="text-muted mt-3">
-                                {% if search_term or current_filter or current_sorting != 'None_None' %}
-                                    <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                            <div>
+                                <p class="mt-2">
+                                    {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                                <br>
+                            
+                                <!-- Pagination (Code adapted from https://testdriven.io/blog/django-pagination/) -->
+                                {% if page_obj.has_previous %}
+                                    <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous page"><i class="bi bi-chevron-left"></i></a>
+                                {% else %}
+                                    <a><i class="bi bi-chevron-left"></i></a>
                                 {% endif %}
-                                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                            </p>
+                                
+                                {% for i in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == i %}
+                                        <strong><a href="#">{{ i }}</a></strong>
+                                    {% else %}
+                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}page={{ i }}">{{ i }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if page_obj.has_next %}
+                                    <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page"><i class="bi bi-chevron-right"></i></a>
+                                {% else %}
+                                    <a><i class="bi bi-chevron-right"></i></a>
+                                {% endif %}
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        {% if current_filter %}
-                            <p><span class="border-blue rounded-0 p-2"><strong>{{ current_filter }}</strong></span>
+                        {% if current_filter_display %}
+                            <p><span class="border-blue rounded-0 p-2"><strong>{{ current_filter_display }}</strong></span>
                             <a href="{% url 'products' %}"><i class="bi bi-x-circle-fill ms-1" aria-label="Remove filter"></i></a></p>
                         {% endif %}
                     </div>
                     <div class="row">
-                        {% for product in products %}
+                        {% for product in page_obj %}
                             <div class="flip-card col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3">
                                 <div class="flip-card-inner">
                                     <div class="card flip-card-front h-100 border-0 text-blue">
