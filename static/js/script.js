@@ -42,14 +42,16 @@ $(document).ready(function(){
             let sort = selectedVal.split("_")[0];
             let direction = selectedVal.split("_")[1];
 
+            currentUrl.searchParams.delete("page");
             currentUrl.searchParams.set("sort", sort);
             currentUrl.searchParams.set("direction", direction);
 
             window.location.replace(currentUrl);
         } else {
+            currentUrl.searchParams.delete("page");
             currentUrl.searchParams.delete("sort");
             currentUrl.searchParams.delete("direction");
-
+            
             window.location.replace(currentUrl);
         }
     })
