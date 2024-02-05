@@ -69,43 +69,49 @@ def all_products(request):
             leagues = request.GET['league'].split(",")
             products = products.filter(league__name__in=leagues)
             page_obj = get_pages(page_num, products)
-            current_filter = f'league={products[0].league.name}'
-            current_filter_display = f'League: {products[0].league.friendly_name}'
+            if len(products) > 0:
+                current_filter = f'league={products[0].league.name}'
+                current_filter_display = f'League: {products[0].league.friendly_name}'
             
         if 'year' in request.GET:
             years = request.GET['year'].split(",")
             products = products.filter(year__in=years)
             page_obj = get_pages(page_num, products)
-            current_filter = f'year={products[0].year}'
-            current_filter_display = f'Year: {products[0].year}'
+            if len(products) > 0:
+                current_filter = f'year={products[0].year}'
+                current_filter_display = f'Year: {products[0].year}'
 
         if 'player_issue' in request.GET:
             products = products.filter(player_issue=True)
             page_obj = get_pages(page_num, products)
             specials = Product.objects.filter(player_issue=True)
-            current_filter = 'player_issue=true'
-            current_filter_display = 'Special category: Player issue'
+            if len(products) > 0:
+                current_filter = 'player_issue=true'
+                current_filter_display = 'Special category: Player issue'
 
         if 'signed' in request.GET:
             products = products.filter(signed=True)
             page_obj = get_pages(page_num, products)
             specials = Product.objects.filter(signed=True)
-            current_filter = 'signed=true'
-            current_filter_display = 'Special category: Signed'
+            if len(products) > 0:
+                current_filter = 'signed=true'
+                current_filter_display = 'Special category: Signed'
 
         if 'team' in request.GET:
             teams = request.GET['team'].split(",")
             products = products.filter(team__name__in=teams)
             page_obj = get_pages(page_num, products)
-            current_filter = f'team={products[0].team.name}'
-            current_filter_display = f'Team: {products[0].team.friendly_name}'
+            if len(products) > 0:
+                current_filter = f'team={products[0].team.name}'
+                current_filter_display = f'Team: {products[0].team.friendly_name}'
 
         if 'condition' in request.GET:
             conditions = request.GET['condition'].split(",")
             products = products.filter(condition__name__in=conditions)
             page_obj = get_pages(page_num, products)
-            current_filter = f'condition={products[0].condition.name}'
-            current_filter_display = f'Condition: {products[0].condition.friendly_name}'
+            if len(products) > 0:
+                current_filter = f'condition={products[0].condition.name}'
+                current_filter_display = f'Condition: {products[0].condition.friendly_name}'
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -115,8 +121,9 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
             page_obj = get_pages(page_num, products)
-            current_filter = f'q={query}'
-            current_filter_display = f'Search terms: {query}'
+            if len(products) > 0:
+                current_filter = f'q={query}'
+                current_filter_display = f'Search terms: {query}'
        
     current_sorting = f'{sort}_{direction}'
     sort_string = f'sort={sort}&direction={direction}'
