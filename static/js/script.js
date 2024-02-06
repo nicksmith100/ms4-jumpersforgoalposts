@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     /* Flip-card */
 
-    $(".product-container").on("click", ".flip-card", function(e) {
+    $("#product-container").on("click", ".flip-card", function(e) {
         if($(e.target).is("a")) {
             return true;
         } else if($(e.target).is("img")) { 
