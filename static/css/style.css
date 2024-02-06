@@ -293,6 +293,10 @@ a:focus {
     width: 150px;
 }
 
+.bg-blue {
+    background: #2c314f;
+}
+
 .border-blue {
     border: 2px solid #2c314f;
 }
@@ -301,10 +305,18 @@ a:focus {
     color: #0d0f18;
 }
 
+.text-cream {
+    color: #fff2cd;
+}
+
+.border-cream {
+    border: 2px solid #fff2cd;
+}
+
 .dropdown-menu {
     min-width: 1rem;
     width: max-content;
-    background-color: #fcfaf6;
+    background-color:#fff2cd;
 }
 
 .dropdown-item {
@@ -312,7 +324,7 @@ a:focus {
 }
 
 .search-box {
-    background-color: #fcfaf6;
+    background-color: #fff2cd;
 }
 
 
