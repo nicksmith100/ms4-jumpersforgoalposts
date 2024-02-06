@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbar-menu">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
               <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all">
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=team&direction=asc">By Team</a></li>
@@ -18,7 +18,7 @@
               </ul>
         </li>         
         <li class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues">
             <li><a class="dropdown-item" href="{% url 'products' %}?league=premier_league">Premier League</a></li>
             <li><a class="dropdown-item" href="{% url 'products' %}?league=other_uk">Other UK Leagues</a></li>
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-years" data-bs-toggle="dropdown" aria-expanded="false">Years</button>
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-years" data-bs-toggle="dropdown" aria-expanded="false">Years</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-years">
             <li><a class="dropdown-item" href="{% url 'products' %}?year=1980">1980</a></li>
             <li><a class="dropdown-item" href="{% url 'products' %}?year=1981">1981</a></li>
@@ -57,7 +57,7 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-right px-2" type="button" id="dropdown-specials" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-specials" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-specials">
                 <li><a class="dropdown-item" href="{% url 'products' %}?player_issue=true">Player Issue</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?signed=true">Signed</a></li>
@@ -71,7 +71,7 @@
           </button>
       </form>
       <li class="list-unstyled nav-item dropdown">
-        <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-right px-2 py-2 mx-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> My Account</button>
+        <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2 mx-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> My Account</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-account">
             {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
@@ -86,7 +86,7 @@
           </ul>
       </li>
       <li class="list-unstyled nav-item">
-        <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-right px-2 py-2 mx-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i>
+        <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2 mx-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i>
           <span class="my-0">
               {% if grand_total %}
                   <span class="fw-bold">£{{ grand_total|floatformat:2 }}</span>
