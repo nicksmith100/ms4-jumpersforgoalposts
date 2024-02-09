@@ -1,4 +1,8 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
+import json
+
+from products.models import Product
 
 # Create your views here.
 
@@ -7,18 +11,20 @@ def view_bag(request):
 
     return render(request, 'bag/bag.html')
 
-def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
+# Add to bag (Code adapted from: https://www.youtube.com/watch?v=PgCMKeT2JyY)
 
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
+def add_to_bag(request):
+    
+    data = json.loads(request.body)
+    product_id = data["id"]
+
     bag = request.session.get('bag', {})
-
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+    if product_id in list(bag.keys()):
+        print("Item already in bag")
     else:
-        bag[item_id] = quantity
+        bag[product_id] = 1
 
     request.session['bag'] = bag
     print(request.session['bag'])
-    return redirect(redirect_url)
+
+    return JsonResponse({"id":product_id}, safe=False)

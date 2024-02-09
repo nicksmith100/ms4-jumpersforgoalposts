@@ -5,11 +5,9 @@ $(document).ready(function(){
     $("#product-container").on("click", ".flip-card", function(e) {
         if($(e.target).is("a")) {
             return true;
-        } else if($(e.target).is("input")) {
+        } else if($(e.target).is("button")) {
             return true;
         } else if($(e.target).is("img")) { 
-            return false;
-        } else if($(e.target).is("form")) { 
             return false;
         } else { this.classList.toggle("flipped"); }
     });
@@ -34,6 +32,52 @@ $(document).ready(function(){
         modalBody.innerHTML = `<img src="${image}" alt="${imageTitle}" class="w-100">`
     
     })
+
+    /* Get CSRF token to allow add-to-bag function to work */
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+
+    /* Add-to-bag (Code from https://www.youtube.com/watch?v=PgCMKeT2JyY) */
+
+    let addBtns = document.querySelectorAll(".add-btn")
+
+    addBtns.forEach(addBtn=>{
+        addBtn.addEventListener("click", addToBag)
+    })
+    function addToBag(e){
+        let productId = e.target.value
+        let url = addUrl
+
+        let data = {id:productId}
+
+        fetch(url, {
+            method: "POST",
+            headers: {"Accept":"application/json", "X-Requested-With": "XMLHttpRequest", "X-CSRFToken": csrftoken},
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+
+    }
 
     /* Sort selector (Code from: https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/656166307e469630d09e0eb17a0d17daa440e208/products/templates/products/products.html) */
 
