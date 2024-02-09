@@ -29,8 +29,7 @@
         <!-- .image modal -->
 
         <div class="row">
-                <div id="product-container" class="col-10 offset-1">
-                    
+                <div id="product-container" class="col-10 offset-1">                   
                     <div class="row mt-1 mb-2">
                         <div class="col-12">
                             <div class="sort-select-wrapper w-50 fs-5">
@@ -173,8 +172,11 @@
                                             <div class="card-footer border-0 text-left">
                                                 <div class="row">
                                                     <div class="col">
-
-                                                        <button type="button" class="btn btn-blue rounded-0 text-uppercase mt-auto add-btn" value="{{ product.id }}">Add to bag</button>
+                                                        {% if product.sku in bag_skus %}
+                                                            <button type="button" class="btn rounded-0 text-uppercase mt-auto remove-btn" >Remove from bag</button>
+                                                        {% else %}
+                                                            <button type="button" class="btn rounded-0 text-uppercase mt-auto add-btn" value="{{ product.id }}">Add to bag</button>
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                             </div>

@@ -37,7 +37,8 @@ a:focus {
     height: 100%;
 }
 
-.btn-blue {
+.btn-blue,
+.add-btn {
     background-color: #2c314f;
     border: 2px solid #fff2cd;
     color: #fff2cd;
@@ -45,10 +46,29 @@ a:focus {
 
 .btn-blue:hover,
 .btn-blue:active,
-.btn-blue:focus {
+.btn-blue:focus,
+.add-btn:hover,
+.add-btn:active,
+.add-btn:focus {
     background-color: #2c314f;
     border: 2px solid #fff2cd;
     color: #fff2cd !important;
+}
+
+.btn-outline-blue,
+.remove-btn {
+    border: 2px solid  #2c314f;
+    color: #2c314f;
+}
+
+.btn-outline-blue:hover,
+.btn-outline-blue:active,
+.btn-outline-blue:focus,
+.remove-btn:hover,
+.remove-btn:active,
+.remove-btn:focus {
+    border: 2px solid  #2c314f;
+    background-color: #e0e0e0;
 }
 
 .btn-plain {

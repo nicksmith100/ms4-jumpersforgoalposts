@@ -20,11 +20,10 @@ def add_to_bag(request):
 
     bag = request.session.get('bag', {})
     if product_id in list(bag.keys()):
-        print("Item already in bag")
+        pass
     else:
         bag[product_id] = 1
 
     request.session['bag'] = bag
-    print(request.session['bag'])
-
+ 
     return JsonResponse({"id":product_id}, safe=False)

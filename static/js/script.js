@@ -63,7 +63,9 @@ $(document).ready(function(){
         let productId = e.target.value
         let url = addUrl
 
-        let data = {id:productId}
+        let data = {
+            id: productId
+        }
 
         fetch(url, {
             method: "POST",
@@ -73,6 +75,10 @@ $(document).ready(function(){
         .then(response => {
             return response.json();
         })
+        .then(e.target.innerHTML="Remove from bag")
+        .then(e.target.classList.remove('add-btn'))
+        .then(e.target.classList.add('remove-btn'))
+        .then(e.target.blur())
         .catch(error=>{
             console.log(error);
         })
