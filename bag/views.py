@@ -46,4 +46,4 @@ def add_to_bag(request):
     
     request.session['bag'] = bag
 
-    return JsonResponse({"bag_total":bag_total}, safe=False)
+    return JsonResponse({"bag_total":bag_total, "product_count":product_count}, safe=False)

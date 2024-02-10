@@ -82,8 +82,12 @@ $(document).ready(function(){
         .then(e.target.classList.add("remove-btn"))
         .then(e.target.blur())
         .then(data=>{
-            document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`
+            document.getElementById("product-count").innerHTML = ` ${data.product_count} `;
+            document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
         })
+
+            
+
         .catch(error=>{
             console.log(error);
         });
