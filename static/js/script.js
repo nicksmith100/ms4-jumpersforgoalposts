@@ -61,12 +61,10 @@ $(document).ready(function(){
     })
     function addToBag(e){
         let productId = e.target.value;
-        let productPrice = e.target.dataset.price;
         let url = addUrl;
 
         let data = {
             id: productId,
-            price: productPrice
         };
 
         fetch(url, {
@@ -100,12 +98,10 @@ $(document).ready(function(){
     })
     function removeFromBag(e){
         let productId = e.target.value;
-        let productPrice = e.target.dataset.price;
         let url = removeUrl;
 
         let data = {
             id: productId,
-            price: productPrice
         };
 
         fetch(url, {
