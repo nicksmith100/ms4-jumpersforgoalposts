@@ -77,17 +77,53 @@ $(document).ready(function(){
         .then(response => {
             return response.json();
         })
-        .then(e.target.innerHTML="Remove from bag")
-        .then(e.target.classList.remove("add-btn"))
-        .then(e.target.classList.add("remove-btn"))
-        .then(e.target.blur())
+        .then(e.target.classList.remove("d-block"))
+        .then(e.target.classList.add("d-none"))
+        .then(e.target.nextElementSibling.classList.remove("d-none"))
+        .then(e.target.nextElementSibling.classList.add("d-block"))
         .then(data=>{
             document.getElementById("product-count").innerHTML = ` ${data.product_count} `;
             document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
         })
+        .catch(error=>{
+            console.log(error);
+        });
+    
+    }
 
-            
+    /* Remove-from-bag (Code adapted from https://www.youtube.com/watch?v=PgCMKeT2JyY) */
 
+    let removeBtns = document.querySelectorAll(".remove-btn")
+
+    removeBtns.forEach(removeBtn=>{
+        removeBtn.addEventListener("click", removeFromBag)
+    })
+    function removeFromBag(e){
+        let productId = e.target.value;
+        let productPrice = e.target.dataset.price;
+        let url = removeUrl;
+
+        let data = {
+            id: productId,
+            price: productPrice
+        };
+
+        fetch(url, {
+            method: "POST",
+            headers: {"Accept":"application/json", "X-Requested-With": "XMLHttpRequest", "X-CSRFToken": csrftoken},
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(e.target.classList.remove("d-block"))
+        .then(e.target.classList.add("d-none"))
+        .then(e.target.previousElementSibling.classList.remove("d-none"))
+        .then(e.target.previousElementSibling.classList.add("d-block"))
+        .then(data=>{
+            document.getElementById("product-count").innerHTML = ` ${data.product_count} `;
+            document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
+        })
         .catch(error=>{
             console.log(error);
         });
