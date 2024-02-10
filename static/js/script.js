@@ -60,12 +60,14 @@ $(document).ready(function(){
         addBtn.addEventListener("click", addToBag)
     })
     function addToBag(e){
-        let productId = e.target.value
-        let url = addUrl
+        let productId = e.target.value;
+        let productPrice = e.target.dataset.price;
+        let url = addUrl;
 
         let data = {
-            id: productId
-        }
+            id: productId,
+            price: productPrice
+        };
 
         fetch(url, {
             method: "POST",
@@ -76,12 +78,15 @@ $(document).ready(function(){
             return response.json();
         })
         .then(e.target.innerHTML="Remove from bag")
-        .then(e.target.classList.remove('add-btn'))
-        .then(e.target.classList.add('remove-btn'))
+        .then(e.target.classList.remove("add-btn"))
+        .then(e.target.classList.add("remove-btn"))
         .then(e.target.blur())
+        .then(data=>{
+            document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`
+        })
         .catch(error=>{
             console.log(error);
-        })
+        });
 
     }
 

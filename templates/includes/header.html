@@ -91,12 +91,13 @@
       <li class="list-unstyled nav-item">
         <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2 mx-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i>
           <span class="my-0">
-              {% if grand_total %}
-                  <span class="fw-bold">£{{ grand_total|floatformat:2 }}</span>
-              {% else %}
+              <span id="bag-total">
+                {% if bag_total %}
+                  <span class="fw-bold">£{{ bag_total|floatformat:2 }}</span>
+                {% else %}
                   £0.00
-              {% endif %}
-          </span>
+                {% endif %}
+              </span>
         </a>
       </li>
     </div>
