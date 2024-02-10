@@ -29,11 +29,71 @@
         <!-- Image modal -->
 
         <div class="row">
-            <div id="bag-container" class="col-10 offset-1 bg-light p-5">
+            <div id="bag-container" class="col col-sm-10 offset-sm-1">
                 <div class="row">
                     <div class="col">
                         {% if bag_items %}
-                            <div class="table-responsive rounded"></div>
+                            <div class="table-responsive bg-light p-5 mb-5">
+                                <table class="table table-borderless table-light">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Product Info</th>
+                                            <th scope="col" class="text-end">Price</th>
+                                        </tr>
+                                    </thead>
+        
+                                    {% for item in bag_items %}
+                                        <tr>
+                                            <td class="p-3">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6 col-md-4">
+                                                        <img class="img-fluid border-blue" src="{{ item.product.image.url }}">
+                                                    </div>                                                
+                                                    <div class="col-12 col-sm-6 col-md-4">
+                                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                                        <button class="btn btn-sm btn-danger rounded-0 d-block d-md-none mt-2">Remove item</button>
+                                                    </div>
+                                                    <div class="d-none d-md-block col-md-4">
+                                                        <button class="btn btn-sm rounded-0 btn-danger">Remove item</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3">
+                                                <p class="my-0 text-end">£{{ item.product.price }}</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <td colspan="3" class="pt-5 text-end">
+                                            <h6><strong>Bag Total: £{{ bag_total|floatformat:2 }}</strong></h6>
+                                            <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                                            <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                                            {% if free_delivery_delta > 0 %}
+                                                <p class="mb-1 text-danger">
+                                                    Spend just <strong>£{{ free_delivery_delta }}</strong> more for free delivery!
+                                                </p>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" class="text-end">
+                                            <a href="{% url 'products' %}" class="btn btn-blue hvr-sweep-to-left rounded-0 btn-lg">
+                                                <span class="icon">
+                                                    <i class="bi bi-chevron-left"></i>
+                                                </span>
+                                                <span class="text-uppercase">Keep Shopping</span>
+                                            </a>
+                                            <a href="" class="btn btn-blue hvr-sweep-to-right rounded-0 btn-lg">
+                                                <span class="text-uppercase">Secure Checkout</span>
+                                                <span class="icon">
+                                                    <i class="bi bi-lock"></i>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         {% else %}
                             <p class="lead mb-5">Your kitbag is empty!</p>
                             <a href="{% url 'products' %}" class="btn btn-blue hvr-sweep-to-left rounded-0 btn-lg">
