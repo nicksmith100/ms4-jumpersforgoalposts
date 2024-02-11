@@ -107,10 +107,26 @@ $(document).ready(function(){
 
     /* Remove-from-bag (bag page) */
 
+    /* Display confirmation and cancel buttons button */
     let bagRemoveBtns = document.querySelectorAll(".bag-remove-btn")
 
     bagRemoveBtns.forEach(bagRemoveBtn=>{
-        bagRemoveBtn.addEventListener("click", removeFromBagView)
+        bagRemoveBtn.addEventListener("click", showConfirmationBtn)
+    })
+    function showConfirmationBtn(e){
+        
+        e.target.innerHTML="Are you sure?";
+        e.target.disabled=true;
+        e.target.nextElementSibling.classList.remove("d-none");
+        e.target.nextElementSibling.classList.add("d-block");
+        
+    }
+
+    /* Remove from bag if confirmed */
+    let confirmBtns = document.querySelectorAll(".confirm-btn")
+
+    confirmBtns.forEach(confirmBtn=>{
+        confirmBtn.addEventListener("click", removeFromBagView)
     })
     function removeFromBagView(e){
         let productId = e.target.value;
@@ -119,8 +135,6 @@ $(document).ready(function(){
         let data = {
             id: productId,
         };
-
-        console.log(data);
 
         fetch(url, {
             method: "POST",
@@ -140,6 +154,21 @@ $(document).ready(function(){
         .then(() => {
             location.reload()
         })
+    }
+
+    /* Cancel removal */
+    let cancelBtns = document.querySelectorAll(".cancel-btn")
+
+    cancelBtns.forEach(cancelBtn=>{
+        cancelBtn.addEventListener("click", hideConfirmationBtn)
+    })
+    function hideConfirmationBtn(e){
+        
+        e.target.parentElement.classList.remove("d-block");
+        e.target.parentElement.classList.add("d-none");
+        e.target.parentElement.previousElementSibling.innerHTML="Remove item";
+        e.target.parentElement.previousElementSibling.disabled=false;
+        
     }
 
     /* Sort selector (Code from: https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/656166307e469630d09e0eb17a0d17daa440e208/products/templates/products/products.html) */
