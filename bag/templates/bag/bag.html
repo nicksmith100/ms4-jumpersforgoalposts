@@ -52,10 +52,10 @@
                                                     <div class="col-12 col-sm-6 col-md-4">
                                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                                                        <button class="btn btn-sm btn-danger rounded-0 d-block d-md-none mt-2">Remove item</button>
+                                                        <button class="bag-remove-btn btn btn-sm btn-danger rounded-0 d-block d-md-none mt-2" value="{{ product.id }}">Remove item</button>
                                                     </div>
                                                     <div class="d-none d-md-block col-md-4">
-                                                        <button class="btn btn-sm rounded-0 btn-danger">Remove item</button>
+                                                        <button class="bag-remove-btn btn btn-sm rounded-0 btn-danger" value="{{ item.product.id }}">Remove item</button>
                                                     </div>
                                                 </div>
                                             </td>
@@ -110,4 +110,10 @@
         
     </div>
 
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    let removeUrl = "{% url 'remove_from_bag' %}"
+</script>
 {% endblock %}

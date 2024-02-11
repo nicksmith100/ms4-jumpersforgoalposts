@@ -12,27 +12,6 @@ $(document).ready(function(){
         } else { this.classList.toggle("flipped"); }
     });
 
-    /* Modal (Code from: https://getbootstrap.com/docs/5.3/components/modal/#varying-modal-content) */
-    
-    let imageModal = document.getElementById('image-modal')
-    imageModal.addEventListener('show.bs.modal', function (event) {
-    
-        // Anchor that triggered the modal
-        let anchor = event.relatedTarget
-        
-        // Extract info from data-bs-* attributes
-        let image = anchor.getAttribute('data-bs-image')
-        let imageTitle = anchor.getAttribute('data-bs-image-title')
-
-        // Update the modal's content.
-        let modalTitle = imageModal.querySelector('.modal-title')
-        let modalBody = imageModal.querySelector('.modal-body')
-
-        modalTitle.textContent = imageTitle
-        modalBody.innerHTML = `<img src="${image}" alt="${imageTitle}" class="w-100">`
-    
-    })
-
     /* Get CSRF token to allow add-to-bag function to work */
 
     function getCookie(name) {
@@ -89,7 +68,7 @@ $(document).ready(function(){
     
     }
 
-    /* Remove-from-bag (Code adapted from https://www.youtube.com/watch?v=PgCMKeT2JyY) */
+    /* Remove-from-bag (products page) (Code adapted from https://www.youtube.com/watch?v=PgCMKeT2JyY) */
 
     let removeBtns = document.querySelectorAll(".remove-btn")
 
@@ -124,6 +103,43 @@ $(document).ready(function(){
             console.log(error);
         });
 
+    }
+
+    /* Remove-from-bag (bag page) */
+
+    let bagRemoveBtns = document.querySelectorAll(".bag-remove-btn")
+
+    bagRemoveBtns.forEach(bagRemoveBtn=>{
+        bagRemoveBtn.addEventListener("click", removeFromBagView)
+    })
+    function removeFromBagView(e){
+        let productId = e.target.value;
+        let url = removeUrl;
+
+        let data = {
+            id: productId,
+        };
+
+        console.log(data);
+
+        fetch(url, {
+            method: "POST",
+            headers: {"Accept":"application/json", "X-Requested-With": "XMLHttpRequest", "X-CSRFToken": csrftoken},
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data=>{
+            document.getElementById("product-count").innerHTML = ` ${data.product_count} `;
+            document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+        .then(() => {
+            location.reload()
+        })
     }
 
     /* Sort selector (Code from: https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/656166307e469630d09e0eb17a0d17daa440e208/products/templates/products/products.html) */
