@@ -107,10 +107,14 @@
                                                         <p>
                                                         <strong>Price: </strong>£ {{ product.price }}<br>
                                                         {% if product.size %}
-                                                            {% if product.size == "All" %}
-                                                                <strong>Size: </strong>Multiple sizes<br>
-                                                            {% else %}
-                                                                <strong>Size: </strong>{{ product.size }}<br>
+                                                            {% if product.size == "S" %}
+                                                                <strong>Size: </strong>Small<br>
+                                                            {% elif product.size == "M" %}
+                                                                <strong>Size: </strong>Medium<br>
+                                                            {% elif product.size == "L" %}
+                                                                <strong>Size: </strong>Large<br>
+                                                            {% elif product.size == "XL" %}
+                                                                <strong>Size: </strong>Extra Large<br>
                                                             {% endif %}
                                                         {% endif %}
                                                         {% if product.condition %}
@@ -141,15 +145,21 @@
                                                 {% if product.season %}
                                                     <p><strong>Season: </strong>{{ product.season }}</p>
                                                 {% endif %}
-                                                {% if product.home_away %}
-                                                    <p><strong>Home/Away: </strong>{{ product.home_away }}</p>
+                                                {% if product.home_away == "H" %}
+                                                    <p><strong>Home/Away: </strong>Home</p>
+                                                {% elif product.home_away == "A" %}
+                                                    <p><strong>Home/Away: </strong>Away</p>
                                                 {% endif %}
                                                 {% if product.size %}
-                                                {% if product.size == "All" %}
-                                                    <p><strong>Size: </strong>Multiple sizes</p>
-                                                {% else %}
-                                                    <p><strong>Size: </strong>{{ product.size }}</p>
-                                                {% endif %}
+                                                    {% if product.size == "S" %}
+                                                        <p><strong>Size: </strong>Small</p>
+                                                    {% elif product.size == "M" %}
+                                                        <p><strong>Size: </strong>Medium</p>
+                                                    {% elif product.size == "L" %}
+                                                        <p><strong>Size: </strong>Large</p>
+                                                    {% elif product.size == "XL" %}
+                                                        <p><strong>Size: </strong>Extra Large</p>
+                                                    {% endif %}
                                                 {% endif %}
                                                 {% if product.condition %}
                                                     <p><strong>Condition: </strong><a href="{% url 'products' %}?condition={{ product.condition.name }}">{{ product.condition.friendly_name }}</a></p>
