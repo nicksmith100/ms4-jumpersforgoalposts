@@ -19,19 +19,14 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=condition&direction=asc">By Condition</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
               </ul>
-        </li>         
+        </li>
         <li class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
-          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues">
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=premier_league">Premier League</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=other_uk">Other UK Leagues</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=la_liga">La Liga</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=serie_a">Serie A</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=ligue_1">Ligue 1</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=eredivisie">Eredivisie</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=other_european">Other European Leagues</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=world_clubs">World Clubs</a></li>
-            <li><a class="dropdown-item" href="{% url 'products' %}?league=international">International</a></li>
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-sizes" data-bs-toggle="dropdown" aria-expanded="false">Sizes</button>
+          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-sizes">
+            <li><a class="dropdown-item" href="{% url 'products' %}?size=S">Small</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?size=M">Medium</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?size=L">Large</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?size=XL">Extra Large</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -58,15 +53,29 @@
             <li><a class="dropdown-item" href="{% url 'products' %}?year=1998">1998</a></li>
             <li><a class="dropdown-item" href="{% url 'products' %}?year=1999">1999</a></li>
           </ul>
+        </li>         
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
+          <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues">
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=premier_league">Premier League</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=other_uk">Other UK Leagues</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=la_liga">La Liga</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=serie_a">Serie A</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=ligue_1">Ligue 1</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=eredivisie">Eredivisie</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=other_european">Other European Leagues</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=world_clubs">World Clubs</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?league=international">International</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-specials" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-specials">
-                <li><a class="dropdown-item" href="{% url 'products' %}?player_issue=true">Player Issue</a></li>
-                <li><a class="dropdown-item" href="{% url 'products' %}?signed=true">Signed</a></li>
-              </ul>
-            </li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?player_issue=true">Player Issue</a></li>
+            <li><a class="dropdown-item" href="{% url 'products' %}?signed=true">Signed</a></li>
           </ul>
+        </li>
+      </ul>
       <form class="d-flex w-25 mx-2" method="GET" role="search" action="{% url 'products' %}">
           <input class="form-control rounded-0 border-blue text-blue search-box" type="search" name="q" placeholder="Search" aria-label="Search">
           <button class="btn btn-blue rounded-0 border-0 d-flex" type="submit">

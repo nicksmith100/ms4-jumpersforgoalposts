@@ -113,6 +113,21 @@ def all_products(request):
                 current_filter = f'condition={products[0].condition.name}'
                 current_filter_display = f'Condition: {products[0].condition.friendly_name}'
 
+        if 'size' in request.GET:
+            sizes = request.GET['size'].split(",")
+            products = products.filter(size__in=sizes)
+            page_obj = get_pages(page_num, products)
+            if len(products) > 0:
+                current_filter = f'Size={products[0].size}'
+                if products[0].size == "S":
+                    current_filter_display = 'Size: Small'
+                if products[0].size == "M":
+                    current_filter_display = 'Size: Medium'
+                if products[0].size == "L":
+                    current_filter_display = 'Size: Large'
+                if products[0].size == "XL":
+                    current_filter_display = 'Size: Extra Large'
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
