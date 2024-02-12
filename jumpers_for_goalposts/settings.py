@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 LOCAL_HOST = os.environ.get('LOCAL_HOST')
-ALLOWED_HOSTS = [LOCAL_HOST]
+ALLOWED_HOSTS = [LOCAL_HOST, 'jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
 
 
 # Application definition
@@ -109,7 +109,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
