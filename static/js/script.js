@@ -62,6 +62,9 @@ $(document).ready(function(){
             document.getElementById("product-count").innerHTML = ` ${data.product_count} `;
             document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
         })
+        .then(() => {
+            $( "#message-container" ).load(window.location.href + " #message-container" )
+        })
         .catch(error=>{
             console.log(error);
         });
@@ -98,6 +101,9 @@ $(document).ready(function(){
         .then(data=>{
             document.getElementById("product-count").innerHTML = ` ${data.product_count} `;
             document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
+        })
+        .then(() => {
+            $( "#message-container" ).load(window.location.href + " #message-container" )
         })
         .catch(error=>{
             console.log(error);
@@ -197,7 +203,6 @@ $(document).ready(function(){
     })
 
     /* Back-to-top button */
-
     $('.btt-link').click(function(e) {
         window.scrollTo(0,0)
     })

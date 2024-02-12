@@ -398,3 +398,14 @@ a:focus {
     color: #2c314f;
     cursor: pointer;
 }
+
+/* --- MESSAGES --- */
+
+.alert {
+    width: max-content;
+    position: fixed;
+    top:20px;
+    right: 20px;
+    z-index: 999;
+}
+

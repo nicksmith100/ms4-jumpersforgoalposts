@@ -1,0 +1,16 @@
+<div id="message-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-dismissible rounded-0 border-2 {% if message.tags %}{{ message.tags }}{% endif %}">
+                <strong>
+                    {% if 'alert-success' in message.tags %}<i class="bi bi-check-circle-fill"></i> Success!{% endif %}
+                    {% if 'alert-info' in message.tags %}<i class="bi bi-info-circle-fill"></i> For your information{% endif %}
+                    {% if 'alert-warning' in message.tags %}<i class="bi bi-exclamation-triangle-fill"></i> Warning!{% endif %}
+                    {% if 'alert-danger' in message.tags %}<i class="bi bi-exclamation-circle-fill"></i> Error!{% endif %}
+                </strong>
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>

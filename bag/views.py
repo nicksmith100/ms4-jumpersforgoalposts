@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
 from django.http import JsonResponse
 import json
 
@@ -42,6 +43,7 @@ def add_to_bag(request):
         bag_total += add_product_price
         product_count += 1
         bag[add_product_id] = 1
+        messages.success(request, f'{product.name} added to bag')
     
     request.session['bag'] = bag
 
@@ -74,6 +76,7 @@ def remove_from_bag(request):
         bag_total -= del_product_price
         product_count -= 1
         bag.pop(del_product_id)
+        messages.warning(request, f'{product.name} removed from bag')
     else:
         pass
     
