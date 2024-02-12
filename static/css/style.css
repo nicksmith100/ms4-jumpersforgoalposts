@@ -254,22 +254,6 @@ a:focus {
 
 /* --- HOME --- */
 
-/* Background with logo - horizontal by default */
-#home {
-    background: url('/media/background/background_logo_h.webp') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-}
-
-/* Vertical background in portrait mode */
-@media (orientation: portrait) {
-    #home {
-        background: url('/media/background/background_logo_v.webp') no-repeat center center fixed;
-        background-size: cover;
-        height: 100vh;
-    }
-}
-
 .badge-img {
     max-width: 100px;
     max-height: 100px;
@@ -290,20 +274,10 @@ a:focus {
         max-height: 140px;
     }
     
-    #enter-button {
-        position: absolute;
-        top: 60%;
-    }
-
     #club-menu {
         top: 50px;
     }
 
-}
-
-#enter-button {
-    position: absolute;
-    top: 70%;
 }
 
 
