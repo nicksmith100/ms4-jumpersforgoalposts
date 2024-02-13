@@ -32,7 +32,7 @@ DEBUG = True
 
 LOCAL_HOST = os.environ.get('LOCAL_HOST')
 ALLOWED_HOSTS = [LOCAL_HOST, 'jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
-CSRF_TRUSTED_ORIGINS=['jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
 
 
 # Application definition
