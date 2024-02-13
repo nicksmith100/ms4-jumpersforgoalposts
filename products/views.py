@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.db.models import Q
@@ -24,6 +25,7 @@ def get_pages(page_number, items):
     
     return page_obj
 
+@ensure_csrf_cookie
 def all_products(request):
     """ View to return all products, including sorting and search queries """
     
