@@ -29,183 +29,187 @@
         <!-- .image modal -->
 
         <div class="row">
-                <div id="product-container" class="col-10 offset-1">                   
-                    <div class="row mt-1 mb-2">
-                        <div class="col-12">
-                            <div class="sort-select-wrapper w-50 fs-5">
-                                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border">
-                                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                                    <option value="team_asc" {% if current_sorting == 'team_asc' %}selected{% endif %}>Team (A-Z)</option>
-                                    <option value="team_desc" {% if current_sorting == 'team_desc' %}selected{% endif %}>Team (Z-A)</option>
-                                    <option value="year_asc" {% if current_sorting == 'year_asc' %}selected{% endif %}>Year (early to late)</option>
-                                    <option value="year_desc" {% if current_sorting == 'year_desc' %}selected{% endif %}>Year (late to early)</option>
-                                    <option value="condition_asc" {% if current_sorting == 'condition_asc' %}selected{% endif %}>Condition (high to low)</option>
-                                    <option value="condition_desc" {% if current_sorting == 'condition_desc' %}selected{% endif %}>Condition (low to high)</option>
-                                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A to Z)</option>
-                                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z to A)</option>
-                                </select>
-                            </div>
-                            <div>
-                                <p class="mt-2 fs-5">
-                                    {{ products|length }} Product{% if products|length != 1 %}s{% endif %}{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                                <br>
-                            
-                                <!-- Pagination (Code adapted from https://testdriven.io/blog/django-pagination/) -->
-                                {% if products|length > 36 %}
-                                    Page: 
-                                    {% if page_obj.has_previous %}
-                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous page"><i class="bi bi-chevron-left"></i></a>
-                                    {% else %}
-                                        <span><i class="bi bi-chevron-left"></i></span>
-                                    {% endif %}
-                                    
-                                    {% for i in page_obj.paginator.page_range %}
-                                        {% if page_obj.number == i %}
-                                            <strong><span>{{ i }}</span></strong>
-                                        {% else %}
-                                            <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ i }}">{{ i }}</a>
-                                        {% endif %}
-                                    {% endfor %}
-                                    
-                                    {% if page_obj.has_next %}
-                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page"><i class="bi bi-chevron-right"></i></a>
-                                    {% else %}
-                                        <span><i class="bi bi-chevron-right"></i></span>
-                                    {% endif %}
+            <div id="product-container" class="col-10 offset-1">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1>Products</h1>
+                    </div>
+                </div>                   
+                <div class="row mt-1 mb-2">
+                    <div class="col-12">
+                        <div class="sort-select-wrapper w-50 fs-5">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="team_asc" {% if current_sorting == 'team_asc' %}selected{% endif %}>Team (A-Z)</option>
+                                <option value="team_desc" {% if current_sorting == 'team_desc' %}selected{% endif %}>Team (Z-A)</option>
+                                <option value="year_asc" {% if current_sorting == 'year_asc' %}selected{% endif %}>Year (early to late)</option>
+                                <option value="year_desc" {% if current_sorting == 'year_desc' %}selected{% endif %}>Year (late to early)</option>
+                                <option value="condition_asc" {% if current_sorting == 'condition_asc' %}selected{% endif %}>Condition (high to low)</option>
+                                <option value="condition_desc" {% if current_sorting == 'condition_desc' %}selected{% endif %}>Condition (low to high)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A to Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z to A)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p class="mt-2 fs-5">
+                                {{ products|length }} Product{% if products|length != 1 %}s{% endif %}{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                            <br>
+                        
+                            <!-- Pagination (Code adapted from https://testdriven.io/blog/django-pagination/) -->
+                            {% if products|length > 36 %}
+                                Page: 
+                                {% if page_obj.has_previous %}
+                                    <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous page"><i class="bi bi-chevron-left"></i></a>
+                                {% else %}
+                                    <span><i class="bi bi-chevron-left"></i></span>
                                 {% endif %}
-                                </p>
-                            </div>
+                                
+                                {% for i in page_obj.paginator.page_range %}
+                                    {% if page_obj.number == i %}
+                                        <strong><span>{{ i }}</span></strong>
+                                    {% else %}
+                                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ i }}">{{ i }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if page_obj.has_next %}
+                                    <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page"><i class="bi bi-chevron-right"></i></a>
+                                {% else %}
+                                    <span><i class="bi bi-chevron-right"></i></span>
+                                {% endif %}
+                            {% endif %}
+                            </p>
                         </div>
                     </div>
-                    <div class="row">
-                        {% if current_filter_display %}
-                            <p><span class="border-blue rounded-0 p-2"><strong>{{ current_filter_display }}</strong></span>
-                            <a href="{% url 'products' %}"><i class="bi bi-x-circle-fill ms-1" aria-label="Remove filter"></i></a></p>
-                        {% endif %}
-                    </div>
-                    <div class="row">
-                        {% if products|length > 0 %}
-                            {% for product in page_obj %}
-                                <div class="flip-card col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3">
-                                    <div class="flip-card-inner">
-                                        <div class="card flip-card-front h-100 border-0 text-blue">
-                                            {% if product.image %}
-                                                <a href="" data-bs-toggle="modal" data-bs-target="#image-modal" data-bs-image="{{ MEDIA_URL }}{{ product.image }}" data-bs-image-title="{{ product.name }}">
-                                                    <img class="card-img-top p-3" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-                                                </a>
-                                            {% else %}
-                                                <img class="card-img-top p-3" src="{{ MEDIA_URL }}no_image.png" alt="Black t-shirt saying No Image Available">
-                                            {% endif %}
-                                            <div class="card-body d-flex flex-column">
-                                                <p class="lead fw-bold mt-auto">{{ product.name }}</p>
-                                            </div>
-                                            <div class="card-footer border-0 text-left">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p>
-                                                        <strong>Price: </strong>£ {{ product.price }}<br>
-                                                        {% if product.size %}
-                                                            {% if product.size == "S" %}
-                                                                <strong>Size: </strong>Small<br>
-                                                            {% elif product.size == "M" %}
-                                                                <strong>Size: </strong>Medium<br>
-                                                            {% elif product.size == "L" %}
-                                                                <strong>Size: </strong>Large<br>
-                                                            {% elif product.size == "XL" %}
-                                                                <strong>Size: </strong>Extra Large<br>
-                                                            {% endif %}
+                </div>
+                <div class="row">
+                    {% if current_filter_display %}
+                        <p><span class="border-blue rounded-0 p-2"><strong>{{ current_filter_display }}</strong></span>
+                        <a href="{% url 'products' %}"><i class="bi bi-x-circle-fill ms-1" aria-label="Remove filter"></i></a></p>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if products|length > 0 %}
+                        {% for product in page_obj %}
+                            <div class="flip-card col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3">
+                                <div class="flip-card-inner">
+                                    <div class="card flip-card-front h-100 border-0 text-blue">
+                                        {% if product.image %}
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#image-modal" data-bs-image="{{ MEDIA_URL }}{{ product.image }}" data-bs-image-title="{{ product.name }}">
+                                                <img class="card-img-top p-3" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                                            </a>
+                                        {% else %}
+                                            <img class="card-img-top p-3" src="{{ MEDIA_URL }}no_image.png" alt="Black t-shirt saying No Image Available">
+                                        {% endif %}
+                                        <div class="card-body d-flex flex-column">
+                                            <p class="lead fw-bold mt-auto">{{ product.name }}</p>
+                                        </div>
+                                        <div class="card-footer border-0 text-left">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p>
+                                                    <strong>Price: </strong>£ {{ product.price }}<br>
+                                                    {% if product.size %}
+                                                        {% if product.size == "S" %}
+                                                            <strong>Size: </strong>Small<br>
+                                                        {% elif product.size == "M" %}
+                                                            <strong>Size: </strong>Medium<br>
+                                                        {% elif product.size == "L" %}
+                                                            <strong>Size: </strong>Large<br>
+                                                        {% elif product.size == "XL" %}
+                                                            <strong>Size: </strong>Extra Large<br>
                                                         {% endif %}
-                                                        {% if product.condition %}
-                                                            <strong>Condition: </strong>{{ product.condition.friendly_name }}<br>
-                                                        {% endif %}
-                                                        <strong>Click for more details <i class="bi bi-arrow-clockwise"></i></strong>
-                                                        </p>
-                                                    </div>
+                                                    {% endif %}
+                                                    {% if product.condition %}
+                                                        <strong>Condition: </strong>{{ product.condition.friendly_name }}<br>
+                                                    {% endif %}
+                                                    <strong>Click for more details <i class="bi bi-arrow-clockwise"></i></strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card flip-card-back h-100 border-0 text-blue">
-                                            <div class="card-body d-flex flex-column">
-                                                {% if product.sku %}
-                                                    <p><strong>SKU: </strong>{{ product.sku }}</p>
+                                    </div>
+                                    <div class="card flip-card-back h-100 border-0 text-blue">
+                                        <div class="card-body d-flex flex-column">
+                                            {% if product.sku %}
+                                                <p><strong>SKU: </strong>{{ product.sku }}</p>
+                                            {% endif %}
+                                            {% if product.description %}
+                                                <p><strong>Description: </strong>{{ product.description }}</p>
+                                            {% else %}
+                                                <p><strong>Description: </strong>Sorry, there is no detailed description for this item.</p>
+                                            {% endif %}
+                                            {% if product.league %}
+                                                <p><strong>League: </strong><a href="{% url 'products' %}?league={{ product.league.name }}">{{ product.league.friendly_name }}</a></p>
+                                            {% endif %}
+                                            {% if product.team %}
+                                                <p><strong>Team: </strong><a href="{% url 'products' %}?team={{ product.team.name }}">{{ product.team.friendly_name }}</a></p>
+                                            {% endif %}
+                                            {% if product.season %}
+                                                <p><strong>Season: </strong>{{ product.season }}</p>
+                                            {% endif %}
+                                            {% if product.home_away == "H" %}
+                                                <p><strong>Home/Away: </strong>Home</p>
+                                            {% elif product.home_away == "A" %}
+                                                <p><strong>Home/Away: </strong>Away</p>
+                                            {% endif %}
+                                            {% if product.size %}
+                                                {% if product.size == "S" %}
+                                                    <p><strong>Size: </strong><a href="{% url 'products' %}?size=S">Small</a></p>
+                                                {% elif product.size == "M" %}
+                                                    <p><strong>Size: </strong><a href="{% url 'products' %}?size=M">Medium</a></p>
+                                                {% elif product.size == "L" %}
+                                                    <p><strong>Size: </strong><a href="{% url 'products' %}?size=L">Large</a></p>
+                                                {% elif product.size == "XL" %}
+                                                    <p><strong>Size: </strong><a href="{% url 'products' %}?size=XL">Extra Large</a></p>
                                                 {% endif %}
-                                                {% if product.description %}
-                                                    <p><strong>Description: </strong>{{ product.description }}</p>
-                                                {% else %}
-                                                    <p><strong>Description: </strong>Sorry, there is no detailed description for this item.</p>
-                                                {% endif %}
-                                                {% if product.league %}
-                                                    <p><strong>League: </strong><a href="{% url 'products' %}?league={{ product.league.name }}">{{ product.league.friendly_name }}</a></p>
-                                                {% endif %}
-                                                {% if product.team %}
-                                                    <p><strong>Team: </strong><a href="{% url 'products' %}?team={{ product.team.name }}">{{ product.team.friendly_name }}</a></p>
-                                                {% endif %}
-                                                {% if product.season %}
-                                                    <p><strong>Season: </strong>{{ product.season }}</p>
-                                                {% endif %}
-                                                {% if product.home_away == "H" %}
-                                                    <p><strong>Home/Away: </strong>Home</p>
-                                                {% elif product.home_away == "A" %}
-                                                    <p><strong>Home/Away: </strong>Away</p>
-                                                {% endif %}
-                                                {% if product.size %}
-                                                    {% if product.size == "S" %}
-                                                        <p><strong>Size: </strong><a href="{% url 'products' %}?size=S">Small</a></p>
-                                                    {% elif product.size == "M" %}
-                                                        <p><strong>Size: </strong><a href="{% url 'products' %}?size=M">Medium</a></p>
-                                                    {% elif product.size == "L" %}
-                                                        <p><strong>Size: </strong><a href="{% url 'products' %}?size=L">Large</a></p>
-                                                    {% elif product.size == "XL" %}
-                                                        <p><strong>Size: </strong><a href="{% url 'products' %}?size=XL">Extra Large</a></p>
-                                                    {% endif %}
-                                                {% endif %}
-                                                {% if product.condition %}
-                                                    <p><strong>Condition: </strong><a href="{% url 'products' %}?condition={{ product.condition.name }}">{{ product.condition.friendly_name }}</a></p>
-                                                {% endif %}
-                                                {% if product.player_issue or product.signed %}
-                                                    <p><strong>Special features: </strong>
-                                                        {% if product.player_issue and product.signed %}
-                                                            This is a player issue shirt which is also signed!
-                                                        {% else %}
-                                                            {% if product.player_issue %}
-                                                                This is a player issue shirt!
-                                                            {% elif product.signed %}
-                                                                This shirt is signed!
-                                                            {% endif %}
+                                            {% endif %}
+                                            {% if product.condition %}
+                                                <p><strong>Condition: </strong><a href="{% url 'products' %}?condition={{ product.condition.name }}">{{ product.condition.friendly_name }}</a></p>
+                                            {% endif %}
+                                            {% if product.player_issue or product.signed %}
+                                                <p><strong>Special features: </strong>
+                                                    {% if product.player_issue and product.signed %}
+                                                        This is a player issue shirt which is also signed!
+                                                    {% else %}
+                                                        {% if product.player_issue %}
+                                                            This is a player issue shirt!
+                                                        {% elif product.signed %}
+                                                            This shirt is signed!
                                                         {% endif %}
-                                                    </p>
-                                                {% endif %}
+                                                    {% endif %}
+                                                </p>
+                                            {% endif %}
 
-                                            </div>
-                                            <div class="card-footer border-0 text-left">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button type="button" class="btn rounded-0 text-uppercase mt-auto add-btn {% if product.sku in bag_skus %}d-none{% else %}d-block{% endif %}" value="{{ product.id }}">Add to bag</button>
-                                                        <button type="button" class="btn rounded-0 text-uppercase mt-auto remove-btn {% if product.sku in bag_skus %}d-block{% else %}d-none{% endif %}" value="{{ product.id }}">Remove from bag</button>
-                                                    </div>
+                                        </div>
+                                        <div class="card-footer border-0 text-left">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" class="btn rounded-0 text-uppercase mt-auto add-btn {% if product.sku in bag_skus %}d-none{% else %}d-block{% endif %}" value="{{ product.id }}">Add to bag</button>
+                                                    <button type="button" class="btn rounded-0 text-uppercase mt-auto remove-btn {% if product.sku in bag_skus %}d-block{% else %}d-none{% endif %}" value="{{ product.id }}">Remove from bag</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            {% endfor %}
-                        {% else %}
-                            <p class="fs-4">Sorry, there are no products to show!</p>
-                            <p class="fs-4"><a href="{% url 'products' %}">View all products</a></p>
-                        {% endif %}
-                    </div>
-
-                    {% if page_obj.has_next %}
-                        <p class="fs-5 text-end">
-                            <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page">Next page<i class="bi bi-chevron-right"></i></a>
-                        </p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="fs-4">Sorry, there are no products to show!</p>
+                        <p class="fs-4"><a href="{% url 'products' %}">View all products</a></p>
                     {% endif %}
-
                 </div>
-        </div>
-        
+
+                {% if page_obj.has_next %}
+                    <p class="fs-5 text-end">
+                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page">Next page<i class="bi bi-chevron-right"></i></a>
+                    </p>
+                {% endif %}
+
+            </div>
+        </div>        
     </div>
     <div class="btt-button">
         <a class="btt-link d-flex h-100" aria-label="Back to top">
