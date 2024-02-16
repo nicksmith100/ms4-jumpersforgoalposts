@@ -10,23 +10,7 @@
     <div class="overlay"></div>
     <div class="content-container container-fluid">
         
-        <!-- Image modal -->
-        <div class="modal fade modal-lg" id="image-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .image modal -->
+        {% include 'includes/modal.html' %}
 
         <div class="row">
             <div id="product-container" class="col-10 offset-1">
@@ -216,33 +200,4 @@
             <i class="fs-1 bi bi-arrow-up-circle-fill"></i>
         </a>
     </div>
-{% endblock %}
-
-{% block extra_scripts %}
-<script>
-    let addUrl = "{% url 'add_to_bag' %}";
-    let removeUrl = "{% url 'remove_from_bag' %}"
-
-    // /* Modal (Code from: https://getbootstrap.com/docs/5.3/components/modal/#varying-modal-content) */
-    
-    let imageModal = document.getElementById('image-modal')
-    imageModal.addEventListener('show.bs.modal', function (event) {
-    
-        // Anchor that triggered the modal
-        let anchor = event.relatedTarget
-        
-        // Extract info from data-bs-* attributes
-        let image = anchor.getAttribute('data-bs-image')
-        let imageTitle = anchor.getAttribute('data-bs-image-title')
-
-        // Update the modal's content.
-        let modalTitle = imageModal.querySelector('.modal-title')
-        let modalBody = imageModal.querySelector('.modal-body')
-
-        modalTitle.textContent = imageTitle
-        modalBody.innerHTML = `<img src="${image}" alt="${imageTitle}" class="w-100">`
-    
-    })    
-
-</script>
 {% endblock %}
