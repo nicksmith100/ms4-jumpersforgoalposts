@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'checkout',
 
     # Other
+    'crispy_forms',
     'storages',
 
 ]
@@ -69,6 +70,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'jumpers_for_goalposts.urls'
+
+# Using bootstrap 4 template pack because bootstrap 5 template pack would require upgrade to Django 4
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -87,6 +91,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
+            'builtins':[
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
