@@ -201,3 +201,10 @@
         </a>
     </div>
 {% endblock %}
+
+{% block extra_scripts %}
+<script>
+    let addUrl = "{% url 'add_to_bag' %}";
+    let removeUrl = "{% url 'remove_from_bag' %}"
+</script>
+{% endblock %}
