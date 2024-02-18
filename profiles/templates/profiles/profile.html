@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block header %}
+    {% include 'includes/header.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="row">
+        <div id="checkout-container" class="col col-sm-10 offset-sm-1 bg-light p-3">
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <h1>Profile</h1>
+                </div>
+            </div>
+        </div>
+{% endblock %}
