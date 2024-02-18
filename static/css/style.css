@@ -39,9 +39,9 @@ a:focus {
 
 .btn-blue,
 .add-btn {
-    background-color: #2c314f;
-    border: 2px solid #fff2cd;
-    color: #fff2cd;
+    background-color: #2c314f !important;
+    border: 2px solid #fff2cd !important;
+    color: #fff2cd !important;
 }
 
 .btn-blue:hover,
@@ -382,4 +382,26 @@ a:focus {
     right: 20px;
     z-index: 999;
 }
+
+/* ALLAUTH FORMS */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+}
+
+.allauth-form-inner-content input {
+    border-color: #0d0f18;
+    border-radius: 0;
+    margin: 5px 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+
 
