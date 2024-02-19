@@ -1,20 +1,21 @@
+/* FORM ELEMENTS */
+
 .StripeElement,
-.stripe-style-input {
+.checkout-form-input {
   box-sizing: border-box;
-  height: 40px;
   padding: 10px 12px;
+  height: 45px;
   border: 1px solid transparent;
   border-radius: 0px;
   background-color: white;
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
-  margin-bottom: 3px;
 }
 
 .StripeElement--focus,
-.stripe-style-input:focus,
-.stripe-style-input:active {
+.checkout-form-input:focus,
+.checkout-form-input:active {
   box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
@@ -22,7 +23,7 @@
   background-color: #fefde5 !important;
 }
 
-.stripe-style-input::placeholder {
+.checkout-form-input::placeholder {
   color: #aab7c4;
 }
 
@@ -48,6 +49,8 @@ select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
 }
+
+/* LOADING OVERLAY */
 
 #loading-overlay {
 	display: none;
