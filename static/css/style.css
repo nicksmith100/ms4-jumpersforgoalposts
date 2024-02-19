@@ -403,5 +403,47 @@ a:focus {
     color: #aab7c4;
 }
 
+/* FORMS */
 
+.custom-form .form-control {
+    color: #0d0f18;
+    border: 1px solid #0d0f18;
+}
 
+.custom-form input::placeholder {
+    color: #aab7c4;
+}
+
+.custom-form-input {
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.custom-form-input[type=checkbox] {
+    height: 3px;
+    width: 3px;
+    border-radius: 0;
+}
+  
+.custom-form-input:focus,
+.custom-form-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+    
+.custom-form .fieldset-label {
+    position: relative;
+    right: 0.4rem;
+}
+ 
+.custom-form select,
+.custom-form select option {
+      color: #0d0f18;
+      -moz-appearance: menulist !important; 
+      -webkit-appearance: menulist !important;
+}

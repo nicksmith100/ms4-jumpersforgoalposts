@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, League
+from .forms import ProductForm
 
 # Create your views here.
 
@@ -156,3 +157,14 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

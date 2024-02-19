@@ -50,7 +50,7 @@ class Product(models.Model):
     team = models.ForeignKey('Team', null=True, blank=True, on_delete=models.SET_NULL)
     year = models.IntegerField('Year', null=True, blank=True)
     condition = models.ForeignKey('Condition', null=True, blank=True, on_delete=models.SET_NULL)
-    home_away = models.CharField(max_length=254, null=True, blank=True)
+    home_away = models.CharField(max_length=254, null=True, blank=True, verbose_name='Home/Away')
     season = models.CharField(max_length=254, null=True, blank=True)
     player_issue = models.BooleanField(default=False)
     signed = models.BooleanField(default=False)
