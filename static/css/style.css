@@ -425,12 +425,11 @@ a:focus {
     transition: box-shadow 150ms ease;
 }
 
-.custom-form-input[type=checkbox] {
-    height: 3px;
-    width: 3px;
+.custom-form .form-check {
     border-radius: 0;
+
 }
-  
+
 .custom-form-input:focus,
 .custom-form-input:active {
     box-shadow: 0 1px 3px 0 #cfd7df;
@@ -446,4 +445,21 @@ a:focus {
       color: #0d0f18;
       -moz-appearance: menulist !important; 
       -webkit-appearance: menulist !important;
+}
+
+#div_id_signed,
+#div_id_player_issue {
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#div_id_player_issue .checkboxinput,
+#div_id_signed .checkboxinput {
+    border-radius: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-right: 0.5em !important;
 }

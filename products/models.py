@@ -40,17 +40,29 @@ class Condition(models.Model):
 
 class Product(models.Model):
     
+    SIZES = (
+        ('S', ('Small')),
+        ('M', ('Medium')),
+        ('L', ('Large')),
+        ('XL', ('Extra Large')),
+    )
+    
+    HOMEAWAY = (
+        ('Home', ('Home')),
+        ('Away', ('Away')),
+    )
+
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    size = models.CharField(max_length=254, null=True, blank=True)
+    size = models.CharField(max_length=254, null=True, blank=True, choices=SIZES)
     image = models.ImageField(null=True, blank=True)
     league = models.ForeignKey('League', null=True, blank=True, on_delete=models.SET_NULL)
     team = models.ForeignKey('Team', null=True, blank=True, on_delete=models.SET_NULL)
     year = models.IntegerField('Year', null=True, blank=True)
     condition = models.ForeignKey('Condition', null=True, blank=True, on_delete=models.SET_NULL)
-    home_away = models.CharField(max_length=254, null=True, blank=True, verbose_name='Home/Away')
+    home_away = models.CharField(max_length=254, null=True, blank=True, verbose_name='Home/Away', choices=HOMEAWAY)
     season = models.CharField(max_length=254, null=True, blank=True)
     player_issue = models.BooleanField(default=False)
     signed = models.BooleanField(default=False)

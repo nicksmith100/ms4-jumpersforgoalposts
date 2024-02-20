@@ -17,12 +17,8 @@ class ProductForm(forms.ModelForm):
         league_friendly_names = [(l.id, l.get_friendly_name()) for l in leagues]
         team_friendly_names = [(t.id, t.get_friendly_name()) for t in teams]
         condition_friendly_name = [(c.id, c.get_friendly_name()) for c in conditions]
-
-        self.fields['size'].choices = ['S','M','L','XL']
         self.fields['league'].choices = league_friendly_names
         self.fields['team'].choices = team_friendly_names
         self.fields['condition'].choices = condition_friendly_name
-        self.fields['home_away'].choices = ['Home','Away']
-        
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'custom-form-input form-control my-2'
