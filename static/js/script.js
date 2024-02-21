@@ -111,9 +111,40 @@ $(document).ready(function(){
 
     }
 
+    /* Delete product (products page admin) */
+
+    /* Display confirmation and cancel links */
+    let deleteBtns = document.querySelectorAll(".delete-btn")
+
+    deleteBtns.forEach(deleteBtn=>{
+        deleteBtn.addEventListener("click", showDeleteConfirmationBtn)
+    })
+    function showDeleteConfirmationBtn(e){
+        
+        e.target.innerHTML="Are you sure?";
+        e.target.disabled=true;
+        e.target.nextElementSibling.classList.remove("d-none");
+        e.target.nextElementSibling.classList.add("d-block");
+        
+    }
+
+    /* Hide confirmation and cancel links */
+    let deleteCancelLinks = document.querySelectorAll(".delete-cancel")
+
+    deleteCancelLinks.forEach(deleteCancelLink=>{
+        deleteCancelLink.addEventListener("click", hideDeleteConfirmationBtn)
+    })
+    function hideDeleteConfirmationBtn(e){
+        
+        e.target.parentElement.classList.remove("d-block");
+        e.target.parentElement.classList.add("d-none");
+        e.target.parentElement.previousElementSibling.innerHTML="Delete product";
+        e.target.parentElement.previousElementSibling.disabled=false;
+    }
+
     /* Remove-from-bag (bag page) */
 
-    /* Display confirmation and cancel buttons button */
+    /* Display confirmation and cancel buttons */
     let bagRemoveBtns = document.querySelectorAll(".bag-remove-btn")
 
     bagRemoveBtns.forEach(bagRemoveBtn=>{
