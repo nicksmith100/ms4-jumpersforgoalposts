@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    
+    <div class="overlay"></div>
+    <div class="content-container container-fluid">
+        
+        <div class="row">
+            <div id="faqs-container" class="col-10 offset-1 bg-light p-2">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1>Frequently Asked Questions</h1>
+                    </div>
+                </div>                   
+                <div class="row">
+                    {% if faqs|length > 0 %}
+                        {% for faq in faqs %}
+                            
+                        <h2>{{faq.question}}</h2>
+                        <p>{{faq.answer}}</p>
+
+                        {% endfor %}
+                    {% else %}
+                        <p class="fs-4">Sorry, there are no questions to show!</p>
+                        <p class="fs-4"><a href="{% url 'products' %}">Return to shop</a></p>
+                    {% endif %}
+                </div>
+
+                {% if page_obj.has_next %}
+                    <p class="fs-5 text-end">
+                        <a href="?{% if current_filter %}{{ current_filter }}&{% endif %}{% if current_sorting != 'None_None' %}{{ sort_string }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next page">Next page<i class="bi bi-chevron-right"></i></a>
+                    </p>
+                {% endif %}
+
+            </div>
+        </div>        
+    </div>
+    <div class="btt-button">
+        <a class="btt-link d-flex h-100" aria-label="Back to top">
+            <i class="fs-1 bi bi-arrow-up-circle-fill"></i>
+        </a>
+    </div>
+{% endblock %}
