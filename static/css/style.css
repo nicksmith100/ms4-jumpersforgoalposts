@@ -1,6 +1,6 @@
 /* --- GENERAL STYLES --- */
 
-@import url('https://fonts.googleapis.com/css2?family=family=Fredoka:wght@300..700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=family=Fredoka:wght@300..700&display=swap');
 
 html {
     height: 100%;
@@ -84,6 +84,29 @@ a:focus {
     color: #4c588d;
 }
 
+.bg-blue {
+    background: #2c314f;
+}
+
+.border-blue {
+    border: 2px solid #2c314f;
+}
+
+.text-blue {
+    color: #0d0f18;
+}
+
+.text-cream {
+    color: #fff2cd;
+}
+
+.border-cream {
+    border: 2px solid #fff2cd;
+}
+
+.bg-cream {
+    background: #fff2cd;
+}
 
 /* Sweep effect - code from https://github.com/IanLunn/Hover/blob/master/css/hover.css */
 
@@ -251,7 +274,7 @@ a:focus {
 	left: 0;
 	position: fixed;
 	background: white;
-    opacity: 0.5;
+    opacity: 0.7;
 	z-index: -1;
 }
 
@@ -290,26 +313,6 @@ a:focus {
     width: 150px;
 }
 
-.bg-blue {
-    background: #2c314f;
-}
-
-.border-blue {
-    border: 2px solid #2c314f;
-}
-
-.text-blue {
-    color: #0d0f18;
-}
-
-.text-cream {
-    color: #fff2cd;
-}
-
-.border-cream {
-    border: 2px solid #fff2cd;
-}
-
 .dropdown-menu {
     min-width: 1rem;
     width: max-content;
@@ -326,6 +329,12 @@ a:focus {
 
 
 /* --- PRODUCTS --- */
+
+/* Sort selector */
+
+#sort-selector {
+    min-height: 37px;
+}
 
 /* Flip animation for product cards */
 
