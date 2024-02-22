@@ -209,8 +209,9 @@
 {% endblock %}
 
 {% block extra_scripts %}
-<script>
-    let addUrl = "{% url 'add_to_bag' %}";
-    let removeUrl = "{% url 'remove_from_bag' %}"
-</script>
+    <script>
+        let addUrl = "{% url 'add_to_bag' %}";
+        let removeUrl = "{% url 'remove_from_bag' %}"
+    </script>
+    <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
