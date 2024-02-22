@@ -1,5 +1,7 @@
 /* --- GENERAL STYLES --- */
 
+@import url('https://fonts.googleapis.com/css2?family=family=Fredoka:wght@300..700&display=swap')
+
 html {
     height: 100%;
 }
@@ -10,6 +12,7 @@ body {
     background-size: cover;
     height: 100vh;
     color: #0d0f18;
+    font-family: 'Fredoka', Arial, Helvetica, sans-serif;
 }
 
 /* Vertical background in portrait mode */
