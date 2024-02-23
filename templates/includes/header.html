@@ -78,7 +78,7 @@
       </ul>
       <ul class="d-flex navbar-nav order-md-last">
         <li class="list-unstyled nav-item dropdown ms-auto">
-          <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="bi bi-person-circle"></i> <span class="d-md-none">Account</span></button>
+          <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="bi bi-person-circle"></i> <span class="d-md-none"> Account</span></button>
             <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-account">
               {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
@@ -93,7 +93,10 @@
             </ul>
         </li>
         <li class="list-unstyled nav-item ms-auto">
-          <a href="{% url 'faqs' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="faqs" aria-expanded="false" aria-label="FAQs"><i class="bi bi-question-square-fill"></i> <span class="d-md-none">FAQs</span></a>
+          <a href="{% url 'faqs' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="faqs" aria-expanded="false" aria-label="FAQs"><i class="bi bi-question-square-fill"></i> <span class="d-md-none"> FAQs</span></a>
+        </li>
+        <li class="list-unstyled nav-item ms-auto">
+          <a href="{% url 'newsletter' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="newsletter" aria-expanded="false" aria-label="Newsletter"><i class="bi bi-newspaper"></i> <span class="d-md-none"> Newsletter</span></a>
         </li>
         <li class="list-unstyled nav-item ms-auto">
           <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i><span id="product-count"> {{ product_count }} </span>

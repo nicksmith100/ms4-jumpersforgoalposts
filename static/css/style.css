@@ -278,6 +278,29 @@ a:focus {
 	z-index: -1;
 }
 
+
+/* --- HEADER --- */
+
+.navbar-img {
+    width: 150px;
+}
+
+.dropdown-menu {
+    min-width: 1rem;
+    width: max-content;
+    background-color:#fff2cd;
+}
+
+.dropdown-item {
+    color: #0d0f18;
+}
+
+.search-box {
+    background-color: #fff2cd;
+    height: 44px;
+}
+
+
 /* --- HOME --- */
 
 .badge-img {
@@ -304,27 +327,6 @@ a:focus {
         top: 50px;
     }
 
-}
-
-
-/* --- HEADER --- */
-
-.navbar-img {
-    width: 150px;
-}
-
-.dropdown-menu {
-    min-width: 1rem;
-    width: max-content;
-    background-color:#fff2cd;
-}
-
-.dropdown-item {
-    color: #0d0f18;
-}
-
-.search-box {
-    background-color: #fff2cd;
 }
 
 
