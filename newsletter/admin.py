@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Newsletter
+from .models import Subscriber
 from products.models import Team
 
 class NewsletterAdmin(admin.ModelAdmin):
@@ -13,4 +13,4 @@ class NewsletterAdmin(admin.ModelAdmin):
         'team_news_only',
     )
 
-admin.site.register(Newsletter, NewsletterAdmin)
+admin.site.register(Subscriber, NewsletterAdmin)

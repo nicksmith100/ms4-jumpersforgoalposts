@@ -3,7 +3,7 @@ from django.db import models
 from products.models import Team
 from profiles.models import UserProfile
 
-class Newsletter(models.Model):
+class Subscriber(models.Model):
 
     name = models.CharField(max_length=254)
     email = models.CharField(max_length=254)

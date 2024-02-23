@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="content-container container-fluid">
+        <div class="row">
+            <div id="newsletter-container" class="col-10 offset-1 bg-light p-3">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1>Sign up to our newsletter!</h1>
+                        <p>Subsribe to our newsletter to recieve updates on new items and special offers</p>
+                    </div>
+                </div>                   
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-2">
+                        <form method="POST" action="{% url 'newsletter' %}" class="form mb-2 custom-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <div class="text-end mt-3">
+                                <a class="btn btn-blue rounded-0 hvr-sweep-to-left" href="{% url 'products' %}">Cancel</a>
+                                <button class="btn btn-blue rounded-0 hvr-sweep-to-right" type="submit">Sign up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    let teamSelected = $('#id_favourite_team').val();
+    console.log(teamSelected)
+    if(!teamSelected) {
+        $('#id_favourite_team').css('color', '#aab7c4');
+    };
+    $('#id_favourite_team').change(function() {
+        teamSelected = $(this).val();
+        if(!teamSelected) {
+            $(this).css('color', '#aab7c4');
+        } else {
+            $(this).css('color', '#000');
+        }
+    });
+</script>
+{% endblock %}
