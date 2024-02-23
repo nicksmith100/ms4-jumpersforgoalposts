@@ -168,4 +168,54 @@ $(document).ready(function(){
         e.target.parentElement.previousElementSibling.disabled=false;
     }
 
+    /* Add product form */
+    
+    /* Image upload
+    Code from Boutique Ado walkthrough */
+    $('#new-image').change(function() {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+
+    /* Grey out selector boxes when unselected */ 
+    
+    let leagueSelected = $('#id_league').val();
+    if(!leagueSelected) {
+        $('#id_league').css('color', '#aab7c4');
+    };
+    $('#id_league').change(function() {
+        leagueSelected = $(this).val();
+        if(!league) {
+            $(this).css('color', '#aab7c4');
+        } else {
+            $(this).css('color', '#0d0f18');
+        }
+    });
+    
+    let teamSelected = $('#id_team').val();
+    if(!teamSelected) {
+        $('#id_team').css('color', '#aab7c4');
+    };
+    $('#id_team').change(function() {
+        teamSelected = $(this).val();
+        if(!teamSelected) {
+            $(this).css('color', '#aab7c4');
+        } else {
+            $(this).css('color', '#0d0f18');
+        }
+    });
+
+    let conditionSelected = $('#id_condition').val();
+    if(!conditionSelected) {
+        $('#id_condition').css('color', '#aab7c4');
+    };
+    $('#id_condition').change(function() {
+        conditionSelected = $(this).val();
+        if(!conditionSelected) {
+            $(this).css('color', '#aab7c4');
+        } else {
+            $(this).css('color', '#0d0f18');
+        }
+    });
+
 });
