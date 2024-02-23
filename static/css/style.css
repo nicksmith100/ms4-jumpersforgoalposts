@@ -8,7 +8,7 @@ html {
 
 /* Horizontal background by default */
 body {
-    background: url('/media/background_h.webp') no-repeat center center fixed;
+    background: url('/static/images/background_h.webp') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     color: #0d0f18;
@@ -18,7 +18,7 @@ body {
 /* Vertical background in portrait mode */
 @media (orientation: portrait) {
     body {
-        background: url('/media/background_v.webp') no-repeat center center fixed;
+        background: url('/static/images/background_v.webp') no-repeat center center fixed;
         background-size: cover;
         height: 100vh;
     }
