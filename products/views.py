@@ -31,7 +31,7 @@ def get_pages(page_number, items):
 def all_products(request):
     """ View to return all products, including sorting and search queries """
     
-    products = Product.objects.all()
+    products = Product.objects.filter(sold=False)
     query = None
     leagues = None
     years = None
