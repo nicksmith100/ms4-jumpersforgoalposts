@@ -185,7 +185,7 @@ $(document).ready(function(){
     };
     $('#id_league').change(function() {
         leagueSelected = $(this).val();
-        if(!league) {
+        if(!leagueSelected) {
             $(this).css('color', '#aab7c4');
         } else {
             $(this).css('color', '#0d0f18');
