@@ -22,7 +22,7 @@ def newsletter(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 newsletter_form = NewsletterForm(initial={
-                    'name': profile.user.get_full_name(),
+                    'name': profile.default_full_name,
                     'email': profile.user.email,
                 })
             except UserProfile.DoesNotExist:
