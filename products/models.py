@@ -66,6 +66,7 @@ class Product(models.Model):
     season = models.CharField(max_length=254, null=True, blank=True)
     player_issue = models.BooleanField(default=False)
     signed = models.BooleanField(default=False)
+    sold = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

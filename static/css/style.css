@@ -463,7 +463,8 @@ a:focus {
 
 #div_id_signed,
 #div_id_player_issue,
-#div_id_team_news_only {
+#div_id_team_news_only,
+#div_id_sold {
     padding: 0;
     margin: 20px 0 0 0;
     display: flex;
@@ -473,7 +474,8 @@ a:focus {
 
 #div_id_player_issue .checkboxinput,
 #div_id_signed .checkboxinput,
-#div_id_team_news_only .checkboxinput {
+#div_id_team_news_only .checkboxinput,
+#div_id_sold .checkboxinput {
     border-radius: 0;
     padding: 0 !important;
     margin: 0 !important;
