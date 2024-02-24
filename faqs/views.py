@@ -21,7 +21,7 @@ def all_faqs(request):
 @login_required
 def add_faq(request):
     """ Add a question and answer to FAQs """
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('home'))
     
@@ -46,7 +46,7 @@ def add_faq(request):
 @login_required
 def edit_faq(request, faq_id):
     """ Edit a question and answer in FAQs """
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('home'))
 
@@ -75,7 +75,7 @@ def edit_faq(request, faq_id):
 @login_required
 def delete_faq(request, faq_id):
     """ Delete a question from FAQs """
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('home'))
         

@@ -27,7 +27,7 @@
                                             <div>
                                                     {{faq.answer}}
                                             </div>
-                                            {% if request.user.is_superuser %}
+                                            {% if request.user.is_staff %}
                                                 <div class="mt-3">
                                                     <a href="{% url 'edit_faq' faq.id %}" class="btn btn-secondary rounded-0 text-uppercase mt-auto edit-btn">Edit</a>
                                                     <button type="button" class="btn btn-danger rounded-0 text-uppercase mt-auto delete-btn">Delete</button>
@@ -48,7 +48,7 @@
                             <p class="fs-4"><a href="{% url 'products' %}">Return to shop</a></p>
                         </div>
                     {% endif %}
-                    {% if request.user.is_superuser %}
+                    {% if request.user.is_staff %}
                     <div class="row">
                         <div class="col mt-3">
                             <a href="{% url 'add_faq' %}" class="btn btn-blue rounded-0 text-uppercase mt-auto add-btn hvr-sweep-to-right">Add</a>

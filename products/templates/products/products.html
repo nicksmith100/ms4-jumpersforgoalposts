@@ -15,7 +15,7 @@
                         <h1>Products</h1>
                         <!-- Notify admin if they are viewing sold products -->
                         {% if sold_products %}
-                            {% if request.user.is_superuser %}
+                            {% if request.user.is_staff %}
                                 <p class="fw-bold text-danger">You are viewing sold products only. Select an items to delete or edit.</p>
                                 <p><a href="{% url 'products' %}">View all products</a></p>
                             {% endif %}
@@ -177,7 +177,7 @@
                                                     <button type="button" class="btn rounded-0 text-uppercase mt-auto add-btn {% if product.sku in bag_skus %}d-none{% else %}d-block{% endif %}" value="{{ product.id }}">Add to bag</button>
                                                     <button type="button" class="btn rounded-0 text-uppercase mt-auto remove-btn {% if product.sku in bag_skus %}d-block{% else %}d-none{% endif %}" value="{{ product.id }}">Remove from bag</button>
                                                 </div>
-                                                {% if request.user.is_superuser %}
+                                                {% if request.user.is_staff %}
                                                     <div class="col">
                                                         <a href="{% url 'edit_product' product.id %}" class="btn btn-secondary rounded-0 text-uppercase mt-auto edit-btn">Edit</a>
                                                         <button type="button" class="btn btn-danger rounded-0 text-uppercase mt-auto delete-btn">Delete</button>
@@ -194,8 +194,10 @@
                             </div>
                         {% endfor %}
                     {% else %}
-                        <p class="fs-4">Sorry, there are no products to show!</p>
-                        <p class="fs-4"><a href="{% url 'products' %}">View all products</a></p>
+                        <div class="col-12 bg-light p-3">
+                            <p class="fs-4">Sorry, there are no products to show!</p>
+                            <p class="fs-5"><a href="{% url 'products' %}">View all products</a></p>
+                        </div>
                     {% endif %}
                 </div>
 
