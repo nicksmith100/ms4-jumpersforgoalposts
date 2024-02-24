@@ -390,7 +390,6 @@ a:focus {
 /* --- MESSAGES --- */
 
 .alert {
-    width: max-content;
     max-width: 100vw;
     z-index: 999;
     position: fixed;
