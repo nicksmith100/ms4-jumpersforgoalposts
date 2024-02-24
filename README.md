@@ -70,21 +70,15 @@ D. As a **superuser**, in addition to the admin functions outlined above, I want
 
 ### Wireframes
 
-Wireframes were created using the Figma platform: [Figma - Folk on the Lawn]()
+Wireframes were created using the Figma platform: [Figma - Jumpers For Goalposts](https://www.figma.com/file/uwlFESlwKMuzSo25F4ccFt/Jumpers-For-Goalposts?type=design&node-id=0%3A1&mode=design&t=lA9PFoLqKGXvNOGx-1)
 
-<details><summary>Desktop wireframes - public</summary>
+<details><summary>Desktop wireframes</summary>
 
-![Desktop wireframes - public](docs/desktop_wireframes_public.png)
-
-</details>
-
-<details><summary>Desktop wireframes - admin/superuser</summary>
-
-![Desktop wireframes - admin/superuser](docs/desktop_wireframes_admin.png)
+![Desktop wireframes - public](docs/desktop_wireframes.png)
 
 </details>
 
-<details><summary>Mobile wireframes - public</summary>
+<details><summary>Mobile wireframes</summary>
 
 ![Mobile wireframes - public](docs/mobile_wireframes.png)
 
@@ -92,11 +86,13 @@ Wireframes were created using the Figma platform: [Figma - Folk on the Lawn]()
 
 Based on prior experience I decided that desktop and mobile wireframes would be sufficient to keep the overall layout of the site on track, the expectation being that [Bootstrap's grid system](https://getbootstrap.com/docs/5.3/layout/grid/) would provide the responsiveness required at different device breakpoints in between (see [Layout and Styling](#layout-and-styling) section below).
 
-Furthermore, the mobile wireframes do not include the admin/superuser pages, as I envisaged that these would generally be accessed using a desktop device, and seldom from a mobile device. While the site is of course accessible from any device and its content will adjust accordingly, I considered there to be little value in producing specific wireframes for this purpose.
+Furthermore, I focused the wireframes on the main product purchase workflow, recognising that this was where design choices would be key. The other pages contain simple forms and tables, so I considered there to be little value in producing specific wireframes for those pages.
 
 #### Differences between wireframes and final design
 
+The wireframes include a separate product details page (shown in the desktop wireframes only and labelled "not used"). However, during development I realised that I could reduce unnecessary navigation and provide a smoother user experience by keeping the user on the same page and simply flipping the product card to display the product details.
 
+Most other key features of the wireframes are retained in the final implementation, although aspects of the layout have evolved during the design and development process.
 
 ### Layout and Styling
 
