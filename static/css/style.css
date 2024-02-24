@@ -391,10 +391,11 @@ a:focus {
 
 .alert {
     width: max-content;
-    position: fixed;
-    top:20px;
-    right: 20px;
+    max-width: 100vw;
     z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 /* ALLAUTH FORMS */
