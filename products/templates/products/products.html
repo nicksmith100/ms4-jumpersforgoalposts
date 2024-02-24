@@ -13,6 +13,13 @@
                 <div class="row">
                     <div class="col-12 mb-2">
                         <h1>Products</h1>
+                        <!-- Notify admin if they are viewing sold products -->
+                        {% if sold_products %}
+                            {% if request.user.is_superuser %}
+                                <p class="fw-bold text-danger">You are viewing sold products only. Select an items to delete or edit.</p>
+                                <p><a href="{% url 'products' %}">View all products</a></p>
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>                   
                 <div class="row mt-1 mb-2">
