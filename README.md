@@ -26,29 +26,45 @@ This project creates an eCommerce website for a fictional business called Jumper
 
 ### Purpose
 
-
+An e-commerce site selling retro football shirts, which allows customers to browse and buy such shirts, while allowing site admins to add, edit and delete products.
 
 ### Client Goals
 
-
+The client is a fictional business called Jumpers For Goalposts. Their goals are to:
+- Have an engaging site which attracts interest from buyers of retro football shirts.
+- Drive sales of their retro football shirts by making the browsing and buying of products as straightforward as possible.
+- Minimise avoidable contact by providing easy-to-find information to potential buyers. 
 
 ### User Goals
 
+The primary goals of the user are to:
+- Browse retro football shirts using a variety of methods such as keyword searching, browsing by feature and listing based on different criteria.
+- Purchase selected shirts securely.
+- Find information about previous orders they have made.
 
-
-## Research
-
-
+Detailed user stories are provided in the [User Stories](#user-stories) section below.
 
 ## User Stories
 
 A. As a **first-time visitor** I want to:
+1. Establish what products are available on the site.
+2. Browse products using easy-to-follow navigation.
+3. Find answers to my questions.
   
-B. As a **returning visitor** I want to:  
+B. As a **returning visitor** I want to:
+1. Browse and search for specific products using a variety of methods.
+2. Purchase selected products.
+3. View details of my previous orders.  
 
 C. As an **admin user** I want to:
+1. Add products to the inventory.
+2. Edit or delete existing products in the inventory.
+3. Receive details of customer orders to be fulfilled.
+4. View sold items and mark them as unsold if necessary.
 
-D. As a **superuser**, in addition to the admin functions outlined above, I want to: 
+D. As a **superuser**, in addition to the admin functions outlined above, I want to:
+1. Add or edit product categories.
+2. Add or remove admins and amend their privileges. 
 
 ## Design
 
