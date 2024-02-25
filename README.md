@@ -111,59 +111,54 @@ The site uses the [Bootstrap 5.3 Grid system](https://getbootstrap.com/docs/5.3/
 
 In addition, the site uses the following specific components from the Bootstrap library:
 
-- [Navbar](https://getbootstrap.com/docs/5.3/components/navbar/) for the header and subheader.
-- [Form components](https://getbootstrap.com/docs/5.3/forms/overview/) throughout the admin and superuser pages.
+- [Navbar](https://getbootstrap.com/docs/5.3/components/navbar/) for the header.
+- [Cards](https://getbootstrap.com/docs/5.3/components/card/) to display product information on the products page.
+- [Accordion](https://getbootstrap.com/docs/5.3/components/accordion/) to provide a collapsible menu for the FAQs.
+- [Alerts](https://getbootstrap.com/docs/5.3/components/alerts/) to display status messages.
+- [Modal plugin](https://getbootstrap.com/docs/5.3/components/modal/) to display enlarged product images on click.
 - [Spacing](https://getbootstrap.com/docs/5.3/utilities/spacing/) and [typography](https://getbootstrap.com/docs/5.3/content/typography/) utility classes throughout, ensuring the layout and font are appropriate to the device in use.
 - [Color](https://getbootstrap.com/docs/5.3/utilities/colors/) utility classes to provide specific meaning to text throughout.
 - [Display property](https://getbootstrap.com/docs/5.3/utilities/display/) to toggle the visibility of some components at certain breakpoints.
-- [Modal plugin](https://getbootstrap.com/docs/5.3/components/modal/) to display alerts before items are deleted.
-- [Accordion](https://getbootstrap.com/docs/5.3/components/accordion/) to provide a collapsible menu for the schedule on the Line-up page.
-- [Cards](https://getbootstrap.com/docs/5.3/components/card/) to display artist information on the Line-up page (public) and the Artists page (admin).
 
+#### Media queries
+
+In addition to the responsive layout provided by Bootstrap, specific media queries are used to rotate the main background image to match the orientation of the device, and to change the sizes of the club badges on the home page.
 
 ### Imagery
 
-- **Main image**: 
+- The **Logo** is a retro-looking football badge, created using a template by [Kulokale on Canva](https://www.canva.com/templates/EAFNwkE8v5Y-retro-and-vintage-football-club-logo). 
 
-- **Footer image**
+- The **Background image** is an aerial photo of a football pitch, courtesy of [Timothy Tan on Unsplash](https://unsplash.com/photos/green-sports-court-illustration-PAe2UhGo-S4). The image is displayed in portrait or landscape depending on the orientation of the device in use, and a partially opaque overlay is placed over it throughout the site to ensure clarity of site content.
+
+- The **404 (Page Not Found)** error page includes a photo of a football going wide of a goal, courtesy of [Omar Ram on Unsplash](https://unsplash.com/photos/man-in-red-shirt-and-black-pants-playing-soccer-during-daytime-IvXnC7u6yD0)
+
+- The **club badges** on the home page are sourced from [Wikipedia](https://en.wikipedia.org/). Their use in this instance for educational purposes is considered to represent fair use.
   
-- **403 image**: The **403 (Forbidden)** error page includes...
-
-- **404 image**: The **404 (Page Not Found)** error page includes...
-
-- **500 image**: The **500 (Internal Server Error)** error page includes...
-
-- **Logo**: The logo is...
+  <details><summary>Logo</summary>
   
-  <details><summary>Full Logo</summary>
-  
-  ![Full logo](docs/logo.png)
+  ![Logo](docs/logo.png)
   
   </details>
 
-  <details><summary>Compressed Logo</summary>
+  <details><summary>Background image</summary>
   
-  ![Small logo](docs/logo_xs.png)
+  ![Background](docs/background.webp)
    
-  </details><br>
+  </details>
+
+  <details><summary>404 image</summary>
+  
+  ![404 image](docs/404.webp)
+   
+  </details>
 
 ### Colour Scheme
   
-- The **primary colour** of the website is...
+- The **main colours** used for site components (such as navigation items and buttons) are blue (#2C314F) and cream (#FFF2CD) to match the logo. These colours provide a contrast to the pale green background, and are distinctive enough to give the company a brand identity. Importantly, these colours are not associated with any major football team, and so will appear neutral to football fans visiting the site.  
 
-- The **logo** ...
+- The **button hover** colour is dark blue (#0D0F18), which is different enough to provide the necessary effect without detracting from the overall colour scheme. 
 
-- The **navbar** ...
-
-- The **admin menu** ...
-
-- The **footer** ...
-
-- The **background** ...
-
-- Primary **buttons** ...
-
-- Body **text** is black (#000000), while Boostrap's utility classes are used to convey meaning to text throughout, in particular .text-danger (#DC3545) for urgent warnings, and .text-info (#0DCAF0) for flash messages.
+- Body **text** is the same dark blue (#0D0F18), while Boostrap's utility classes are used to convey meaning to text throughout, such as .text-danger (#DC3545) for urgent warnings.
 
   <details><summary>Colour scheme palette</summary>
 
@@ -173,33 +168,17 @@ In addition, the site uses the following specific components from the Bootstrap 
 
 ### Typography
 
-- The **logo**, **headings** and **navigation items** use ...
+- The site uses [Fredoka](https://fonts.google.com/specimen/Fredoka) throughout, imported from [Google Fonts](https://fonts.google.com/). Fredoka is a retro-looking font which fits with the theme and aesthetic of the site.
 
-    <details><summary>FONT NAME</summary>
+    <details><summary>Fredoka font</summary>
 
-    ![FONTNAME](docs/fontname.png)
+    ![Fredoka font](docs/fredoka.png)
 
-    </details><br>
-
-- The **strapline** ...
-
-    <details><summary>FONTNAME</summary>
-
-    ![FONTNAME](docs/fontname.png)
-
-    </details><br>
-
-- The **body** and all other elements...
-
-    <details><summary>Noto Serif</summary>
-
-    ![Noto Serif](docs/noto_serif.png)
-
-    </details><br>
+    </details>
 
 ### Icons
 
-  [Bootstrap Icons](https://icons.getbootstrap.com/) have been used for **navigation items**, **social media links**, **buttons** and **form elements**, utilised as classes in the `<i>` tag.
+- [Bootstrap Icons](https://icons.getbootstrap.com/) have been used for **navigation items**, **alerts** and various **buttons**, utilised as classes in the `<i>` tag.
 
   <details><summary>Navigation icons</summary>
 
@@ -207,21 +186,41 @@ In addition, the site uses the following specific components from the Bootstrap 
 
   </details>
 
-  <details><summary>Button icons</summary>
+  <details><summary>Alerts</summary>
 
-  ![Navigation icons](docs/button_icons.png)
+  ![Success message](docs/success_message.png)
+  ![Info message](docs/info_message.png)
+  ![Warning message](docs/warning_message.png)
+  ![Error message](docs/error_message.png)
+
+  </details>
+
+  <details><summary>Button</summary>
+
+  ![Button](docs/button.png)
 
   </details>
   
 ### Favicon
 
-   The favicon is ..., generated using [Favicon Generator](https://www.favicon-generator.org/).
+- The **favicon** is the football from the logo, generated using [Favicon Generator](https://www.favicon-generator.org/).
 
   <details><summary>Favicon</summary>
 
   ![Favicon](docs/favicon.png)
 
   </details>
+
+### Loading spinner
+
+- The site utilises a **loading spinner** on the checkout page to illustrate that a page is loading. This is also the football from the logo, but with shadowing removed.
+
+  <details><summary>Loading Spinner</summary>
+
+  ![Loading spinner](docs/spinner.png)
+
+  </details>
+
 
 ## Features
 
