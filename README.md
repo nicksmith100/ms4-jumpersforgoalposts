@@ -60,7 +60,7 @@ B. As a **returning visitor** I want to:
 2. Purchase selected products.
 3. View details of my previous orders.  
 
-C. As an **admin user** I want to:
+C. As a **staff user** I want to:
 1. Add products to the inventory.
 2. Edit or delete existing products in the inventory.
 3. Receive details of customer orders to be fulfilled.
@@ -250,9 +250,9 @@ In addition to the responsive layout provided by Bootstrap, specific media queri
   
    To provide a better user experience and better meet the stated [Project Goals](#project-goals), the website also **could have**:
    - The option for registered users to select their favourite team(s), which would allow for prioritisation of those shirts when browsing, as well as alerts when new items relating to that team are added.
-   - A wishlist feature, allowing users to add items to a virtual bag for purchase at a later date.
    - The ability for a superuser to dynamically update the team badges displayed on the front page, allowing them to promote different teams at different times based on current events (e.g. promoting the two teams appearing in a cup final).
-   - A newsletter creation function, allowing admins to easily create and send newsletters via a form. 
+   - A newsletter creation function, allowing admins to easily create and send newsletters via a form.
+   - A wishlist feature, allowing users to add items to a virtual bag for purchase at a later date. 
 
 ### Python Functionality using Django
 
@@ -302,39 +302,102 @@ The data was cleaned, pruned, and then converted to JSON and formatted as a Djan
 
 ### Page Elements and Interaction
 
-The website provides different functionality depending on the user's credentials. Public users can is divided between public-facing pages which provide product details to external users sourced from the database, and admin pages (for logged in users) which allow admins to update product information in the database.
+The website provides different functionality depending on the user's credentials. In general:
+- **Public users**: Can browse for products, add them to their bag and securely check out. In addition, they can view general site content including FAQs, and subscribe to the newsletter. They also have the ability to sign up to become a registered user.
+- **Registered users**: As well as the above, they can update their profile with default contact and delivery information, and view past order history.
+- **Staff users**: As well as the above, they can add/edit/delete products, view sold items, and add/edit/delete FAQs.
+- **Superusers**: As well as the above, they can access an admin portal, allowing them to add/edit/delete users, and add additional fields to category models, e.g. additional leagues, teams and conditions. 
 
-#### Public pages and elements
+#### Header
 
-- **Header**: ...
+<details><summary>Header</summary>
+            
+![Header (xl)](docs/header_xl.png)
+
+</details><br>
+
+All pages include a header with the site logo, a category menu, a search bar and a navigation menu:
+
+- The **site logo** includes an anchor tag linking it to the homepage.
+- The **category menu** includes a series of buttons providing different product views. The first button allows all available products to be viewed, sorted by different criteria, while the remaining buttons allow products to be viewed by category or feature (size, year, league, or special category).
+
+  <details><summary>Category menu (all shirts)</summary>
+            
+  ![All shirts dropdown](docs/all_shirts_dropdown.png)
+
+  </details>
+
+  <details><summary>Category menu (leagues)</summary>
+            
+  ![Leagues dropdown](docs/leagues_dropdown.png)
+
+  </details><br>
+  
+- The **search bar** allows all products to be searched by keyword.
+- The **navigation menu** includes a dropown account menu, as well as links to FAQs, newsletter signup and shopping bag. The shopping bag provides an indication of number of items and bag total. The dropdown account menu provides an option to register or login, and for logged in users provides options to view their profile or logout. For logged in staff users it includes the additional options to add products or view sold products, while for superusers it includes a link to the admin menu.
+
+  <details><summary>Account menu (logged out)</summary>
+          
+  ![Account menu (logged out)](docs/nav_menu_acc_logged_out.png)
+
+  </details>
+
+  <details><summary>Account menu (logged in)</summary>
+          
+  ![Account menu (logged in)](docs/nav_menu_acc_logged_in.png)
+
+  </details>
+
+  <details><summary>Account menu (staff)</summary>
+          
+  ![Account menu (staff)](docs/nav_menu_acc_staff.png)
+
+  </details>
+
+  <details><summary>Account menu (superuser)</summary>
+          
+  ![Account menu (superuser)](docs/nav_menu_acc_superuser.png)
+
+  </details>
+
+##### Responsive layout
+
+- The category menu drops below the header at md and lg breakpoints.
+
+  <details><summary>Header (md)</summary>
+          
+  ![Header (md)](docs/header_md.png)
+
+  </details><br>
+
+- The navigation menu collapses to a hamburger menu with vertical navigation menu on sm viewports and below. In this mode the search bar is moved to the bottom to provide a better aesthetic.
+
+  <details><summary>Header (xs)</summary>
+            
+  ![Header (xs)](docs/header_xs.png)
+
+  </details><br>
+
+#### Home
+
+<details><summary>Home page</summary>
+            
+![Homepage (xl)](docs/home_xl.png)
+
+</details><br>
+
+The home page includes a quick access menu comprising the club badges of the twelve most popular teams. Being a UK-based website, this includes England's "top six" and Scotland's "top two", as well as a selection of the most popular teams across Europe. Clicking any of the badges will display products filtered to that team, while clicking "Shop the whole collection" will display all available products. 
+
+##### Responsive layout
+
+- Badges are displayed at different sizes and configurations based on the viewport breakpoint.
+- The background image is displayed horizontally or vertically depending on device orientation (this is true across all pages).
          
-    <details><summary>Header (lg)</summary>
-          
-    ![Header (lg)](docs/header_lg.png)
+  <details><summary>Home (xs)</summary>
+            
+  ![Home (xs)](docs/home_xs.png)
 
-    </details>
-        
-    <details><summary>Header (sm)</summary>
-          
-    ![Header (sm)](docs/header_sm.png)
-
-    </details>
-        
-    <details><summary>Header (xs)</summary>
-          
-    ![Header (xs)](docs/header_xs.png)
-
-    </details><br>
-
-- **Home page**: ...
-
-    <details><summary>Home (lg)</summary>
-    
-    </details>
-
-    <details><summary>Home (xs)</summary>
-
-    </details><br>
+  </details><br>
 
 - **OTHER PAGES**
   
