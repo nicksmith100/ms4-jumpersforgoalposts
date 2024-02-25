@@ -401,7 +401,7 @@ The home page includes a quick access menu comprising the club badges of the twe
 
 #### Products page
 
-The products page displays all available products by default.
+The products page displays all available products by default, i.e. all those with the sold field set to false.
 
 ##### Product cards
 
@@ -471,6 +471,15 @@ The products page displays all available products by default.
 
 If the user is staff or superuser:
 
+- Selecting "Add product" in the account dropdown take the user to a form where they can add a product.
+
+  <details><summary>Add product</summary>
+          
+  ![Add product 1](docs/add_product1.png)
+  ![Add product 2](docs/add_product2.png)
+
+  </details><br>
+
 - Selecting "Sold products" in the account dropdown provides the same product view, but only lists products with the sold field set to true. All other functions are the same as above.
 
   <details><summary>Sold products</summary>
@@ -485,6 +494,13 @@ If the user is staff or superuser:
           
   ![Edit and delete buttons](docs/product_details_staff.png)
   ![Delete confirmation](docs/product_details_delete.png)
+
+  </details>
+
+  <details><summary>Edit product</summary>
+          
+  ![Edit product 1](docs/edit_product1.png)
+  ![Edit product 2](docs/edit_product2.png)
 
   </details>
 
@@ -514,30 +530,160 @@ If the user is staff or superuser:
               
   ![Products (xxl)](docs/products_xxl.png)
 
+  </details>
+
+#### Shopping bag
+
+- Clicking the shopping bag icon takes the user to their shopping bag, which provides a summary for each item in the bag along with the bag total, delivery cost and grand total. The user can choose to keep shopping or checkout. 
+
+  <details><summary>Shopping bag</summary>
+              
+  ![Shopping bag](docs/bag.png)
+
   </details><br>
 
-   
-- **Flash messages**
+- The user also has the option to delete items from the bag. Clicking the "Delete" button displays cancel and confirm buttons, preventing accidental deletion.
 
-- **403 (Forbidden)**: A 403 (Forbidden) error is displayed in the event that a user tries to browse to a page that they are not authorised for. The 403 page includes...
+  <details><summary>Delete from bag</summary>
+              
+  ![Delete from bag](docs/bag_delete_item.png)
 
-- **404 (Page Not Found)**: A 404 (Page Not Found) error is displayed in the event that a user tries to browse to a page that does not exist. The 404 page includes...
+  </details>
 
-- **500 (Internal Server Error)**: A 500 (Internal Server Error) error is displayed in the event of an error in the application or the server. The 500 page includes...
+#### Checkout
 
-#### Admin pages and elements
+- Clicking "Secure checkout" from the shopping bag page takes them to the checkout page. Details will be auto-filled with user profile details if they exist, and the user has the option to save the details to their profile if they don't already exist.
 
-While all admin pages are fully responsive, screenshots below are shown in desktop format only, as they would be expected to be accessed primarily by desktop.
+  <details><summary>Checkout</summary>
+              
+  ![Checkout](docs/checkout.png)
 
-- **Login**: ...
-  
-    <details><summary>Login form</summary>
+  </details><br>
+
+- Payment processing is handled by [Stripe](https://stripe.com/gb) using their test platform. For demonstration purposes, any of the test cards provided in the [Stripe documentation](https://docs.stripe.com/testing?locale=en-GB) can be used to simulate a variety of scenarios, including successful and unsuccessful payments, verification checks, etc. For example, to simulate a successful purchase, **5555 5582 6555 4449** can be used as a UK card or **4242 4242 4242 4242** as a US card (in both cases using any future date, any three-digit CVC and any postcode/zip).
+
+- Upon successful checkout, the user is presented with a checkout success page. If they are logged in then the page includes their order details, otherwise they are informed that the details have been emailed to them. (This is because the backend provides a check to ensure the user is entitled to see the order details, which only works if the user is logged in.)
+
+  <details><summary>Checkout success</summary>
+              
+  ![Checkout success](docs/checkout_success.png)
+
+  </details>
+
+#### User profile
+
+- The profile page allows the user to update their default delivery information, and view a table of past orders if they exist. Clicking on the truncated order number takes them to an order confirmation page based on the checkout success template.
+
+  <details><summary>User Profile</summary>
+              
+  ![User Profile](docs/profile.png)
+
+  </details>
+
+#### FAQs
+
+- The FAQs page displays a list of questions and answers, utilising the [Bootstrap Accordion](https://getbootstrap.com/docs/5.3/components/accordion/) component to display answers when the related question is clicked. A contact email address is also provided beneath the FAQs accordion, placed here deliberately to ensure the user sees the FAQs before contacting te business by email, to minimise avoidable contact.
+
+  <details><summary>FAQs page</summary>
+              
+  ![FAQs page](docs/faqs.png)
+
+  </details>
+
+##### Admin functions
+
+If the user is staff or superuser:
+
+- An "Add" button is displayed at the bottom of the accordion, which takes the user to a form which allows them to add a question and answer to the database.
+
+  <details><summary>Add FAQ button</summary>
           
-    ![Login form](docs/login.png)
+  ![Add FAQ](docs/faq_add_button.png)
 
-    </details><br>
-  
+  </details>
+
+  <details><summary>Add FAQ form</summary>
+          
+  ![Add FAQ form](docs/add_faq.png)
+
+  </details><br>
+
+- "Delete" and "Edit" buttons are displayed beneath each answer. The "Delete" button displays confirmation and cancel links to avoid accidential deletion, while the "Edit" button takes the user to a form where they can edit the question and answer. 
+
+  <details><summary>FAQ Edit and Delete buttons</summary>
+          
+  ![FAQ edit and delete](docs/faq_edit_delete.png)
+
+  </details>
+
+  <details><summary>Edit FAQ form</summary>
+          
+  ![Edit FAQ form](docs/edit_faq.png)
+
+  </details>
+
+#### Newsletter
+
+- The newsletter page provides a simple sign-up form allowing the user to subscribe to the newsletter. Name and email will be auto-filled with user profile details if they exist. The Favourite team dropdown is populated from the teams model.
+
+  <details><summary>Newsletter</summary>
+          
+  ![Newsletter](docs/newsletter.png)
+
+  </details>
+
+#### Django admin portal
+
+Superusers have access to the Django admin portal, which allows them to access a range of sophisticated features such as adding and deleting users, changing user credentials, and adding entries to databases not covered by the features above (e.g. adding leagues, teams and conditions).
+
+  <details><summary>Django admin portal</summary>
+          
+  ![Django admin](docs/django_admin.png)
+
+  </details>
+
+#### Alerts
+
+[Bootstrap Alerts](https://getbootstrap.com/docs/5.3/components/alerts/) are used throughout, linked to the Django messaging framework in the backend to display status messages. Statuses are displayed with football-related expressions to link with the theme of the site.
+
+  <details><summary>Alerts</summary>
+
+  ![Success message](docs/success_message.png)
+  ![Info message](docs/info_message.png)
+  ![Warning message](docs/warning_message.png)
+  ![Error message](docs/error_message.png)
+
+  </details>
+
+##### Responsive layout
+
+- On xs and sm viewports alerts are sized to the full width of the viewport.
+
+  <details><summary>Alert (xs)</summary>
+
+  ![Alert (xs)](docs/alert_xs.png)
+
+  </details>
+
+#### Error pages
+
+Custom error pages which fit with the overall aesthetic of the site are presented in the event of 400, 403, 404 or 500 errors. The 404 page includes an image of a football going wide of a goal.
+
+  <details><summary>Custom 404 page</summary>
+
+  ![Custom 404 page](docs/page_404.png)
+
+  </details>
+
 ### JavaScript Functionality
+
+JavaScript is used throughout to provide an interactive user experience. While some JavaScript code comes directly from the Boutique Ado walkthrough or the Bootstrap library, the following JavaScript functionality has been provided over and above those.
+
+#### Asynchronous JavaScript And XML (AJAX)
+
+- Designing the products page to include add-to-bag buttons on the flip-side of each product card presented complications when coding the add-to-bag function. The Boutique Ado walkthrough uses a separate product page, and the add-to-bag view refreshes that page on completion. While it would have been possible to refresh the whole products page when adding an item to the bag, doing so would have reset product filters and ordering and returned the user to the top of the page, disrupting the flow of their purchase. For example, a user who had filtered to the shirts of their favourite team and wanted to add multiple products to their bag would need to repeat the product filtering process each time they wanted to add a product to their bag.
+
+- To provide a seamless add-to-bag function without disrupting the page, I found that I needed to utilise AJAX, and was able to use [this code by ClintonCode20](https://github.com/ClintonCode20/my_dj_shop/blob/main/store/static/js/script.js) for my purposes, adapting it to provide the additional functionality of toggling the add-to-bag button and its behaviour. I also followed parts of the excellent tutorial by the same developer here: [Build a shopping cart with Django](https://www.youtube.com/playlist?list=PL4FE-nQjkZLyw4pJ7s3kl_fThbTmPdZKd). This code was also adapted to provide similar functionality on the bag page.
 
 #### jQuery
 
@@ -545,8 +691,11 @@ While all admin pages are fully responsive, screenshots below are shown in deskt
 
 #### Flip cards
 
-- The flip card function on...
+- The flip card function on the products page uses CSS, but JavaScript has been used to add an event listener for toggling the "flipped" class. This functionality is ignored for anchor tags and images to allow links and the modal function to work.
 
+#### Confirm and Cancel buttons
+
+- Javascript is used to reveal confirm and cancel buttons for deletion and removal functions throughout the site. This provides defensive programming to avoid accidental deletion, while avoiding the disruptive appearance of a modal.
 
 ## Testing
 
