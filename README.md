@@ -399,9 +399,122 @@ The home page includes a quick access menu comprising the club badges of the twe
 
   </details><br>
 
-- **OTHER PAGES**
+#### Products page
+
+The products page displays all available products by default.
+
+##### Product cards
+
+- Each product is displayed in its own [Bootstrap Card](https://getbootstrap.com/docs/5.3/components/card/), including the product image, name, price, size and condition.
+- Clicking the product image displays a [modal](https://getbootstrap.com/docs/5.3/components/modal/) with a full-size image.
+- Clicking elsewhere on the product card flips it to reveal further details and an add-to-bag button.
+- Clicking the add-to-bag button adds the product to the user's bag, changes the button to a remove-from-bag button, and displays a success alert.
+- Clicking the remove-from-bag button removes it from the user's bag, changesthe button back to an add-to-bag button, and displays a warning alert.
+
+  <details><summary>Products page - image modal and flipped card</summary>
+              
+  ![Products modal](docs/product_modal_xl.png)
+  ![Products (xl)](docs/products_xl.png)
+
+  </details>
+
+  <details><summary>Products page - adding to bag and removing</summary>
+              
+  ![Product added](docs/product_added_xl.png)
+  ![Product removed](docs/product_removed_xl.png)
+
+  </details><br>
+
+##### Page navigation
+
+- [Pagination](https://docs.djangoproject.com/en/5.0/topics/pagination/) is used to manage the large number of products in the database. The number of products on each page is set to 36, as this is divisible by 2, 3 and 4 which are the possible number of cards in each row, thereby preventing any empty spaces in rows (except for the final row on the final page).
+
+  <details><summary>Pagination</summary>
+              
+  ![Pagination](docs/pagination.png)
+
+  </details><br>
+
+- The page includes a back-to-top button to avoid the user having to scroll all the way back when there are large numbers of products on the page.
+
+  <details><summary>Back-to-top button</summary>
+              
+  ![Back-to-top](docs/back_to_top.png)
+
+  </details><br>
+
+##### Searching, sorting and filtering
+
+- Searching by keywords reveals any matching products and displays the search terms and number of results at the top of the products page. Similarly, selecting products by category or feature displays the relevant filter and number of results at the top of the page. In both cases the filter or search terms can be cancelled by clicking the "x" next to them.
+
+  <details><summary>Keyword search</summary>
+          
+  ![Keyword search](docs/product_search.png)
+
+  </details>
+
+  <details><summary>Category filter</summary>
+          
+  ![Category filter](docs/product_team_filter.png)
+
+  </details><br>
+
+- Products can be sorted by a number of different criteria
+
+  <details><summary>Product ordering</summary>
+          
+  ![Product ordering](docs/product_ordering.png)
+
+  </details>
+
+##### Admin functions
+
+If the user is staff or superuser:
+
+- Selecting "Sold products" in the account dropdown provides the same product view, but only lists products with the sold field set to true. All other functions are the same as above.
+
+  <details><summary>Sold products</summary>
+          
+  ![Sold products](docs/sold_products.png)
+
+  </details><br>
+
+- The footer of the flipped product card includes "Edit" and "Delete" buttons. Clicking "Edit" takes the user to the relevant "Edit product" page, while clicking "Delete" triggers defensive programming, displaying cancel and confirm links to prevent accidental deletion.
+
+  <details><summary>Edit and delete buttons</summary>
+          
+  ![Edit and delete buttons](docs/product_details_staff.png)
+  ![Delete confirmation](docs/product_details_delete.png)
+
+  </details>
+
+##### Responsive layout
   
-  All elements are responsive, for example...
+- The page utilises [Bootstrap's column classes](https://getbootstrap.com/docs/5.3/layout/columns/) to display between one and four cards in each row depending on breakpoint.
+
+  <details><summary>Products (xs)</summary>
+              
+  ![Products (xs)](docs/products_xs.png)
+
+  </details>
+
+  <details><summary>Products (sm)</summary>
+              
+  ![Products (sm)](docs/products_sm.png)
+
+  </details>
+
+  <details><summary>Products (md)</summary>
+              
+  ![Products (xl)](docs/products_md.png)
+
+  </details>
+
+  <details><summary>Products (xxl)</summary>
+              
+  ![Products (xxl)](docs/products_xxl.png)
+
+  </details><br>
 
    
 - **Flash messages**
