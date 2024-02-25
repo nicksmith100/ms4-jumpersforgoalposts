@@ -229,14 +229,25 @@ In addition to the responsive layout provided by Bootstrap, specific media queri
 - #### Minimum Viable Product
 
   To be viable as an eCommerce site for retro football shirts and meet the stated [Project Goals](#project-goals), the website **must have**:
+  - Images and details of products for sale.
+  - A way for potential customers to browse products.
+  - A method for allowing customers to purchase selected products.
          
 - #### Additional Features (in scope)
 
   To provide a good user experience in line with the stated [Project Goals](#project-goals), the website **should have**:
+  - Sophisticated browsing, searching and list ordering functionality to allow customers to find products through a variety of methods.
+  - A secure payment system utilising a recognised, trusted payment provider.
+  - A user registration system, allowing users to save delivery details and view past orders.
+  - An FAQ section to provide answers to the most commonly asked questions and minimise avoidable contact from customers.
+  - Newsletter sign-up, allowing the business to keep customers up-to-date with news and special offers.
    
 - #### Future Ideas (not currently in scope)
   
    To provide a better user experience and better meet the stated [Project Goals](#project-goals), the website also **could have**:
+   - The option for registered users to select their favourite team(s), which would allow for prioritisation of those shirts when browsing, as well as alerts when new items relating to that team are added.
+   - A wishlist feature, allowing users to add items to a virtual bag for purchase at a later date.
+   - The ability for a superuser to dynamically update the team badges displayed on the front page, allowing them to promote different teams at different times based on current events (e.g. promoting the two teams appearing in a cup final). 
 
 ### Python Functionality using Django
 
@@ -245,13 +256,23 @@ Python has been used to build the core backend application which underpins the s
 - Provide routing of pages, allowing meaningful URLs to be used to return pages and content to the user.
 - Connect to the backend database to retrieve information and serve it to the site, and to allow creation, updating and deletion of records.
 - Provide login functionality and security, ensuring only authorised users can access and edit particular information.
-- Display flash messages to the user.
+- Display messages to the user (via [Bootstrap Alerts](https://getbootstrap.com/docs/5.3/components/alerts/)).
 
 ### Database
 
-The backend application connects to a database hosted on [ElephantSQL](https://www.elephantsql.com/), which contains # models as outlined below.
+The backend application connects to a Postgres database hosted on [Amazon Web Services](https://aws.amazon.com/free/database/).
 
-#### MODEL DETAILS
+#### Schema
+
+ A number of custom models were created, as illustrated below (the auth_user model is provided by Django, and included below to show its relationship to the custom models).
+
+![Database schema](docs/db_schema.png)
+
+#### Content
+
+Database content was sourced from a [Football Kits Dataset](https://www.kaggle.com/datasets/afaksnmez/football-kits-dataset), provided by [safaksonmezz on Kaggle](https://www.kaggle.com/afaksnmez). The dataset comprises data scraped from a real website called [Classic Football Shirts](https://www.classicfootballshirts.co.uk/).
+
+The data was cleaned, pruned, and then converted to JSON and formatted as a Django fixture for uploading to the database. Images were downloaded from the [Classic Football Shirts](https://www.classicfootballshirts.co.uk/) website, with dead links being removed.
 
 ### Page Elements and Interaction
 
