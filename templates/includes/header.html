@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbar-menu">
       <ul class="navbar-nav mb-2 mb-md-0 d-md-none d-xl-flex">
-        <li class="nav-item dropdown ms-auto">
+        <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
               <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all">
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
@@ -22,7 +22,7 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
               </ul>
         </li>
-        <li class="nav-item dropdown ms-auto">
+        <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-sizes" data-bs-toggle="dropdown" aria-expanded="false">Sizes</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-sizes">
             <li><a class="dropdown-item" href="{% url 'products' %}?size=S">Small</a></li>
@@ -31,7 +31,7 @@
             <li><a class="dropdown-item" href="{% url 'products' %}?size=XL">Extra Large</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown ms-auto">
+        <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-years" data-bs-toggle="dropdown" aria-expanded="false">Years</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-years">
             <li><a class="dropdown-item" href="{% url 'products' %}?year=1980">1980</a></li>
@@ -56,7 +56,7 @@
             <li><a class="dropdown-item" href="{% url 'products' %}?year=1999">1999</a></li>
           </ul>
         </li>         
-        <li class="nav-item dropdown ms-auto">
+        <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues">
             <li><a class="dropdown-item" href="{% url 'products' %}?league=premier_league">Premier League</a></li>
@@ -70,7 +70,7 @@
             <li><a class="dropdown-item" href="{% url 'products' %}?league=international">International</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown ms-auto">
+        <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-specials" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-specials">
             <li><a class="dropdown-item" href="{% url 'products' %}?player_issue=true">Player Issue</a></li>
@@ -79,7 +79,7 @@
         </li>
       </ul>
       <ul class="d-flex navbar-nav order-md-last">
-        <li class="list-unstyled nav-item dropdown ms-auto">
+        <li class="list-unstyled nav-item dropdown">
           <button class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="dropdown-account" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="bi bi-person-circle"></i> <span class="d-md-none"> Account</span></button>
             <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-account">
               {% if request.user.is_authenticated %}
@@ -98,13 +98,13 @@
               {% endif %}
             </ul>
         </li>
-        <li class="list-unstyled nav-item ms-auto">
+        <li class="list-unstyled nav-item">
           <a href="{% url 'faqs' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="faqs" aria-expanded="false" aria-label="FAQs"><i class="bi bi-question-square-fill"></i> <span class="d-md-none"> FAQs</span></a>
         </li>
-        <li class="list-unstyled nav-item ms-auto">
+        <li class="list-unstyled nav-item">
           <a href="{% url 'newsletter' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="newsletter" aria-expanded="false" aria-label="Newsletter"><i class="bi bi-newspaper"></i> <span class="d-md-none"> Newsletter</span></a>
         </li>
-        <li class="list-unstyled nav-item ms-auto">
+        <li class="list-unstyled nav-item">
           <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i><span id="product-count"> {{ product_count }} </span>
             <span class="my-0">
                 <span id="bag-total">
@@ -129,7 +129,7 @@
 <!-- Category menu for smaller screen sizes -->
 <div class="row flex-row justify-content-center d-none d-md-block d-xl-none mb-5">
   <div class="col-12 d-flex mx-auto text-center">
-    <span class="dropdown ms-auto">
+    <span class="dropdown">
       <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
         <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all">
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
