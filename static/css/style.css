@@ -383,12 +383,27 @@ a:focus {
 
 /* --- MESSAGES --- */
 
-.alert {
-    max-width: 100vw;
-    z-index: 999;
-    position: fixed;
-    top: 0;
-    right: 0;
+@media (max-width: 767px) {
+
+    .alert {
+        width: 100vw;
+        z-index: 999;
+        position: fixed;
+        top: 0;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .alert {
+        max-width: 100vw;
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
 }
 
 /* ALLAUTH FORMS */
