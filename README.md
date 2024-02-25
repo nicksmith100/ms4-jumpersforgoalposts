@@ -269,9 +269,30 @@ The backend application connects to a Postgres database hosted on [Amazon Web Se
 
 #### Schema
 
- A number of custom models were created, as illustrated below (the auth_user model is provided by Django, and included below to show its relationship to the custom models).
+ A number of models were created, as illustrated below. Here the application which the model belongs to is shown before the underscore.
 
 ![Database schema](docs/db_schema.png)
+
+Below is a more detailed breakdown of these models and their basis.
+
+##### Django models
+
+- **user**: Part of the [Django allauth](https://docs.allauth.org/en/latest/) app, which provides secure authentication and registration. It is included above to illustrate its relationship with the userprofile model.
+
+##### Models adapted from Boutique Ado
+
+- **userprofile**: Allows an authenticated user to save default name and delivery information.
+- **order**: Collects information on a customer's order for use in the checkout process.
+- **orderlineitem**: Collects information on individual items in an order.
+- **product**: Provides all relevant information about a product. While this is adapted from the Boutique Ado walkthrough, it has been adapted considerably. In particular, rather than a single category field it includes multiple categories linking to other models (**league**, **team** and **condition**), as well as multiple other fields relating to product characteristics (**home_away**, **season**, **player_issue**, **signed** and **year**). It also includes a **sold** field (boolean), allowing a product to marked as sold without deleting it from the database.
+
+##### Custom models
+
+- **league**: Allows both shirts and teams to be categorised based on the league from which they come.
+- **team**: Allows products to be categorised by the team to which they belong. Also allows newsletter subscribers to indicate their favourite team.
+- **condition**: Allows products to be categorised based on their condition.
+- **subscriber**: Allows users to subscribe to a newsletter by providing their name and email address. Optionally allows users to indicate their favourite team and opt into updates about their favourite team only.
+- **faq**: Allows admins to create questions and answers for display on the site.
 
 #### Content
 
