@@ -74,16 +74,6 @@ a:focus {
     background-color: #e0e0e0;
 }
 
-.btn-plain {
-    color: #2c314f;
-}
-
-.btn-plain:hover,
-.btn-plain:active,
-.btn-plain:focus {
-    color: #4c588d;
-}
-
 .bg-blue {
     background: #2c314f;
 }
