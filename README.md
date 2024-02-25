@@ -12,7 +12,7 @@ This project creates an eCommerce website for a fictional business called Jumper
 ## Table of Contents
 
 1. [Project Goals](#project-goals)
-2. [Research](#research)
+2. [Project Guide](#project-guide)
 3. [User Stories](#user-stories)
 4. [Design](#design)
 5. [Features](#features)
@@ -43,6 +43,10 @@ The primary goals of the user are to:
 - Find information about previous orders they have made.
 
 Detailed user stories are provided in the [User Stories](#user-stories) section below.
+
+## Project Guide
+
+I used [Code Institute](https://github.com/Code-Institute-Solutions)'s [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1) walkthrough as a guide throughout development. While it would be impractical to credit every part of Boutique Ado code within the code itself, this document will clearly explain the custom features which have been added over and above the Boutique Ado website.
 
 ## User Stories
 
@@ -247,7 +251,8 @@ In addition to the responsive layout provided by Bootstrap, specific media queri
    To provide a better user experience and better meet the stated [Project Goals](#project-goals), the website also **could have**:
    - The option for registered users to select their favourite team(s), which would allow for prioritisation of those shirts when browsing, as well as alerts when new items relating to that team are added.
    - A wishlist feature, allowing users to add items to a virtual bag for purchase at a later date.
-   - The ability for a superuser to dynamically update the team badges displayed on the front page, allowing them to promote different teams at different times based on current events (e.g. promoting the two teams appearing in a cup final). 
+   - The ability for a superuser to dynamically update the team badges displayed on the front page, allowing them to promote different teams at different times based on current events (e.g. promoting the two teams appearing in a cup final).
+   - A newsletter creation function, allowing admins to easily create and send newsletters via a form. 
 
 ### Python Functionality using Django
 
@@ -276,7 +281,7 @@ The data was cleaned, pruned, and then converted to JSON and formatted as a Djan
 
 ### Page Elements and Interaction
 
-The website is divided between public-facing pages which provide product details to external users sourced from the database, and admin pages (for logged in users) which allow admins to update product information in the database.
+The website provides different functionality depending on the user's credentials. Public users can is divided between public-facing pages which provide product details to external users sourced from the database, and admin pages (for logged in users) which allow admins to update product information in the database.
 
 #### Public pages and elements
 
