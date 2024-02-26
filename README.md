@@ -376,7 +376,7 @@ All pages include a header with the site logo, a category menu, a search bar and
             
   ![Header (xs)](docs/header_xs.png)
 
-  </details><br>
+  </details>
 
 #### Home
 
@@ -397,7 +397,7 @@ The home page includes a quick access menu comprising the club badges of the twe
             
   ![Home (xs)](docs/home_xs.png)
 
-  </details><br>
+  </details>
 
 #### Products page
 
@@ -423,7 +423,7 @@ The products page displays all available products by default, i.e. all those wit
   ![Product added](docs/product_added_xl.png)
   ![Product removed](docs/product_removed_xl.png)
 
-  </details><br>
+  </details>
 
 ##### Page navigation
 
@@ -441,7 +441,7 @@ The products page displays all available products by default, i.e. all those wit
               
   ![Back-to-top](docs/back_to_top.png)
 
-  </details><br>
+  </details>
 
 ##### Searching, sorting and filtering
 
@@ -842,7 +842,8 @@ User stories were tested as outlined below. An in-depth description of these fea
 
 #### Order confirmation bug on checkout success page
 
-My mentor highlighted a vulnerability in the Boutique Ado project which means that a logged in user can view another user's order summary using an order confirmation number, revealing the other user's personal details such as their address and phone number. This is because the view only checks that a user is logged in, not that they are actually the user who made the order. I initially fixed this by removing the order summary entirely from the checkout success page for logged out users (relying on the email confirmation instead), and for logged in users matching the order email address to the user's acccount email address in the template to determine if they were entitled to see the order summary. However, if a logged in user used a different email address on checkout, the checkout success page informed them that they were not entitled to see the details of their own order. [(Relevant commmit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/3c7e754d2f4d54955d4df7f30cc0c97aefbee54a)
+My mentor highlighted a vulnerability in the Boutique Ado project which means that a logged in user can view another user's order summary using an order confirmation number, revealing the other user's personal details such as their address and phone number. This is because the view only checks that a user is logged in, not that they are actually the user who made the order. I initially fixed this by removing the order summary entirely from the checkout success page for logged out users (relying on the email confirmation instead), and for logged in users matching the order email address to the user's acccount email address in the template to determine if they were entitled to see the order summary. However, if a logged in user used a different email address on checkout, the checkout success page informed them that they were not entitled to see the details of their own order. 
+[(Relevant commit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/3c7e754d2f4d54955d4df7f30cc0c97aefbee54a)
 
   <details><summary>Order confirmation bug - screenshot</summary>
 
@@ -850,7 +851,8 @@ My mentor highlighted a vulnerability in the Boutique Ado project which means th
 
   </details><br>
 
-I fixed this bug by instead checking the order number against the authenticated user's orders in the view, and directing the user accordingly. Now, if a logged in user attempts to access the order summary of a different user, an error message is displayed and they are directed to their own profile page. [(Relevant commmit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/aa6316663242ebf02f741ebf25427f565026b3f2)
+I fixed this bug by instead checking the order number against the authenticated user's orders in the view, and directing the user accordingly. Now, if a logged in user attempts to access the order summary of a different user, an error message is displayed and they are directed to their own profile page.
+[(Relevant commit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/aa6316663242ebf02f741ebf25427f565026b3f2)
 
   <details><summary>Order confirmation fix</summary>
 
@@ -860,7 +862,8 @@ I fixed this bug by instead checking the order number against the authenticated 
 
 #### Emails - SMTP sender refused error
 
-The Boutique Ado walkthrough by [Code Institute](https://learn.codeinstitute.net/) includes comprehensive instructions on setting up sending of emails using SMTP. Despite this I was getting an error of "SMTP sender refused", regardless of which email provider I used. After lengthy investigation I realised that having set the name of the config variable to "EMAIL_HOST_PASS" as in the walkthrough, I had inadvertently also set the name of the variable itself to "EMAIL_HOST_PASS" instead of "EMAIL_HOST_PASSWORD" as required by Django. This was a simple fix, but is included here due to the length of time it took to fix. [Relevant commit](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/b0723582e9fd64d6ebd8d00c57eb0a6c61e32055)
+The Boutique Ado walkthrough by [Code Institute](https://learn.codeinstitute.net/) includes comprehensive instructions on setting up sending of emails using SMTP. Despite this I was getting an error of "SMTP sender refused", regardless of which email provider I used. After lengthy investigation I realised that having set the name of the config variable to "EMAIL_HOST_PASS" as in the walkthrough, I had inadvertently also set the name of the variable itself to "EMAIL_HOST_PASS" instead of "EMAIL_HOST_PASSWORD" as required by Django. This was a simple fix, but is included here due to the length of time it took to fix.
+[(Relevant commit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/b0723582e9fd64d6ebd8d00c57eb0a6c61e32055)
 
 ## Technologies Used
 
@@ -917,46 +920,267 @@ The Boutique Ado walkthrough by [Code Institute](https://learn.codeinstitute.net
 
 The site is deployed to Heroku: [View the live project here](https://jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com/)
 
-### Deployment pre-requisites
-
-In order to deploy the project successfully, you will need:
-
-- An [ElephantSQL](https://www.elephantsql.com/) account, with a database...
-- An Amazon Web Services account...
-
-Free accounts on all of these platforms are sufficient.
-
 ### Local deployment
 
 To deploy this project locally, you must first either [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) or [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this [repository](https://github.com/nicksmith100/ms4-jumpersforgoalposts).
 
-After forking or cloning the repository, within your IDE:
+After forking or cloning the repository as described above, within your IDE:
 
 - Run ```pip3 install -r requirements.txt``` to install all dependencies.
 - Create an ```env.py``` file for storing environment variables, ensuring it is added to ```.gitignore```.
-- Add the following code to your ```env.py``` file, replacing the placeholder values with those identified under [Deployment pre-requisites](#deployment-pre-requisites) above.
+- Add the following code to your ```env.py``` file, adding a line for each variable in the table below and replacing KEY and VALUE with the relevant values (retaining the quotes).
 
   ```
+  import os
 
+  os.environ.setdefault("KEY", "VALUE")
+  os.environ.setdefault("KEY", "VALUE")
+  os.environ.setdefault("KEY", "VALUE")
+  os.environ.setdefault("DEVELOPMENT", "True")
   ```
-
-### Deployment to Heroku
-
-To deploy to [Heroku](https://www.heroku.com/):
-
-1. In your IDE run `pip3 freeze > requirements.txt` to create/update a requirements.txt file containing project dependencies.
-2. In your IDE run `echo web: python app.py > Procfile` to create a Procfile. Check that the file contains the text 'web: python app.py' and delete any blank lines at the bottom.
-3. Push these two new files to the GitHub repository.
-4. Login to Heroku, select 'Create New App', create a unique name for the app and select your nearest region. Click 'Create App'.
-5. Navigate to the Deploy tab on Heroku dashboard and select Github, search for your repository by name and click 'connect'.
-6. Navigate to 'settings', click reveal config vars and input the the following:
 
   | Key | Value |
   | :---: | :---: |
+  | SECRET_KEY | _Secret Key_ (a generated Django secret key, e.g. using [djecrety](https://djecrety.ir/)) |
+  | LOCAL_HOST | _Local Host_ (the URL generated by your IDE when you runserver) |
+  | STRIPE_PUBLIC_KEY | _Stripe Public Key_ (from your Stripe account - API keys) |
+  | STRIPE_SECRET_KEY | _Stripe Secret Key_ (from your Stripe account - API keys)|
+  | STRIPE_WH_SECRET | _Stripe Webhook Secret_ (from your Stripe account - Webhooks) |
+  | DEVELOPMENT | True |
 
-7. Go back to the Deploy tab and click on 'Enable Automatic Deploys'.
-8. Click 'Deploy Branch'.
-9. Once build is complete click on 'View' to launch the new app.
+- Instructions on creating a webhook can be found [below](#setting-up-stripe-payments-on-your-deployed-site). Note that the webhook you create for local deployment must use the local host generated by your IDE when you runserver, and it must be set public for the webhooks to work.
+
+
+### Deployment to Heroku
+
+These instructions have been adapted from [Island Bees](https://github.com/emmahewson/island-bees/blob/main/README.md#deployment)
+
+#### Pre-requisites
+
+In order to deploy the project successfully following the instructions below, you will need:
+
+- A [Heroku](https://www.heroku.com/) account.
+- A hosted PostgreSQL database, for example through [Amazon Web Services](https://aws.amazon.com/free/database/) or [ElephantSQL](https://www.elephantsql.com/).
+- An [Amazon Web Services S3](https://aws.amazon.com/pm/serv-s3/) cloud storage account.
+- A [Stripe](https://stripe.com/) account.
+- An email account (any major provider).
+
+#### Setting up a Database
+
+- Set up a database using one of the providers above and note the database URL.
+
+#### Set up Heroku & connect your new Database
+
+1. In Heroku, click on the 'New' button then 'create new app'.
+2. Name your app and select your nearest region.
+3. With your app set up go to the app's settings tab and under config variable click on 'reveal config variables' and add a new variable with the Key of `DATABASE_URL` and the value as the database URL that you noted from your database provider.
+4. In your IDE go to settings.py and paste the following in to your DATABASE section to tell it to connect to the new database **Note - do not push your code to GitHub whilst this value is in your settings.py, it is a secret value that must not be shared, we will remove it later**
+
+```
+DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('your database url'))
+    }
+```
+5. In you IDE terminal type `python3 manage.py showmigrations` to check you are connected to the new database, if you are you will see a list of migrations with no ticks next to them
+6. Run the following command `python3 manage.py migrate` to migrate the database structure from your project to the new database.
+7. Any data that you have added to your SQLite database will not transfer to the new one. You will need to populate the site on the deployed app once it is up and running or using Fixtures (JSON files with all your database content) if you have them. You can find out more about Fixtures and how to use them in the [Django documentation.](https://docs.djangoproject.com/en/4.2/howto/initial-data/#:~:text=you%20use%20TransactionTestCase.-,fixtures%20.,the%20manage.py%20dumpdata%20command.)
+8. Type `python3 manage.py createsuperuser` and follow the instructions to create a superuser.
+9. Remove your new database settings from settings.py.
+10. In your IDE environment variables, add a key of DEVELOPMENT and a value of True.
+11. In settings.py, go to the DATABASES section and replace what's there with the following code (this checks to see if there is a value called DEVELOPMENT in your environment variables and sets the database accordingly).
+
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+
+14. Check that you removed your database url from the settings.py file and push to Github.
+
+#### Deploying to Heroku
+
+1. Create a Procfile in your app in the root directory with the following content `web: gunicorn island_bees.wsgi:application` and a blank line at the end.
+2. Log in to Heroku using the IDE terminal using the command `Heroku login` and enter your Heroku email and password. (If you have 2 factor authentication set up you will need to use `Heroku login -i` followed by your email and your Heroku API key as the password which you can find in your account settings on Heroku.)
+3. Temporarily disable Heroku from collecting static files during deployment using the command `heroku config:set DISABLE_COLLECTSTATIC=1 --app heroku-app-name`
+4. Commit and push your changes to GitHub.
+5. On the Heroku dashboard, navigate to the Deploy tab and select Github, search for your repository by name and click 'connect'.
+6. Go back to the Deploy tab and click on 'Enable Automatic Deploys'.
+7. Click 'Deploy Branch'.
+8. Once build is complete, your site will be deployed without any of the static files (CSS, JavaScript & Media files).
+9. In Heroku settings, scroll down to 'Domains' and copy the 'your app can be found at' URL.
+10. In your IDE, go to settings.py and add your deployed site's URL to the ALLOWED_HOSTS list.
+11. You now need to replace the Django secret key in your settings.py (if you included it there) with an environment variable to keep it safe. To do this you can use a Django secret key generator online e.g. [djecrety](https://djecrety.ir/), copy the key it provides.
+12. Go to your Heroku app's dashboard, open settings and reveal config variables and add a new variable with a key of SECRET_KEY and a value of what you just copied.
+13. In your IDE environment variables, add a key of SECRET_KEY and a value of a different Django secret key from your online key generator (djecrety or similar).
+14. In settings.py change the SECRET_KEY to `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
+15. Below it change the value of DEBUG to the following `DEBUG = 'DEVELOPMENT' in os.environ` to dynamically change whether the app is in DEBUG mode depending on whether it is the development or deployed site.
+16. Commit and push your changes to Github.
+
+#### Setting Up Your Static Files on Your Deployed Site using Amazon Web Services (AWS)
+
+1. In your Amazon Web Services S3 account click on 'create bucket' and name it to match your Heroku app, selecting your closest region and uncheck 'block all public access' then click on create bucket to set it up.
+2. Click on your new bucket name and go to the properties tab.
+3. Scroll to the bottom and click on the edit button by 'Static Website Hosting' and select 'enable', giving default values for the index and error documents (index.html & error.html) then click save changes.
+4. Go to the permissions tab and copy the ARN value at the top.
+5. Scroll down to the bucket policy section, select 'edit' and 'policy generator'.
+6. Select 'S3 bucket policy' from the dropdown.
+7. In principles put a * to allow all.
+8. Set the action to 'Get Object'.
+9. Paste the earlier ARN value in the ARN input.
+10. Click on 'add statement' then 'generate policy'
+11. Copy the policy text that the generator creates.
+12. Back in your bucket settings paste the text in to the Bucket Policy empty text area then add a '/*' to the end of the resource value (which should have your bucket name in it),and click save. This will allow access to all the resources in the bucket.
+13. Scroll down to the access control list and grant Read and Write access to Everyone (public access) by checking the boxes.
+14. Scroll down to the Cross-Origin Resource Sharing (CORS) section and paste in the following and save:
+
+```
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+
+15. Go back to your AWS dashboard by clicking on the AWS logo at the top left and type in IAM in the search bar and select the IAM service.
+16. Click on the user groups tab and create a new group, with the name of your choice, ideally with your app name in it and create the group.
+17. Go to the policies tab and create a policy, go the JSON tab and search for the S3FullAccess policy and import it.
+18. Edit the policy to the following:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket-name",
+                "arn:aws:s3:::bucket-name/*",
+            ]
+        }
+    ]
+}
+```
+
+19. Click on next and then review.
+20. Name the policy and give it a description and then create your policy.
+21. Go to the User Groups tab, select your group and go to permissions and click 'add permissions' then 'attach policy' selecting your newly created policy and clicking 'Attach policies'.
+22. Create a user for the group by going to the User tab and clicking 'create user'.
+23. Name your user (you don't need to select AWS Console access) click next and add your user to your group clicking next as required and 'create user'.
+24. Download and save the csv file with the user's credentials - this is important, you will not be able to access this information again.
+25. Back in your IDE go to your settings.py file and paste in the following code which tells the app to look for an environment variable called USE_AWS and if it's there to use the following settings to access the static files.
+
+```
+if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'island-bees'
+    AWS_S3_REGION_NAME = 'eu-west-2'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+```
+26. Set up the following config variables in Heroku using the information in the csv file that you downloaded:
+  - AWS_ACCESS_KEY_ID: *your access key value*
+  - AWS_SECRET_ACCESS_KEY: *your secret access key value*
+  - USE_AWS: True
+27. Remove COLLECTSTATIC from the config variables in Heroku
+28. Back in your IDE create a file called custom_storages.py in the root directory and add the following:
+
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+
+```
+
+29. In settings.py add the following to tell it to look for the new storage classes we just created in custom_storages and to override the URLS for static and media files. Put this just below the AWS code from earlier within the if `'USE_AWS' in os.environ` statement.
+
+```
+# Static and media files
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
+
+# Override static and media URLs in production
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+```
+
+30. Save your settings.py then push to push your changes to GitHub.
+31. Once the deployment has finished check your S3 bucket, there should be a static folder in there with your static files (CSS / JS folders with files inside) and the live site should now have its CSS styling and any JavaScript functionality.
+32. Finally to add your media files simply go back to AWS, create a new folder called 'media' in the same place as the new 'static' folder, click on the folder and drag and drop all your media files in to the browser window.
+33. Click next and under manage public permissions select 'grant public access to these objects' and click upload.
+34. Your site should now contain all your media and static files.
+
+#### Setting up Stripe Payments on your deployed site
+
+1. Log in to Stripe, browse to the [API keys](https://dashboard.stripe.com/test/apikeys) tab and copy the API key and set them in Heroku as config variables in the following:
+
+- STRIPE_PUBLIC_KEY: Stripe public key goes here
+- STRIPE_SECRET_KEY: Stripe secret key goes here
+
+2. Back in Stripe set up a new webhook for your deployed site by clicking on webhooks, click on 'add endpoint', paste in your deployed site's URL and add '/checkout/wh/' at the end of it. Set it to listen for all events.
+3. Click on your newly set up webhook and click on 'Signing Secret' at the top to reveal the secret value. Copy it and set it as a new config variable in Heroku:
+- STRIPE_WH_SECRET: Signing secret from new webhook.
+
+#### Setting up emails on your deployed site
+
+1. With your chosen email provider, set up an "app password". Note this is different to your standard account password, and is specifically to allow external apps to send emails from your account.
+2. In Heroku add the following config variables:
+- EMAIL_HOST: Your email host SMTP settings
+- EMAIL_HOST_USER: Your email address
+- EMAIL_HOST_PASSWORD: Your app password
+
+#### Checking Heroku config variables
+
+Having followed all of the above steps you should see the following config variables in your Heroku settings:
+
+  | Key | Value |
+  | :---: | :---: |
+  | AWS_ACCESS_KEY_ID | _AWS Access Key_ (from the CSV file downloaded from your AWS S3 account) |
+  | AWS_SECRET_ACCESS_KEY | _Secret Access Key_ (from the CSV file downloaded from your AWS S3 account) |
+  | USE_AWS | True |
+  | DATABASE_URL | _Database URL_ (from your database settings)  |
+  | EMAIL_HOST | _Email SMTP host_ (from your email account)|
+  | EMAIL_HOST_PASSWORD | _Email app password_ (from your email account) |
+  | EMAIL_HOST_USER | _Email address_ (from your email account) |
+  | SECRET_KEY | _Secret Key_ (a generated Django secret key, e.g. using [djecrety](https://djecrety.ir/)) |
+  | STRIPE_PUBLIC_KEY | _Stripe Public Key_ (from your Stripe account - API keys) |
+  | STRIPE_SECRET_KEY | _Stripe Secret Key_ (from your Stripe account - API keys)|
+  | STRIPE_WH_SECRET | _Stripe Webhook Secret_ (from your Stripe account - Webhooks) | 
+  
 
 ## Credits
 
@@ -985,8 +1209,8 @@ All written content is my own.
 ### Acknowledgements
 
 - My Mentor [Rory Patrick Sheridan](https://github.com/Ri-Dearg) for many helpful pointers as always!
-- Our Cohort Facilitator [...]() for providing helpful guidance on project requirements throughout.
+- Our Cohort Facilitators Iris and Amy for providing helpful guidance on project requirements throughout.
 
 ### README content
 
-- [Emma Hewson](https://github.com/emmahewson/mp3-swimmon#Deployment) - inspiration for elements of this README, especially Heroku deployment instructions.
+- [Emma Hewson](https://github.com/emmahewson/island-bees/blob/main/README.md#deployment): Heroku deployment instructions.
