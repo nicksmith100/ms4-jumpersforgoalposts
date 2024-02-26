@@ -1,12 +1,13 @@
 from django.contrib import admin
 from .models import League, Team, Condition, Product
 
-# Register your models here.
+
 class LeagueAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 class TeamAdmin(admin.ModelAdmin):
     list_display = (
@@ -14,11 +15,13 @@ class TeamAdmin(admin.ModelAdmin):
         'name',
     )
 
+
 class ConditionAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -32,6 +35,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('year', 'team',)
+
 
 admin.site.register(League, LeagueAdmin)
 admin.site.register(Team, TeamAdmin)

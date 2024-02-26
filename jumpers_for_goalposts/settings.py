@@ -31,8 +31,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 LOCAL_HOST = os.environ.get('LOCAL_HOST')
-ALLOWED_HOSTS = [LOCAL_HOST, 'jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
-CSRF_TRUSTED_ORIGINS = ['https://jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
+ALLOWED_HOSTS = [LOCAL_HOST,
+                 'jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com']
 
 
 # Application definition
@@ -74,7 +76,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'jumpers_for_goalposts.urls'
 
-# Using bootstrap 4 template pack because bootstrap 5 template pack would require upgrade to Django 4
+# Using bootstrap 4 template pack because
+# bootstrap 5 template pack would require upgrade to Django 4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
@@ -154,16 +157,21 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.\
+            UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -235,5 +243,3 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-

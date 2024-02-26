@@ -7,16 +7,18 @@ from django.conf import settings
 from .forms import NewsletterForm
 from profiles.models import UserProfile
 
+
 def newsletter(request):
     """ Sign up to newsletter """
-    
+
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
             form_email = form.cleaned_data['email']
             print(form_email)
-            messages.success(request, f'Successfully subscribed! A confirmation email has been sent to {form_email}')
+            messages.success(request, f'Successfully subscribed! \
+            A confirmation email has been sent to {form_email}')
             send_mail(
                 "Newsletter signup confirmation",
                 render_to_string('newsletter/emails/confirmation.txt'),
@@ -26,8 +28,9 @@ def newsletter(request):
             )
             return redirect(reverse('products'))
         else:
-            messages.error(request, 'Failed to subscribe. Please ensure the form is valid.')
-    
+            messages.error(request, 'Failed to subscribe. \
+            Please ensure the form is valid.')
+
     else:
         # Attempt to prefill the form with info from user profile
         if request.user.is_authenticated:
@@ -41,9 +44,9 @@ def newsletter(request):
                 newsletter_form = NewsletterForm()
         else:
             newsletter_form = NewsletterForm()
-    
+
         form = newsletter_form
-    
+
     template = 'newsletter/newsletter.html'
     context = {
         'form': form,

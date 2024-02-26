@@ -13,7 +13,7 @@ $(document).ready(function(){
         } else { this.classList.toggle("flipped"); }
     });
 
-    /* Sort selector (Code from: https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/656166307e469630d09e0eb17a0d17daa440e208/products/templates/products/products.html) */
+    /* Sort selector */
     $('#sort-selector').change(function() {
         let selector = $(this);
         let currentUrl = new URL(window.location);
@@ -35,12 +35,12 @@ $(document).ready(function(){
             
             window.location.replace(currentUrl);
         }
-    })
+    });
 
     /* Back-to-top button */
     $('.btt-link').click(function(e) {
-        window.scrollTo(0,0)
-    })    
+        window.scrollTo(0,0);
+    });   
 
 
     /*---Add and remove products---*/
@@ -64,11 +64,12 @@ $(document).ready(function(){
     }
     const csrftoken = getCookie('csrftoken');
 
-    /* Add-to-bag (Code adapted from https://www.youtube.com/watch?v=PgCMKeT2JyY) */
-    let addBtns = document.querySelectorAll(".add-btn")
+    /* Add-to-bag
+    (Code adapted from https://github.com/ClintonCode20/my_dj_shop/) */
+    let addBtns = document.querySelectorAll(".add-btn");
     addBtns.forEach(addBtn=>{
-        addBtn.addEventListener("click", addToBag)
-    })
+        addBtn.addEventListener("click", addToBag);
+    });
     function addToBag(e){
         let productId = e.target.value;
         let url = addUrl;
@@ -96,7 +97,7 @@ $(document).ready(function(){
             document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
         })
         .then(() => {
-            $( "#message-container" ).load(window.location.href + " #message-container" )
+            $( "#message-container" ).load(window.location.href + " #message-container" );
         })
         .catch(error=>{
             console.log(error);
@@ -104,11 +105,11 @@ $(document).ready(function(){
     }
 
     /* Remove-from-bag (products page) */
-    /* (Code adapted from https://www.youtube.com/watch?v=PgCMKeT2JyY) */
-    let removeBtns = document.querySelectorAll(".remove-btn")
+    /* (Code adapted from https://github.com/ClintonCode20/my_dj_shop/) */
+    let removeBtns = document.querySelectorAll(".remove-btn");
     removeBtns.forEach(removeBtn=>{
-        removeBtn.addEventListener("click", removeFromBag)
-    })
+        removeBtn.addEventListener("click", removeFromBag);
+    });
     function removeFromBag(e){
         let productId = e.target.value;
         let url = removeUrl;
@@ -135,7 +136,7 @@ $(document).ready(function(){
             document.getElementById("bag-total").innerHTML = `<span class="fw-bold">£${data.bag_total}</span>`;
         })
         .then(() => {
-            $( "#message-container" ).load(window.location.href + " #message-container" )
+            $( "#message-container" ).load(window.location.href + " #message-container" );
         })
         .catch(error=>{
             console.log(error);
@@ -145,10 +146,10 @@ $(document).ready(function(){
     /* Delete product (products page admin) */
     
     /* Display confirmation and cancel links */
-    let deleteBtns = document.querySelectorAll(".delete-btn")
+    let deleteBtns = document.querySelectorAll(".delete-btn");
     deleteBtns.forEach(deleteBtn=>{
-        deleteBtn.addEventListener("click", showDeleteConfirmationBtn)
-    })
+        deleteBtn.addEventListener("click", showDeleteConfirmationBtn);
+    });
     function showDeleteConfirmationBtn(e){
         e.target.innerHTML="Are you sure?";
         e.target.disabled=true;
@@ -157,10 +158,10 @@ $(document).ready(function(){
     }
 
     /* Hide confirmation and cancel links */
-    let deleteCancelLinks = document.querySelectorAll(".delete-cancel")
+    let deleteCancelLinks = document.querySelectorAll(".delete-cancel");
     deleteCancelLinks.forEach(deleteCancelLink=>{
-        deleteCancelLink.addEventListener("click", hideDeleteConfirmationBtn)
-    })
+        deleteCancelLink.addEventListener("click", hideDeleteConfirmationBtn);
+    });
     function hideDeleteConfirmationBtn(e){
         e.target.parentElement.classList.remove("d-block");
         e.target.parentElement.classList.add("d-none");
@@ -170,10 +171,10 @@ $(document).ready(function(){
 
     /* Add product form */
     
-    /* Image upload
-    Code from Boutique Ado walkthrough */
-    $('#new-image').change(function() {
-        var file = $('#new-image')[0].files[0];
+    /* Image upload */
+    let image = document.querySelectorAll('[data-img]');
+    image.change(function() {
+        var file = image[0].files[0];
         $('#filename').text(`Image will be set to: ${file.name}`);
     });
 
@@ -182,7 +183,7 @@ $(document).ready(function(){
     let leagueSelected = $('#id_league').val();
     if(!leagueSelected) {
         $('#id_league').css('color', '#aab7c4');
-    };
+    }
     $('#id_league').change(function() {
         leagueSelected = $(this).val();
         if(!leagueSelected) {
@@ -195,7 +196,7 @@ $(document).ready(function(){
     let teamSelected = $('#id_team').val();
     if(!teamSelected) {
         $('#id_team').css('color', '#aab7c4');
-    };
+    }
     $('#id_team').change(function() {
         teamSelected = $(this).val();
         if(!teamSelected) {
@@ -208,7 +209,7 @@ $(document).ready(function(){
     let conditionSelected = $('#id_condition').val();
     if(!conditionSelected) {
         $('#id_condition').css('color', '#aab7c4');
-    };
+    }
     $('#id_condition').change(function() {
         conditionSelected = $(this).val();
         if(!conditionSelected) {

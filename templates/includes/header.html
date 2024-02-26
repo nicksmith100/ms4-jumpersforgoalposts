@@ -5,7 +5,7 @@
 </div>
 <nav class="navbar navbar-expand-md" aria-label="Navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" class="navbar-img"></a>
+    <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt="Jumpers For Goalposts logo in the style of a football badge" class="navbar-img"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -84,28 +84,28 @@
             <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-account">
               {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                  <a href="{% url 'admin:index' %}" class="dropdown-item">Admin</a>
+                  <li><a href="{% url 'admin:index' %}" class="dropdown-item">Admin</a></li>
                 {% endif %} 
                 {% if request.user.is_staff %}
-                  <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
-                  <a href="{% url 'sold_products' %}" class="dropdown-item">Sold Products</a>
+                  <li><a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a></li>
+                  <li><a href="{% url 'sold_products' %}" class="dropdown-item">Sold Products</a></li>
                 {% endif %}
-                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
+                <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
               {% else %}
-                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+                <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
               {% endif %}
             </ul>
         </li>
         <li class="list-unstyled nav-item">
-          <a href="{% url 'faqs' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="faqs" aria-expanded="false" aria-label="FAQs"><i class="bi bi-question-square-fill"></i> <span class="d-md-none"> FAQs</span></a>
+          <a href="{% url 'faqs' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" id="faqs" aria-expanded="false" aria-label="FAQs"><i class="bi bi-question-square-fill"></i> <span class="d-md-none"> FAQs</span></a>
         </li>
         <li class="list-unstyled nav-item">
-          <a href="{% url 'newsletter' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="newsletter" aria-expanded="false" aria-label="Newsletter"><i class="bi bi-newspaper"></i> <span class="d-md-none"> Newsletter</span></a>
+          <a href="{% url 'newsletter' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" id="newsletter" aria-expanded="false" aria-label="Newsletter"><i class="bi bi-newspaper"></i> <span class="d-md-none"> Newsletter</span></a>
         </li>
         <li class="list-unstyled nav-item">
-          <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" type="button" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i><span id="product-count"> {{ product_count }} </span>
+          <a href="{% url 'view_bag' %}" class="nav-link btn btn-blue border-1 rounded-0 hvr-sweep-to-bottom px-2 py-2" id="bag" aria-expanded="false"><i class="bi bi-bag-fill"></i><span id="product-count"> {{ product_count }} </span>
             <span class="my-0">
                 <span id="bag-total">
                   {% if bag_total %}
@@ -114,6 +114,7 @@
                     £0.00
                   {% endif %}
                 </span>
+            </span>
           </a>
         </li>
       </ul>
@@ -129,28 +130,28 @@
 <!-- Category menu for smaller screen sizes -->
 <div class="row flex-row justify-content-center d-none d-md-block d-xl-none mb-5">
   <div class="col-12 d-flex mx-auto text-center">
-    <span class="dropdown ms-auto">
-      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-all" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
-        <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all">
+    <div class="dropdown ms-auto">
+      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-all-md" data-bs-toggle="dropdown" aria-expanded="false">All Shirts</button>
+        <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-all-md">
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=team&direction=asc">By Team</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=year&direction=asc">By Year</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}?sort=condition&direction=asc">By Condition</a></li>
           <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
         </ul>
-    </span>
-    <span class="dropdown">
-      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-sizes" data-bs-toggle="dropdown" aria-expanded="false">Sizes</button>
-      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-sizes">
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-sizes-md" data-bs-toggle="dropdown" aria-expanded="false">Sizes</button>
+      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-sizes-md">
         <li><a class="dropdown-item" href="{% url 'products' %}?size=S">Small</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?size=M">Medium</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?size=L">Large</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?size=XL">Extra Large</a></li>
       </ul>
-    </span>
-    <span class="dropdown">
-      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-years" data-bs-toggle="dropdown" aria-expanded="false">Years</button>
-      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-years">
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-years-md" data-bs-toggle="dropdown" aria-expanded="false">Years</button>
+      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-years-md">
         <li><a class="dropdown-item" href="{% url 'products' %}?year=1980">1980</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?year=1981">1981</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?year=1982">1982</a></li>
@@ -172,10 +173,10 @@
         <li><a class="dropdown-item" href="{% url 'products' %}?year=1998">1998</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?year=1999">1999</a></li>
       </ul>
-    </span>         
-    <span class="dropdown">
-      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-leagues" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
-      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues">
+    </div>         
+    <div class="dropdown">
+      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-leagues-md" data-bs-toggle="dropdown" aria-expanded="false">Leagues</button>
+      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-leagues-md">
         <li><a class="dropdown-item" href="{% url 'products' %}?league=premier_league">Premier League</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?league=other_uk">Other UK Leagues</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?league=la_liga">La Liga</a></li>
@@ -186,13 +187,13 @@
         <li><a class="dropdown-item" href="{% url 'products' %}?league=world_clubs">World Clubs</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?league=international">International</a></li>
       </ul>
-    </span>
-    <span class="dropdown me-auto">
-      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-specials" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
-      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-specials">
+    </div>
+    <div class="dropdown me-auto">
+      <button class="dropdown-toggle btn btn-blue rounded-0 hvr-sweep-to-bottom px-2" type="button" id="dropdown-specials-md" data-bs-toggle="dropdown" aria-expanded="false">Specials</button>
+      <ul class="dropdown-menu rounded-0" aria-labelledby="dropdown-specials-md">
         <li><a class="dropdown-item" href="{% url 'products' %}?player_issue=true">Player Issue</a></li>
         <li><a class="dropdown-item" href="{% url 'products' %}?signed=true">Signed</a></li>
       </ul>
-    </span>
+    </div>
   </div>
 </div>

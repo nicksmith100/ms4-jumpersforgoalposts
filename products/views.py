@@ -11,11 +11,12 @@ from .forms import ProductForm
 
 # Create your views here.
 
+
 def get_pages(page_number, items):
     """ Function to return paginated products using paginator """
-    
+
     paginator = Paginator(items, 36)
-            
+
     try:
         page_obj = paginator.page(page_number)
     except PageNotAnInteger:
@@ -24,13 +25,15 @@ def get_pages(page_number, items):
     except EmptyPage:
         # if the page is out of range, deliver the last page
         page_obj = paginator.page(paginator.num_pages)
-    
+
     return page_obj
+
 
 @ensure_csrf_cookie
 def all_products(request):
-    """ View to return all unsold products, including sorting and search queries """
-    
+    """ View to return all unsold products,
+    including sorting and search queries """
+
     products = Product.objects.filter(sold=False)
     query = None
     leagues = None
@@ -47,7 +50,7 @@ def all_products(request):
     paginator = Paginator(products, 36)
     page_obj = paginator.page(1)
     page_num = 1
-    
+
     if request.GET:
 
         if 'page' in request.GET:
@@ -68,15 +71,16 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
             page_obj = get_pages(page_num, products)
-            
+
         if 'league' in request.GET:
             leagues = request.GET['league'].split(",")
             products = products.filter(league__name__in=leagues)
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'league={products[0].league.name}'
-                current_filter_display = f'League: {products[0].league.friendly_name}'
-            
+                current_filter_display = \
+                    f'League: {products[0].league.friendly_name}'
+
         if 'year' in request.GET:
             years = request.GET['year'].split(",")
             products = products.filter(year__in=years)
@@ -107,7 +111,8 @@ def all_products(request):
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'team={products[0].team.name}'
-                current_filter_display = f'Team: {products[0].team.friendly_name}'
+                current_filter_display = \
+                    f'Team: {products[0].team.friendly_name}'
 
         if 'condition' in request.GET:
             conditions = request.GET['condition'].split(",")
@@ -115,7 +120,8 @@ def all_products(request):
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'condition={products[0].condition.name}'
-                current_filter_display = f'Condition: {products[0].condition.friendly_name}'
+                current_filter_display = \
+                    f'Condition: {products[0].condition.friendly_name}'
 
         if 'size' in request.GET:
             sizes = request.GET['size'].split(",")
@@ -137,16 +143,17 @@ def all_products(request):
             if not query:
                 messages.error(request, "No search term entered")
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'q={query}'
                 current_filter_display = f'Search terms: {query}'
-       
+
     current_sorting = f'{sort}_{direction}'
     sort_string = f'sort={sort}&direction={direction}'
-        
+
     context = {
         'products': products,
         'page_obj': page_obj,
@@ -159,14 +166,17 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
+
 @login_required
 def sold_products(request):
-    """ View to return all sold products, including sorting and search queries """
-    
+    """ View to return all sold products,
+    including sorting and search queries """
+
     if not request.user.is_staff:
-        messages.error(request, 'Only members of the team are allowed to do that, sorry.')
+        messages.error(
+            request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('products'))
-    
+
     products = Product.objects.filter(sold=True)
     sold_products = True
     query = None
@@ -184,7 +194,7 @@ def sold_products(request):
     paginator = Paginator(products, 36)
     page_obj = paginator.page(1)
     page_num = 1
-    
+
     if request.GET:
 
         if 'page' in request.GET:
@@ -205,15 +215,16 @@ def sold_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
             page_obj = get_pages(page_num, products)
-            
+
         if 'league' in request.GET:
             leagues = request.GET['league'].split(",")
             products = products.filter(league__name__in=leagues)
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'league={products[0].league.name}'
-                current_filter_display = f'League: {products[0].league.friendly_name}'
-            
+                current_filter_display = \
+                    f'League: {products[0].league.friendly_name}'
+
         if 'year' in request.GET:
             years = request.GET['year'].split(",")
             products = products.filter(year__in=years)
@@ -244,7 +255,8 @@ def sold_products(request):
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'team={products[0].team.name}'
-                current_filter_display = f'Team: {products[0].team.friendly_name}'
+                current_filter_display = \
+                    f'Team: {products[0].team.friendly_name}'
 
         if 'condition' in request.GET:
             conditions = request.GET['condition'].split(",")
@@ -252,7 +264,8 @@ def sold_products(request):
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'condition={products[0].condition.name}'
-                current_filter_display = f'Condition: {products[0].condition.friendly_name}'
+                current_filter_display = \
+                    f'Condition: {products[0].condition.friendly_name}'
 
         if 'size' in request.GET:
             sizes = request.GET['size'].split(",")
@@ -274,16 +287,17 @@ def sold_products(request):
             if not query:
                 messages.error(request, "No search term entered")
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
             page_obj = get_pages(page_num, products)
             if len(products) > 0:
                 current_filter = f'q={query}'
                 current_filter_display = f'Search terms: {query}'
-    
+
     current_sorting = f'{sort}_{direction}'
     sort_string = f'sort={sort}&direction={direction}'
-        
+
     context = {
         'products': products,
         'page_obj': page_obj,
@@ -302,9 +316,10 @@ def sold_products(request):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_staff:
-        messages.error(request, 'Only members of the team are allowed to do that, sorry.')
+        messages.error(
+            request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('products'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -312,13 +327,15 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('products'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
         template = 'products/add_product.html'
         context = {
-        'form': form,
-    }
+            'form': form,
+        }
 
     return render(request, template, context)
 
@@ -327,7 +344,8 @@ def add_product(request):
 def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_staff:
-        messages.error(request, 'Only members of the team are allowed to do that, sorry.')
+        messages.error(
+            request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('products'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -338,7 +356,9 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('products'))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update product. \
+                    Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -351,13 +371,15 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_staff:
-        messages.error(request, 'Only members of the team are allowed to do that, sorry.')
+        messages.error(
+            request, 'Only members of the team are allowed to do that, sorry.')
         return redirect(reverse('products'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.warning(request, 'Product deleted')

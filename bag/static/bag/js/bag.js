@@ -22,11 +22,11 @@ $(document).ready(function(){
     /* Remove-from-bag (bag page) */
 
     /* Display confirmation and cancel buttons */
-    let bagRemoveBtns = document.querySelectorAll(".bag-remove-btn")
+    let bagRemoveBtns = document.querySelectorAll(".bag-remove-btn");
 
     bagRemoveBtns.forEach(bagRemoveBtn=>{
-        bagRemoveBtn.addEventListener("click", showConfirmationBtn)
-    })
+        bagRemoveBtn.addEventListener("click", showConfirmationBtn);
+    });
     function showConfirmationBtn(e){
         
         e.target.innerHTML="Are you sure?";
@@ -37,10 +37,10 @@ $(document).ready(function(){
     }
 
     /* Remove from bag if confirmed */
-    let confirmBtns = document.querySelectorAll(".confirm-btn")
+    let confirmBtns = document.querySelectorAll(".confirm-btn");
     confirmBtns.forEach(confirmBtn=>{
-        confirmBtn.addEventListener("click", removeFromBagView)
-    })
+        confirmBtn.addEventListener("click", removeFromBagView);
+    });
     function removeFromBagView(e){
         let productId = e.target.value;
         let url = removeUrl;
@@ -65,15 +65,15 @@ $(document).ready(function(){
             console.log(error);
         })
         .then(() => {
-            location.reload()
-        })
+            location.reload();
+        });
     }
 
     /* Cancel removal */
-    let cancelBtns = document.querySelectorAll(".cancel-btn")
+    let cancelBtns = document.querySelectorAll(".cancel-btn");
     cancelBtns.forEach(cancelBtn=>{
-        cancelBtn.addEventListener("click", hideConfirmationBtn)
-    })
+        cancelBtn.addEventListener("click", hideConfirmationBtn);
+    });
     function hideConfirmationBtn(e){
         
         e.target.parentElement.classList.remove("d-block");
