@@ -46,7 +46,7 @@ Detailed user stories are provided in the [User Stories](#user-stories) section 
 
 ## Project Guide
 
-I used [Code Institute](https://github.com/Code-Institute-Solutions)'s [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1) walkthrough as a guide throughout development. While it would be impractical to credit every part of Boutique Ado code within the code itself, this document will clearly explain the custom features which have been added over and above the Boutique Ado website.
+I used [Code Institute](https://learn.codeinstitute.net/)'s [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1) walkthrough project as a guide throughout development. While it would be impractical to credit every part of Boutique Ado code within the code itself, this document will clearly explain the custom features which have been added over and above the Boutique Ado project.
 
 ## User Stories
 
@@ -63,12 +63,12 @@ B. As a **returning visitor** I want to:
 C. As a **staff user** I want to:
 1. Add products to the inventory.
 2. Edit or delete existing products in the inventory.
-3. Receive details of customer orders to be fulfilled.
-4. View sold items and mark them as unsold if necessary.
+3. View sold items and mark them as unsold if necessary.
 
 D. As a **superuser**, in addition to the admin functions outlined above, I want to:
-1. Add or edit product categories.
-2. Add or remove admins and amend their privileges. 
+1. Receive details of customer orders to be fulfilled.
+2. Add or edit product categories.
+3. Add or remove admins and amend their privileges. 
 
 ## Design
 
@@ -677,7 +677,7 @@ Custom error pages which fit with the overall aesthetic of the site are presente
 
 ### JavaScript Functionality
 
-JavaScript is used throughout to provide an interactive user experience. While some JavaScript code comes directly from the Boutique Ado walkthrough or the Bootstrap library, the following JavaScript functionality has been provided over and above those.
+JavaScript is used throughout to provide an interactive user experience. While some JavaScript code comes directly from the Boutique Ado project or the Bootstrap library, the following JavaScript functionality has been provided over and above those sources.
 
 #### Asynchronous JavaScript And XML (AJAX)
 
@@ -703,14 +703,20 @@ JavaScript is used throughout to provide an interactive user experience. While s
 
 - #### HTML validation with [W3C Markup Validator](https://validator.w3.org/)
 
+  - A number of pages gave rise to minor errors which were resolved through simple code refactoring.
+  - The custom_clearable_file_input HTML gave rise to an error due to two IDs, caused by the template importing attributes from Django. I solved this by giving the parent span a unique ID and using jQuery to target the child input of that span instead.
 
 - #### CSS validation with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
+  - No errors found.
 
 - #### JavaScript validation using [JSHint](https://jshint.com/)
 
+  - Some remaining undefined variable errors, but this is due to these variables having to be rendered in the template and so not appearing in the core JavaScript. 
+
 - #### Python validation using [CI Python Linter](https://pep8ci.herokuapp.com/)
 
+  - Errors resolved through code refactoring.
   
 - #### Accessibility using [Lighthouse accessibility](https://developer.chrome.com/docs/lighthouse/accessibility/)
 
@@ -726,28 +732,135 @@ JavaScript is used throughout to provide an interactive user experience. While s
 
 #### User stories
 
-#### User story screenshots
+User stories were tested as outlined below. An in-depth description of these features is provided in the [Page Elements and Interaction](#page-elements-and-interaction) section above, along with relevant screenshots.
+
+| **User goal**                                                                      | **How it is achieved**                                                                                                                                                                                                                                                  |
+|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _A. As a first-time visitor I want to:_                                            |                                                                                                                                                                                                                                                                         |
+| 1. Establish what products are available on the site.                              | The home page states that the site provides retro shirts from the 80s and 90s, and provides direct navigation to view the whole collection.                                                                                                                             |
+| 2. Browse products using easy-to-follow navigation.                                | The products page provides a number of clearly-labelled dropdown menus allowing products to be filtered according to useful criteria, as well as a dropdown box to sort the results.                                                                                    |
+| 3. Find answers to my questions.                                                   | The header includes a direct link to an FAQs page providing answers to commonly asked questions.                                                                                                                                                                        |
+|                                                                                    |                                                                                                                                                                                                                                                                         |
+| _B. As a returning visitor I want to:_                                             |                                                                                                                                                                                                                                                                         |
+| Browse and search for specific products using a variety of methods.                | The products page provides a number of clearly-labelled dropdown menus allowing products to be filtered according to useful criteria, as well as a search bar for more specific queries. A dropdown box is provided to sort the results according to the user's needs.. |
+| Purchase selected products.                                                        | The site provides an intuitive purchase workflow, allowing products to be seamlessly added to a shopping bag while browsing, and easy-to-follow navigation through to checkout.                                                                                         |
+| View details of my previous orders.                                                | Logged in users have access to a profile page which includes a summary of previous orders, linking to detailed order confirmations.                                                                                                                                     |
+|                                                                                    |                                                                                                                                                                                                                                                                         |
+| _C. As a staff user I want to:_                                                    |                                                                                                                                                                                                                                                                         |
+| Add products to the inventory.                                                     | The site provides a form which allows products to be added to the database.                                                                                                                                                                                             |
+| Edit or delete existing products in the inventory.                                 | Logged in staff users see Edit and Delete buttons on the product cards. The Delete button allows a product to be deleted directly from the products page (after confirmation), while the Edit button takes the user to a form for editing the relevant product.         |
+| View sold items and mark them as unsold if necessary.                              | Logged in staff users see a Sold Products link in the account menu, which provides the same view as the products page but for sold products, including the Edit and Delete buttons. This allows sold products to be edited and marked as unsold if necessary.           |
+|                                                                                    |                                                                                                                                                                                                                                                                         |
+| _D. As a superuser, in addition to the admin functions outlined above, I want to:_ |                                                                                                                                                                                                                                                                         |
+| Receive details of customer orders to be fulfilled.                                | Orders can be viewed using the Django admin portal, and due to the site's full integration with the business' email account, confirmation emails can also be viewed in sent emails.                                                                                     |
+| Add or edit product categories.                                                    | Product categories can be updated using the Django admin portal.                                                                                                                                                                                                        |
+| Add or remove admins and amend their privileges.                                   | Users can be added, removed and updated using the Django admin portal.                                                                                                                                                                                                  |
 
 #### Feature testing
-    
+
+| **Feature**                                | **Expected outcome**                                                                                                                                                                                              | **Result** |
+|--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| Responsive design                          | Site layout is fully responsive to device and viewport size.                                                                                                                                                      | Pass       |
+| Header: Logo                               | Clicking header logo takes user back to Home page.                                                                                                                                                                | Pass       |
+| Header: Category menus                     | Selecting menu items displays matching products                                                                                                                                                                   | Pass       |
+| Header: Search bar                         | Searching by keyword(s) displays matching products                                                                                                                                                                | Pass       |
+| Header: Account menu                       | Links are provided according to authentication of user                                                                                                                                                            | Pass       |
+| Header: Account menu                       | Links direct user accordingly                                                                                                                                                                                     | Pass       |
+| Header: FAQs link                          | User is directed to FAQs page                                                                                                                                                                                     | Pass       |
+| Header: Newsletter link                    | User is directed to Newsletter page                                                                                                                                                                               | Pass       |
+| Header: Shopping bag                       | Shopping bag displays number of items and bag total                                                                                                                                                               | Pass       |
+| Header: Shopping bag                       | Clicking shopping bag directs user to shopping bag page                                                                                                                                                           | Pass       |
+| Home: Club badge buttons                   | Clicking club badge displays products related to that club                                                                                                                                                        | Pass       |
+| Home: Shop whole collection button         | All available products are displayed                                                                                                                                                                              | Pass       |
+| Products page: General                     | All available products are displayed                                                                                                                                                                              | Pass       |
+| Products page: Pagination                  | Products are separated into pages of 36 products maximum                                                                                                                                                          | Pass       |
+| Products page: Sorting                     | Products are sorted according to selection                                                                                                                                                                        | Pass       |
+| Products page: Filtering                   | Products are sorted according to selection                                                                                                                                                                        | Pass       |
+| Products page: Product cards               | Clicking image displays full-size image in modal                                                                                                                                                                  | Pass       |
+| Products page: Flip function               | Clicking product card flips card to reveal product details                                                                                                                                                        | Pass       |
+| Products page: Add to bag                  | Clicking "Add to bag" adds product to bag, changes button to "Remove from bag" and displays a success alert                                                                                                       | Pass       |
+| Products page: Remove from bag             | Clicking "Remove from bag" removes product from bag, changes button to "Add to bag" and displays a warning alert                                                                                                  | Pass       |
+| Products page: Inline product categories   | Clicking a feature of category on the reverse of the product card filters to that category or feature                                                                                                             | Pass       |
+| Products page: Staff                       | Staff users see Edit and Delete buttons on reverse of product card                                                                                                                                                | Pass       |
+| Products page: Edit button                 | Edit button directs staff user to edit page for the relevant document                                                                                                                                             | Pass       |
+| Products page: Delete button               | Clicking delete button changes it to "Are you sure?" and reveals Confirm link (which deletes item) and Cancel link (which returns the button to its previous state and hides links)                               | Pass       |
+| Shopping bag: Empty bag                    | Page displays a message saying the bag is empty                                                                                                                                                                   | Pass       |
+| Shopping bag: With items                   | Page displays summary of items, bag total, delivery cost and grand total                                                                                                                                          | Pass       |
+| Shopping bag: Remove item button           | Clicking remove button changes it to "Are you sure?" and reveals Confirm button (which removes item from bag) and Cancel button (which returns the button to its previous state and hides Confirm/Cancel buttons) | Pass       |
+| Shopping bag: Keep shopping button         | Directs user back to products page                                                                                                                                                                                | Pass       |
+| Shopping bag: Secure checkout button       | Directs user to checkout page                                                                                                                                                                                     | Pass       |
+| Checkout: General                          | Page displays summary of items, bag total, delivery cost and grand total alongside a form.                                                                                                                        | Pass       |
+| Checkout: Form autocomplete                | Form autocompletes from user profile details if present                                                                                                                                                           | Pass       |
+| Checkout: Card details                     | Stripe element is displayed for entry of card details                                                                                                                                                             | Pass       |
+| Checkout: Adjust order button              | Directs user back to shopping bag                                                                                                                                                                                 | Pass       |
+| Checkout: Complete order                   | Checks form is valid and attempts payment through Stripe platform                                                                                                                                                 | Pass       |
+| Checkout: Card verification                | Card verification passes or fails according to test card details                                                                                                                                                  | Pass       |
+| Checkout: Page loading                     | Page displays overlay with rotating football                                                                                                                                                                      | Pass       |
+| Checkout: Success                          | Success alert is displayed and user is directed to checkout success page                                                                                                                                          | Pass       |
+| Checkout: Success page                     | Page displays order confirmation informing user that a confirmation email has been sent (along with a summary of the order, only if the user is logged in)                                                        | Pass       |
+| Checkout: Confirmation email               | Confirmation of order is emailed to supplied email address                                                                                                                                                        | Pass       |
+| User profile: Default delivery information | Displays a form for entry of default delivery information, prepopulated with current data if it exists                                                                                                            | Pass       |
+| User profile: Order history                | Displays order history with links to individual orders                                                                                                                                                            | Pass       |
+| User profile: Order history                | Clicking link to order displays order confirmation page                                                                                                                                                           | Pass       |
+| FAQs page: General                         | Displays list of questions, with answers revealed on click                                                                                                                                                        | Pass       |
+| FAQs page: Staff users                     | Staff users are provided with an "Add" button beneath the form which directs them to an "Add FAQ" form, and Edit and Delete buttons beneath each question                                                         | Pass       |
+| FAQs page: Add button                      | Directs user to Add FAQ form                                                                                                                                                                                      | Pass       |
+| FAQs page: Edit button                     | Directs user to Edit FAQ form prepopulated with the current question and answer                                                                                                                                   | Pass       |
+| FAQs page: Delete button                   | Clicking delete button changes it to "Are you sure?" and reveals Confirm link (which deletes FAQ) and Cancel link (which returns the button to its previous state and hides links)                                | Pass       |
+| Add FAQs page                              | Provides form allowing staff user to add a question and answer to the database                                                                                                                                    | Pass       |
+| Edit FAQs page                             | Provides form allowing staff user to edit the question and answer in the database                                                                                                                                 | Pass       |
+| Newsletter page                            | Provides form allowing user to subscribe to newsletter                                                                                                                                                            | Pass       |
+| Newsletter page: Success                   | Displays success alert with confirmation, and sends email to the user's supplied email address to confirm                                                                                                         | Pass       |
+| Superuser dashboard: Add user              | If username does not exist and all other fields are valid, message confirms that admin has been added.                                                                                                            | Pass       |
+| Add Product page                           | Provides form allowing staff user to add a product to the database                                                                                                                                                | Pass       |
+| Edit Product page                          | Provides form allowing staff user to edit an existing product to the database                                                                                                                                     | Pass       |
+| Sold Products page                         | Allows staff user to view products with sold field set to true, and to delete or edit them                                                                                                                        | Pass       |
+| User authentication                        | Users can register, confirm email, login and logout                                                                                                                                                               | Pass       |
+| Admin                                      | Superuser only can access Django admin page and use its full functionality                                                                                                                                        | Pass       |
+| Favicon                                    | Favicon is displayed in browser tab                                                                                                                                                                               | Pass       |
+| Favicon                                    | Saving page to mobile homescreen displays favicon as icon                                                                                                                                                         | Pass       |
+| 404 page                                   | Entering path to non-existing page displays custom 404 page                                                                                                                                                       | Pass       |
+| 400, 403, 500 page                         | Error pages are displayed according to the relevant error                                                                                                                                                         | Pass       |
+| Console                                    | No errors displayed in console                                                                                                                                                                                    | Pass       |
+
 #### Browser and device compatibility
 
   The above features were tested on the following browsers and devices:
 
   | Browser        | Version                                  | Device                                      | Operating Sytem       | Results                                                        |
   |----------------|------------------------------------------|---------------------------------------------|-----------------------|----------------------------------------------------------------|
-  | Firefox        | 120.0.1 (64-bit)                         | Dell Latitude E6420 laptop                  | Windows 10 Home       | Fully functional                                               |
-  | Google Chrome  | 119.0.6045.199 (Official Build) (64-bit) | Dell Latitude E6420 laptop                  | Windows 10 Home       | Fully functional            |
-  | Google Chrome  | 119.0.6045.163                           | Samsung Galaxy S9 SM-G960F                  | Android 10            | Fully functional            |
-  | Google Chrome  | 119.0.6045.169                           | Apple iPad Pro (12.9-inch) (4th generation) | iPadOS 17.1.2         | Fully functional            |
-  | Microsoft Edge | 119.0.2151.93 (Official build) (64-bit)  | Dell Latitude E6420 laptop                  | Windows 10 Home       | Fully functional            |
-  | Safari         | 17.1.2                                   | Apple iPad Pro (12.9-inch) (4th generation) | iPadOS 17.1.2         | Fully functional            |
+  | Firefox        | 123.0 (64-bit)                         | Dell Latitude E6420 laptop                  | Windows 10 Home       | Fully functional                                               |
+  | Google Chrome  | 122.0.6261.69 (Official Build) (64-bit) | Dell Latitude E6420 laptop                  | Windows 10 Home       | Fully functional            |
+  | Google Chrome  | 122.0.6261.64                           | Samsung Galaxy S9 SM-G960F                  | Android 10            | Fully functional            |
+  | Google Chrome  | 122.0.6261.62                           | Apple iPad Pro (12.9-inch) (4th generation) | iPadOS 17.2         | Fully functional            |
+  | Microsoft Edge | 122.0.2365.52 (Official build) (64-bit)  | Dell Latitude E6420 laptop                  | Windows 10 Home       | Fully functional            |
+  | Safari         | 17.2                                   | Apple iPad Pro (12.9-inch) (4th generation) | iPadOS 17.2         | Fully functional            |
 
   In addition, a number of friends, family and colleagues tested the device on a range of devices and operating systems, with no oustanding issues. 
 
 ### Bugs and fixes
 
+#### Order confirmation bug on checkout success page
 
+My mentor highlighted a vulnerability in the Boutique Ado project which means that a logged in user can view another user's order summary using an order confirmation number, revealing the other user's personal details such as their address and phone number. This is because the view only checks that a user is logged in, not that they are actually the user who made the order. I initially fixed this by removing the order summary entirely from the checkout success page for logged out users (relying on the email confirmation instead), and for logged in users matching the order email address to the user's acccount email address in the template to determine if they were entitled to see the order summary. However, if a logged in user used a different email address on checkout, the checkout success page informed them that they were not entitled to see the details of their own order. [(Relevant commmit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/3c7e754d2f4d54955d4df7f30cc0c97aefbee54a)
+
+  <details><summary>Order confirmation bug - screenshot</summary>
+
+  ![Order confirmation bug screenshot](docs/order_confirmation_bug.png)
+
+  </details><br>
+
+I fixed this bug by instead checking the order number against the authenticated user's orders in the view, and directing the user accordingly. Now, if a logged in user attempts to access the order summary of a different user, an error message is displayed and they are directed to their own profile page. [(Relevant commmit)](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/aa6316663242ebf02f741ebf25427f565026b3f2)
+
+  <details><summary>Order confirmation fix</summary>
+
+  ![Order confirmation fix](docs/order_confirmation_fix.png)
+
+  </details>
+
+#### Emails - SMTP sender refused error
+
+The Boutique Ado walkthrough by [Code Institute](https://learn.codeinstitute.net/) includes comprehensive instructions on setting up sending of emails using SMTP. Despite this I was getting an error of "SMTP sender refused", regardless of which email provider I used. After lengthy investigation I realised that having set the name of the config variable to "EMAIL_HOST_PASS" as in the walkthrough, I had inadvertently also set the name of the variable itself to "EMAIL_HOST_PASS" instead of "EMAIL_HOST_PASSWORD" as required by Django. This was a simple fix, but is included here due to the length of time it took to fix. [Relevant commit](https://github.com/nicksmith100/ms4-jumpersforgoalposts/commit/b0723582e9fd64d6ebd8d00c57eb0a6c61e32055)
 
 ## Technologies Used
 
@@ -760,8 +873,6 @@ JavaScript is used throughout to provide an interactive user experience. While s
   - Adding interactive elements
 - [Python](https://www.w3schools.com/python/)
   - Providing backend application
-- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
-  - Templating language for page templates
  
 ### Frameworks
 - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
@@ -773,15 +884,13 @@ JavaScript is used throughout to provide an interactive user experience. While s
 - [jQuery](https://jquery.com/)
   - Facilitating JavaScript functionality, in particular event listeners
 - [Google Fonts](https://fonts.google.com)
-  - [FONTNAMES] fonts
+  - [Fredoka](https://fonts.google.com/specimen/Fredoka) font
 - [Bootstrap icons](https://icons.getbootstrap.com/)
-  - Icons on navigation items, social media links, buttons and form elements
-
-### APIs
+  - Icons on navigation items and other elements
 
 ### Platforms
-- [ElephantSQL](https://www.elephantsql.com/)
-  - Used for hosting database
+- [Amazon Web Services](https://aws.amazon.com/)
+  - Used for hosting database, static files and media
 - [Heroku](https://heroku.com/)
   - Deployment
 - [Github](https://github.com/)
@@ -799,15 +908,14 @@ JavaScript is used throughout to provide an interactive user experience. While s
 - [Am I Responsive](https://ui.dev/amiresponsive)
   - Montage of different devices displaying the site
 - [Unsplash](https://unsplash.com/)
-  - Images on Home, 403, 404, 500 pages
-- [Fix the photo](https://fixthephoto.com/uk/online-gimp.html)
-  - Image editing
+  - Images on Home and 404 pages
+
 
 ## Deployment
 
 ### Live deployment
 
-The site is deployed to Heroku: [View the live project here]()
+The site is deployed to Heroku: [View the live project here](https://jumpers-for-goalposts-13c54c4e6e2a.herokuapp.com/)
 
 ### Deployment pre-requisites
 
@@ -854,7 +962,11 @@ To deploy to [Heroku](https://www.heroku.com/):
 
 ### Code
 
-- [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/layout/grid/)
+- [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/)
+- [Django pagination](https://testdriven.io/blog/django-pagination/)
+- [AJAX functionality for add-to-bag and related functions](https://github.com/ClintonCode20/my_dj_shop/)
+- [Django message integration with Bootstrap alerts](https://ordinarycoders.com/blog/article/django-messages-framework)
+- [CSS rotation for loading overlay](https://stackoverflow.com/questions/16771225/css3-rotate-animation)
 
 Any other code snippets are credited in comments in the relevant files.
 
@@ -864,6 +976,12 @@ All written content is my own.
 
 ### Media
 
+- Product images: [Classic Football Shirts](https://www.classicfootballshirts.co.uk/)
+- Logo: [Kulokale on Canva](https://www.canva.com/templates/EAFNwkE8v5Y-retro-and-vintage-football-club-logo)
+- Background image: [Timothy Tan on Unsplash](https://unsplash.com/photos/green-sports-court-illustration-PAe2UhGo-S4)
+- 404 page image: [Omar Ram on Unsplash](https://unsplash.com/photos/man-in-red-shirt-and-black-pants-playing-soccer-during-daytime-IvXnC7u6yD0)
+- Club badges: [Wikipedia](https://en.wikipedia.org/)
+
 ### Acknowledgements
 
 - My Mentor [Rory Patrick Sheridan](https://github.com/Ri-Dearg) for many helpful pointers as always!
@@ -872,4 +990,3 @@ All written content is my own.
 ### README content
 
 - [Emma Hewson](https://github.com/emmahewson/mp3-swimmon#Deployment) - inspiration for elements of this README, especially Heroku deployment instructions.
-- [Paul Woods](https://github.com/pawoods/project3/blob/main/README.md#deployment) - local deployment instructions.
