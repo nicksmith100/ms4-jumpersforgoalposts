@@ -172,11 +172,11 @@ $(document).ready(function(){
     /* Add product form */
     
     /* Image upload */
-    let image = document.querySelectorAll('[data-img]');
-    image.change(function() {
-        var file = image[0].files[0];
+    $('#new-image').children('input').change(function() {
+        var file = $('#new-image').children('input')[0].files[0];
         $('#filename').text(`Image will be set to: ${file.name}`);
     });
+
 
     /* Grey out selector boxes when unselected */ 
     
